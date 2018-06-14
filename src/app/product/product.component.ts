@@ -3,6 +3,8 @@ import { BookService } from '../services/book.service';
 import { Book } from '../view-models/book';
 import { GenreService } from '../services/genre.service';
 import { Genre } from '../view-models/genre';
+import { Image } from '../view-models/image';
+import { Size } from '../view-models/size';
 
 @Component({
   selector: 'app-product',
@@ -21,11 +23,24 @@ export class ProductComponent implements OnInit {
     this.getBooks();
     this.getGenres();
   }
-  onSelect(book): void {
+  onSelect(book: Book): void {
     this.selectedBook = book;
+    if (this.selectedBook.images == null) {
+      this.selectedBook.images = new Image();
+    }
   }
-  onSelectEdit(book: Book = new Book()): void {
+  onSelectEdit(book: Book): void {
     this.selectedEdit = book;
+    if(this.selectedEdit.images==null)
+    {
+      this.selectedEdit.images = new Image();
+    }
+    // if (this.selectedEdit.previousPrice == null) {
+    //   this.selectedEdit.previousPrice = ;
+    // }
+    if (this.selectedEdit.size == null) {
+      this.selectedEdit.size = new Size();
+    }
   }
   onSelectDelete(book): void {
     this.selectedDelete = book;

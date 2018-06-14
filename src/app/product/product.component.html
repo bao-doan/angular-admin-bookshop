@@ -252,9 +252,9 @@
       </div>
       <div class="modal-body">
         <div class="container-fluid">
-          <div class="row" *ngIf="selectedBook">
+          <!-- <div class="row" *ngIf="selectedBook">
             <div class="col-4">
-              <!-- <img src="{{selectedBook.images.main}}" class="w-100" alt=""> -->
+              <img [src]="selectedBook.images.main" class="w-100" alt="">
             </div>
             <div class="col-8 d-flex flex-column">
               <h6>{{selectedBook.title}}</h6>
@@ -268,14 +268,14 @@
               <span>Weight: {{selectedBook.weight}}</span>
               <span>SKU: {{selectedBook.sku}}</span>
               <span>Release Date: {{selectedBook.releaseDate}}</span>
-              <!-- <span>Dimension: {{selectedBook.size.width}} x {{selectedBook.size.height}} x {{selectedBook.size.depth}}</span> -->
+              <span>Dimension: {{selectedBook.size.width}} x {{selectedBook.size.height}} x {{selectedBook.size.depth}}</span>
               <span>Genre: {{selectedBook.genre.name}}</span>
               <span class="font-italic">{{selectedBook.shortDescription}}</span>
             </div>
             <div class="col-12 mt-2">
               <div [innerHTML]="selectedBook.fullDescription"></div>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
       <div class="modal-footer">
@@ -350,16 +350,16 @@
               </div>
             </div>
             <div class="col-12 col-sm-6 col-md-4 mb-3">
-              <div class="form-group" *ngIf="selectedEdit.pages">
+              <div class="form-group">
                 <label for="formAddBookPages">Pages</label>
-                <input [(ngModel)]="selectedEdit.pages" type="number" id="formAddBookPages" name="formAddBookPages" class="form-control myInput-elegant-2"
+                <input [ngModel]="selectedEdit.pages" (ngModelChange)="selectedEdit.pages=$event" type="number" min="0" id="formAddBookPages" name="formAddBookPages" class="form-control myInput-elegant-2"
                   placeholder="">
               </div>
             </div>
             <div class="col-12 col-sm-6 col-md-4 mb-3">
               <div class="form-group" *ngIf="selectedEdit.weight">
                 <label for="formAddBookWeight">Weight</label>
-                <input [(ngModel)]="selectedEdit.weight" type="number" id="formAddBookWeight" name="formAddBookWeight" class="form-control myInput-elegant-2"
+                <input [(ngModel)]="selectedEdit.weight" type="number" min="0" id="formAddBookWeight" name="formAddBookWeight" class="form-control myInput-elegant-2"
                   placeholder="">
               </div>
             </div>
@@ -380,7 +380,7 @@
             <div class="col-12 col-sm-6 col-md-4 mb-3">
               <div class="form-group" *ngIf="selectedEdit.previousPrice">
                 <label for="formAddBookPreviousPrice">Previous Price (required)</label>
-                <input [(ngModel)]="selectedEdit.previousPrice" type="number" id="formAddBookPreviousPrice" name="formAddBookPreviousPrice"
+                <input [(ngModel)]="selectedEdit.previousPrice" type="number" min="0" id="formAddBookPreviousPrice" name="formAddBookPreviousPrice"
                   class="form-control myInput-elegant-2" placeholder="">
                 <span>{{selectedEdit.previousPrice}}</span>
               </div>
@@ -388,46 +388,45 @@
             <div class="col-12 col-sm-6 col-md-4 mb-3">
               <div class="form-group" *ngIf="selectedEdit.sellingPrice">
                 <label for="formAddBookSellingPrice">Selling Price (required)</label>
-                <input [(ngModel)]="selectedEdit.sellingPrice" type="number" id="formAddBookSellingPrice" name="formAddBookSellingPrice" class="form-control myInput-elegant-2"
+                <input [(ngModel)]="selectedEdit.sellingPrice" type="number" min="0" id="formAddBookSellingPrice" name="formAddBookSellingPrice" class="form-control myInput-elegant-2"
                   placeholder="">
                   <span>{{selectedEdit.sellingPrice}}</span>
               </div>
             </div>
-            <div class="col-12 col-md-8 mb-3"  *ngIf="selectedEdit.images">
+            <div class="col-12 col-md-8 mb-3">
               <div class="form-group">
                 <label for="formAddBookImages">Main Image</label>
-                <input [(ngModel)]="selectedEdit.images.main" type="text" id="formAddBookImages" name="formAddBookImages" class="form-control myInput-elegant-2 mb-2"
-                  placeholder="">
+                <input [(ngModel)]="selectedEdit.images.main"  type="text" id="formAddBookImages" name="formAddBookImages" class="form-control myInput-elegant-2 mb-2"
+                  placeholder="" *ngIf="selectedEdit.images">
                 <a href="" class="text-dark" data-toggle="collapse" href="#collapseReviewImage" role="button" aria-expanded="false" aria-controls="collapseReviewImage">
                   <i class="far fa-image"></i> View Image</a>
               </div>
             </div>
-            <div class="col-12 col-md-10 col-lg-4 mb-3" *ngIf="selectedEdit.images">
+            <div class="col-12 col-md-10 col-lg-4 mb-3" >
               <div class="collapse" id="collapseReviewImage">
-                <img src="{{selectedEdit.images.main}}" alt="Warning: No image link found. You must add a link for image" class="w-100">
+                <img *ngIf="selectedEdit.images.main" [src]="selectedEdit.images.main" alt="Warning: No image link found. You must add a link for image" class="w-100">
               </div>
-
             </div>
-            <div class="col-12" *ngIf="selectedEdit.size">
+            <div class="col-12">
               <div class="row">
                 <div class="col-12 col-sm-6 col-lg-4 mb-3">
-                  <div class="form-group" *ngIf="selectedEdit.size.width">
+                  <div class="form-group">
                     <label for="formAddBookSizeWidth">Size (width)</label>
-                    <input [(ngModel)]="selectedEdit.size.width" type="number" id="formAddBookSizeWidth" name="formAddBookSizeWidth" class="form-control myInput-elegant-2"
+                    <input [(ngModel)]="selectedEdit.size.width" type="number" min="0" id="formAddBookSizeWidth" name="formAddBookSizeWidth" class="form-control myInput-elegant-2"
                       placeholder="">
                   </div>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-4 mb-3">
-                  <div class="form-group" *ngIf="selectedEdit.size.height">
+                  <div class="form-group">
                     <label for="formAddBookSizeHeight">Size (height)</label>
-                    <input [(ngModel)]="selectedEdit.size.height" type="number" id="formAddBookSizeHeight" name="formAddBookSizeHeight" class="form-control myInput-elegant-2"
+                    <input [(ngModel)]="selectedEdit.size.height" type="number" min="0" id="formAddBookSizeHeight" name="formAddBookSizeHeight" class="form-control myInput-elegant-2"
                       placeholder="">
                   </div>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-4 mb-3">
-                  <div class="form-group" *ngIf="selectedEdit.size.depth">
+                  <div class="form-group">
                     <label for="formAddBookSizeDepth">Size (depth)</label>
-                    <input [(ngModel)]="selectedEdit.size.depth" type="number" id="formAddBookSizeDepth" name="formAddBookSizeDepth" class="form-control myInput-elegant-2"
+                    <input [(ngModel)]="selectedEdit.size.depth" type="number" min="0" sid="formAddBookSizeDepth" name="formAddBookSizeDepth" class="form-control myInput-elegant-2"
                       placeholder="">
                   </div>
                 </div>
@@ -444,7 +443,6 @@
             <div class="col-12 mb-3">
               <div class="form-group">
                 <label for="formAddBookFullDescription" *ngIf="selectedEdit.fullDescription">Full Description</label>
-                <!-- <textarea [(ngModel)]="objectBook.fullDescription" class="form-control myInput-elegant-2" id="formAddBookFullDescription" rows="3"></textarea> -->
                 <textarea [(ngModel)]="selectedEdit.fullDescription" [froalaEditor]="HelloFroala" class="form-control" id="formAddBookFullDescription"
                   rows="10"></textarea>
               </div>
