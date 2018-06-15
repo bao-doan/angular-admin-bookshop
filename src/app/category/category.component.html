@@ -1,3 +1,6 @@
+ <!-- Breadcrumb-->
+ <app-breadcrumb [breadcrumbTitle]="componentTitle"></app-breadcrumb>
+
 <div class="container-fluid">
   <div class="row">
     <div class="col-12 col-md-6 col-lg-5 mb-3">
@@ -12,7 +15,7 @@
             </div>
           </div>
         </div>
-      <button (click)="addGenre()" [disabled]="!(objectGenre.name?.length == 4)" class="btn btn-success rounded-0 d-block ml-auto">
+      <button (click)="addGenre()" [disabled]="!(objectGenre.name?.length >= 4)" class="btn btn-success rounded-0 d-block ml-auto">
         <i class="fas fa-plus"></i> Create</button>
     </div>
     <div class="col-12">

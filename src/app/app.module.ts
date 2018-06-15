@@ -15,6 +15,9 @@ import "froala-editor/js/froala_editor.pkgd.min.js";
 // Import Angular2 plugin.
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { ForbiddenValidatorDirective } from './app-directive/forbidden-name.directive';
+import { OrderComponent } from './order/order.component';
+import { UserComponent } from './user/user.component';
+import { StaffComponent } from './staff/staff.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +26,10 @@ import { ForbiddenValidatorDirective } from './app-directive/forbidden-name.dire
     DashboardComponent,
     ProductAddComponent,
     ForbiddenValidatorDirective,
-    BreadcrumbComponent
+    BreadcrumbComponent,
+    OrderComponent,
+    UserComponent,
+    StaffComponent
   ],
   imports: [
     BrowserModule,

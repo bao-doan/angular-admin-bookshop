@@ -12,6 +12,7 @@ import { Size } from '../view-models/size';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
+  componentTitle: string =  'Products';
   books: Book[];
   genre: Genre;
   genres: Genre[];

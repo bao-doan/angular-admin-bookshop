@@ -9,6 +9,7 @@ import { Genre } from '../view-models/genre';
   styleUrls: ['./category.component.css']
 })
 export class CategoryComponent implements OnInit {
+  componentTitle: string = 'Categories';
   genres: Genre[];
   name: string;
   selectedGenre: Genre;
