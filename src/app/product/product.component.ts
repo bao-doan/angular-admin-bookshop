@@ -13,6 +13,7 @@ import { Size } from '../view-models/size';
 })
 export class ProductComponent implements OnInit {
   books: Book[];
+  genre: Genre;
   genres: Genre[];
   selectedBook: Book;
   selectedEdit: Book = new Book();
@@ -58,5 +59,8 @@ export class ProductComponent implements OnInit {
   updateBook():void{
     this.bookService.updateBook(this.selectedEdit)
       .subscribe();
+  }
+  compareFn(optionOne:Genre, optionTwo:Genre): boolean {
+    return optionOne._id == optionTwo._id;
   }
 }

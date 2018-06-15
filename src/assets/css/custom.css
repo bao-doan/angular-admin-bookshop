@@ -1,7 +1,81 @@
 .active * {
     color: #20a8d8;
 }
+:root {
+    --myBlackOpa1: rgba(0,0,0,0.75);
+    --myBlackOpa2: rgba(0,0,0,0.2);
+    --myBlackOpa3: rgba(0,0,0,0.05);
+    --myBlackText: #212529;
+    --myGray: ;
+    --myWhiteOpa1: rgba(255,255,255,0.6);
+    --myBlueGray1: #3E5062;
+    --myBlueGray2: #2B3843;
+    --myYellow: #EDFF00;
+    --myOrange: #E6461A; 
 
+    /* --------- Black | D ---------- */
+    --myColorD1: rgba(0,0,0,0.75);
+    --myColorD2: rgba(0,0,0,0.5);
+    --myColorD3: ;
+    /* --------- White | L ---------- */
+    --myColorL1: ;
+    --myColorL2: ;
+    --myColorL3: ;
+    /* --------- Primary | A -------- */
+    --myColorA1: ;
+    --myColorA2: ;
+    --myColorA3: ;
+    /* --------- Secondary | B------- */
+    --myColorB1: ;
+    --myColorB2: ;
+    --myColorB3: ;
+    /* --------- Accent | C---------- */
+    --myColorC1: ;
+    --myColorC2: ;
+    --myColorC3: ;
+}
+input,a,button,textarea,select:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: none;
+}
+.myText-warm {
+    color: var(--myOrange);
+}
 .myCursor>td[data-target] {
     cursor: pointer;
+}
+.myInput-elegant {
+    border-width: 0px 0px 1px 0px;
+    border-radius: 0px;
+    background: transparent;
+}
+.myInput-elegant:hover {
+    font-style: italic;
+}
+.myInput-elegant-2, .myInput-elegant-3 {
+    /* border-width: 0px; */
+    border-radius: 0px;
+    border: 1px solid transparent;
+    background: var(--myBlackOpa3);
+    box-sizing: border-box;
+    color: var(--myBlueGray2);
+}
+.myInput-elegant-2:hover, .myInput-elegant-3:hover {
+    background: transparent;
+    border-bottom: 1px solid var(--myBlackOpa2);
+}
+.myInput-elegant-3:focus {
+    border-bottom: 1px solid var(--myBlackOpa2);
+    background: white;
+}
+.myInput-elegant-2:focus {
+    border: 1px solid transparent;
+    border-bottom: 1px solid var(--myOrange);
+    background: transparent;
+    color: var(--myOrange);
+}
+
+.myInput-elegant-2 option, .myInput-elegant-3 option {
+    color: black;
 }

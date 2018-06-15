@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { forbiddenNameValidator } from '../app-directive/forbidden-name.directive';
+// import { FormControl, FormGroup, Validators } from '@angular/forms';
+// import { forbiddenNameValidator } from '../app-directive/forbidden-name.directive';
 import { BookService } from '../services/book.service';
 import { GenreService } from '../services/genre.service';
 import { Book } from '../view-models/book';
@@ -15,8 +15,9 @@ import { Size } from '../view-models/size';
 })
 export class ProductAddComponent implements OnInit {
   genres: Genre[];
+  // genre:Genre = new Genre();
   objectBook: Book = new Book();
-
+  // test: string = this.genres[0].name;
   // _id: string;
   // title: string;
   // shortDescription: string;
@@ -33,28 +34,16 @@ export class ProductAddComponent implements OnInit {
   // size: Size;
   // genre: Genre;
 
-  powers = ['Really Smart', 'Super Flexible', 'Weather Changer'];
-  hero = {name: '', alterEgo: 'Dr. What', power: this.powers[0]};
-  heroForm: FormGroup;
-
   constructor(private bookService: BookService, private genreService: GenreService) { }
 
   ngOnInit() {
     this.getGenre();
-    this.heroForm = new FormGroup({
-      'name': new FormControl(this.hero.name, [
-        Validators.required,
-        Validators.minLength(4)
-        // forbiddenNameValidator(/bob/i) // <-- Here's how you pass in the custom validator.
-      ]),
-      'alterEgo': new FormControl(this.hero.alterEgo),
-      'power': new FormControl(this.hero.power, Validators.required)
-    });
-
+    // this.objectBook.genre.name = this.genres[0].name;
+    if (this.objectBook.genre !== undefined) {
+      // this.objectBook.genre = this.genres[0];
+      alert(`baodoan: ${this.objectBook.genre.name}`);
+    }
   }
-  get name() { return this.heroForm.get('name'); }
-  get power() { return this.heroForm.get('power'); }
-
   getGenre(): void {
     this.genreService.getGenres().subscribe(__ => this.genres = __)
   }

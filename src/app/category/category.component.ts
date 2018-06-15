@@ -14,7 +14,7 @@ export class CategoryComponent implements OnInit {
   selectedGenre: Genre;
   selectedDelete: Genre;
   updatingGenre = this.selectedDelete;
-  objectGenre = new Genre(name);
+  objectGenre = new Genre('');
   on_s: string = "items";
   // objectGenre: Genre;
   // updatingGenre= new Genre(this.selectedGenre.name);

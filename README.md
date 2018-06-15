@@ -10,6 +10,7 @@ admin 1.0.7 - WYSIWYG
 admin 1.0.8 - Sidebar re-arranged, Product update
 admin 1.0.9 - Sample Form validation (in add product), count items in table, product edit modal (larger width)
 admin 1.0.10 - Fix, loading book for edit without fields.
+admin 1.0.11 - Form Validate using Template-driven form (v.1)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.1.
 ## Development server

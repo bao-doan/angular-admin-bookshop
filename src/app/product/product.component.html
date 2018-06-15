@@ -342,9 +342,7 @@
             <div class="col-12 col-sm-6 col-md-4 mb-3">
               <div class="form-group">
                 <label for="formAddBookSelectGenre">Genre</label>
-                <p class="mb-0">{{selectedEdit.genre.name}}</p>
-                <select *ngIf="genres" [(ngModel)]="selectedEdit.genre" class="form-control" id="formAddBookSelectGenre">
-                  {{selectedEdit.genre.name}}
+                <select *ngIf="genres" [(ngModel)]="selectedEdit.genre" [compareWith]="compareFn" class="form-control" id="formAddBookSelectGenre">
                   <option *ngFor="let x of genres" [ngValue]="x">{{x.name}}</option>
                 </select>
               </div>

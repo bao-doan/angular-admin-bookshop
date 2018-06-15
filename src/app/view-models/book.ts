@@ -23,7 +23,8 @@ export class Book {
     genre: Genre = new Genre('');
     
     constructor(
-        // images: Image
+        // title: string
+        // genre: Genre
     ) {
         //  this.title = '';
         //  this.shortDescription = '';
@@ -39,6 +40,6 @@ export class Book {
    
         //  this.images = new Image('');
         // this.size = size;
-        //this.genre = genre;
+        // this.genre = genre;
     }
 }
