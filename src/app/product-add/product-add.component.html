@@ -1,7 +1,7 @@
- <!-- Breadcrumb-->
- <app-breadcrumb [breadcrumbTitle]="componentTitle"></app-breadcrumb>
+<!-- Breadcrumb-->
+<app-breadcrumb [breadcrumbTitle]="componentTitle"></app-breadcrumb>
 <div class="container-fluid">
-    <!-- <form #heroForm="ngForm"> -->
+    <form #heroForm="ngForm">
         <div class="row">
             <div class="col-12">
                 <h3 class="myText-warm mb-3">Create New Product</h3>
@@ -9,13 +9,14 @@
                     <i class="far fa-address-book"></i> All products</a>
             </div>
             <div class="col-12">
-                <button (click)="addBook()" class="btn btn-success rounded-0 d-block ml-auto">
+                <button (click)="addBook()" [disabled]="heroForm.invalid" class="btn btn-success rounded-0 d-block ml-auto">
                     <i class="fas fa-plus"></i> Create</button>
             </div>
             <div class="col-12 mb-3">
                 <div class="form-group">
                     <label for="formAddBookTitle">Title</label>
-                    <input type="text" id="formAddBookTitle" name="formAddBookTitle" class="form-control myInput-elegant-2" [(ngModel)]="objectBook.title" #title="ngModel" required minlength="4" autofocus>
+                    <input type="text" id="formAddBookTitle" name="formAddBookTitle" class="form-control myInput-elegant-2" [(ngModel)]="objectBook.title"
+                        #title="ngModel" required minlength="4" autofocus>
                     <div *ngIf="title.invalid && (title.dirty || title.touched)" class="">
                         <div *ngIf="title.errors.required" class="alert alert-danger">
                             Title is required.
@@ -25,69 +26,74 @@
                         </div>
                     </div>
                 </div>
-    
+
             </div>
             <div class="col-12 col-sm-6 col-md-4 mb-3">
                 <div class="form-group">
                     <label for="formAddBookAuthor">Author (required)</label>
-                    <input type="text" id="formAddBookAuthor" name="formAddBookAuthor" class="form-control myInput-elegant-2" [(ngModel)]="objectBook.author" #author="ngModel" required minlength="4">
+                    <input type="text" id="formAddBookAuthor" name="formAddBookAuthor" class="form-control myInput-elegant-2" [(ngModel)]="objectBook.author"
+                        #author="ngModel" required minlength="4">
                     <div *ngIf="author.invalid && (author.dirty || author.touched)" class="">
-                            <div *ngIf="author.errors.required" class="alert alert-danger">
-                                Author is required.
-                            </div>
-                            <div *ngIf="author.errors.minlength" class="alert alert-warning">
-                                Author must be at least 4 characters long.
-                            </div>
+                        <div *ngIf="author.errors.required" class="alert alert-danger">
+                            Author is required.
                         </div>
+                        <div *ngIf="author.errors.minlength" class="alert alert-warning">
+                            Author must be at least 4 characters long.
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-12 col-sm-6 col-md-4 mb-3">
                 <div class="form-group">
                     <label for="formAddBookPublisher">Publisher (required)</label>
-                    <input type="text" id="formAddBookPublisher" name="formAddBookPublisher" class="form-control myInput-elegant-2" [(ngModel)]="objectBook.publisher" #publisher="ngModel" required minlength="4">
+                    <input type="text" id="formAddBookPublisher" name="formAddBookPublisher" class="form-control myInput-elegant-2" [(ngModel)]="objectBook.publisher"
+                        #publisher="ngModel" required minlength="4">
                     <div *ngIf="publisher.invalid && (publisher.dirty || publisher.touched)" class="">
-                            <div *ngIf="publisher.errors.required" class="alert alert-danger">
-                                Publisher is required.
-                            </div>
-                            <div *ngIf="publisher.errors.minlength" class="alert alert-warning">
-                                Publisher must be at least 4 characters long.
-                            </div>
+                        <div *ngIf="publisher.errors.required" class="alert alert-danger">
+                            Publisher is required.
                         </div>
+                        <div *ngIf="publisher.errors.minlength" class="alert alert-warning">
+                            Publisher must be at least 4 characters long.
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-12 col-sm-6 col-md-4 mb-3">
-                    <div class="form-group">
-                        <!-- <p *ngIf="genres">{{genres[0].name}}</p> -->
-                        <label for="formAddBookSelectGenre">Genre</label>
-                        <select *ngIf="genres" [(ngModel)]="objectBook.genre" class="form-control myInput-elegant-2" id="formAddBookSelectGenre" required>
-                            <option *ngFor="let x of genres" [ngValue]="x">{{x.name}}</option>
-                        </select>
-                        <p>Print: {{objectBook.genre.name}}</p>
-                        <!-- <div *ngIf="genre.errors && genre.touched" class="alert alert-danger">
-                                <div *ngIf="genre.errors.required">Genre must be selected</div>
-                              </div> -->
+                <div class="form-group">
+                    <!-- <p *ngIf="genres">{{genres[0].name}}</p> -->
+                    <label for="formAddBookSelectGenre">Genre</label>
+                    <select *ngIf="genres" (onclick)="onSelectGenre(x)" class="form-control myInput-elegant-2" id="formAddBookSelectGenre"
+                        required>
+                        <option *ngFor="let x of genres" [ngValue]="x">{{x.name}}</option>
+                    </select>
+                    <!-- <p>Print: {{objectBook.genre.name}}</p> -->
+                    <div *ngIf="genre.errors && genre.touched" class="alert alert-danger">
+                        <div *ngIf="genre.errors.required">Genre must be selected</div>
                     </div>
                 </div>
+            </div>
             <div class="col-12 col-sm-6 col-md-4 mb-3">
                 <div class="form-group">
                     <label for="formAddBookPages">Pages</label>
-                    <input type="number" min="0" id="formAddBookPages" name="formAddBookPages" class="form-control myInput-elegant-2" [(ngModel)]="objectBook.pages" #pages="ngModel" required>
+                    <input type="number" min="0" id="formAddBookPages" name="formAddBookPages" class="form-control myInput-elegant-2" [(ngModel)]="objectBook.pages"
+                        #pages="ngModel" required>
                     <div *ngIf="pages.invalid && (pages.dirty || pages.touched)" class="">
                         <div *ngIf="pages.errors.required" class="alert alert-danger">
                             Number is required.
                         </div>
-                </div>
+                    </div>
                 </div>
             </div>
             <div class="col-12 col-sm-6 col-md-4 mb-3">
                 <div class="form-group">
                     <label for="formAddBookWeight">Weight</label>
-                    <input type="number" min="0" id="formAddBookWeight" name="formAddBookWeight" class="form-control myInput-elegant-2" [(ngModel)]="objectBook.weight" #weight="ngModel" required>
+                    <input type="number" min="0" id="formAddBookWeight" name="formAddBookWeight" class="form-control myInput-elegant-2" [(ngModel)]="objectBook.weight"
+                        #weight="ngModel" required>
                     <div *ngIf="weight.invalid && (weight.dirty || weight.touched)" class="">
                         <div *ngIf="weight.errors.required" class="alert alert-danger">
                             Number is required.
                         </div>
-                </div>
+                    </div>
                 </div>
             </div>
             <div class="col-12 col-sm-6 col-md-4 mb-3">
@@ -105,35 +111,39 @@
             <div class="col-12 col-sm-6 col-md-4 mb-3">
                 <div class="form-group">
                     <label for="formAddBookPreviousPrice">Previous Price</label>
-                    <input type="number" min="0" id="formAddBookPreviousPrice" name="formAddBookPreviousPrice" class="form-control myInput-elegant-2" [(ngModel)]="objectBook.previousPrice" #previousPrice="ngModel" required>
+                    <input type="number" min="0" id="formAddBookPreviousPrice" name="formAddBookPreviousPrice" class="form-control myInput-elegant-2"
+                        [(ngModel)]="objectBook.previousPrice" #previousPrice="ngModel" required>
                     <div *ngIf="previousPrice.invalid && (previousPrice.dirty || previousPrice.touched)" class="">
-                            <div *ngIf="previousPrice.errors.required" class="alert alert-danger">
-                                Number is required.
-                            </div>
+                        <div *ngIf="previousPrice.errors.required" class="alert alert-danger">
+                            Number is required.
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="col-12 col-sm-6 col-md-4 mb-3">
                 <div class="form-group">
                     <label for="formAddBookSellingPrice">Selling Price</label>
-                    <input type="number" min="0" id="formAddBookSellingPrice" name="formAddBookSellingPrice" class="form-control myInput-elegant-2" [(ngModel)]="objectBook.sellingPrice" #sellingPrice="ngModel" required>
+                    <input type="number" min="0" id="formAddBookSellingPrice" name="formAddBookSellingPrice" class="form-control myInput-elegant-2"
+                        [(ngModel)]="objectBook.sellingPrice" #sellingPrice="ngModel" required>
                     <div *ngIf="sellingPrice.invalid && (sellingPrice.dirty || sellingPrice.touched)" class="">
-                            <div *ngIf="sellingPrice.errors.required" class="alert alert-danger">
-                                Number is required.
-                            </div>
+                        <div *ngIf="sellingPrice.errors.required" class="alert alert-danger">
+                            Number is required.
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-8 mb-3">
                 <div class="form-group">
                     <label for="formAddBookImages">Main Image</label>
-                    <input type="text" id="formAddBookImages" name="formAddBookImages" class="form-control myInput-elegant-2" [(ngModel)]="objectBook.images.main" #imagesmain="ngModel" required minlength="4">
+                    <input type="text" id="formAddBookImages" name="formAddBookImages" class="form-control myInput-elegant-2" [(ngModel)]="objectBook.images.main"
+                        #imagesmain="ngModel" required minlength="4">
                     <div *ngIf="imagesmain.invalid && (imagesmain.dirty || imagesmain.touched)" class="">
                         <div *ngIf="imagesmain.errors.required" class="alert alert-danger">
                             Required a link.
                         </div>
                     </div>
-                    <a href="" class="text-dark mt-2" data-toggle="collapse" href="#collapseReviewImage" role="button" aria-expanded="false" aria-controls="collapseReviewImage">
+                    <a href="" class="text-dark mt-2" data-toggle="collapse" href="#collapseReviewImage" role="button" aria-expanded="false"
+                        aria-controls="collapseReviewImage">
                         <i class="far fa-image"></i> View Image</a>
                 </div>
             </div>
@@ -155,46 +165,49 @@
                 <div class="collapse" id="collapseReviewImage">
                     <img src="{{objectBook.images.main}}" alt="Warning: No image link found. You must add a link for image" class="w-100">
                 </div>
-    
+
             </div>
             <div class="col-12">
                 <div class="row">
                     <div class="col-12 col-sm-4 col-lg-4 mb-3">
                         <div class="form-group">
                             <label for="formAddBookSizeWidth">Size (width)</label>
-                            <input type="number" min="0" id="formAddBookSizeWidth" name="formAddBookSizeWidth" class="form-control myInput-elegant-2" [(ngModel)]="objectBook.size.width" #sizewidth="ngModel" required>
+                            <input type="number" min="0" id="formAddBookSizeWidth" name="formAddBookSizeWidth" class="form-control myInput-elegant-2"
+                                [(ngModel)]="objectBook.size.width" #sizewidth="ngModel" required>
                             <div *ngIf="sizewidth.invalid && (sizewidth.dirty || sizewidth.touched)" class="">
                                 <div *ngIf="sizewidth.errors.required" class="alert alert-danger">
                                     Number is required.
                                 </div>
-                        </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col-12 col-sm-4 col-lg-4 mb-3">
                         <div class="form-group">
                             <label for="formAddBookSizeHeight">Size (height)</label>
-                            <input type="number" min="0" id="formAddBookSizeHeight" name="formAddBookSizeHeight" class="form-control myInput-elegant-2" [(ngModel)]="objectBook.size.height" #sizeheight="ngModel" required>
+                            <input type="number" min="0" id="formAddBookSizeHeight" name="formAddBookSizeHeight" class="form-control myInput-elegant-2"
+                                [(ngModel)]="objectBook.size.height" #sizeheight="ngModel" required>
                             <div *ngIf="sizeheight.invalid && (sizeheight.dirty || sizeheight.touched)" class="">
                                 <div *ngIf="sizeheight.errors.required" class="alert alert-danger">
                                     Number is required.
                                 </div>
-                        </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col-12 col-sm-4 col-lg-4 mb-3">
                         <div class="form-group">
                             <label for="formAddBookSizeDepth">Size (depth)</label>
-                            <input type="number" min="0" id="formAddBookSizeDepth" name="formAddBookSizeDepth" class="form-control myInput-elegant-2" [(ngModel)]="objectBook.size.depth" #sizedepth="ngModel" required>
+                            <input type="number" min="0" id="formAddBookSizeDepth" name="formAddBookSizeDepth" class="form-control myInput-elegant-2"
+                                [(ngModel)]="objectBook.size.depth" #sizedepth="ngModel" required>
                             <div *ngIf="sizedepth.invalid && (sizedepth.dirty || sizedepth.touched)" class="">
                                 <div *ngIf="sizedepth.errors.required" class="alert alert-danger">
                                     Number is required.
                                 </div>
-                        </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-    
+
             <div class="col-12 mb-3">
                 <div class="form-group">
                     <label for="formAddBookShortDescription">Short Description</label>
@@ -205,11 +218,12 @@
                 <div class="form-group">
                     <label for="formAddBookFullDescription">Full Description</label>
                     <!-- <textarea  class="form-control myInput-elegant-2" id="formAddBookFullDescription" rows="3"></textarea> -->
-                    <textarea [(ngModel)]="objectBook.fullDescription" [froalaEditor]="HelloFroala" class="form-control" id="formAddBookFullDescription" rows="10" [ngModelOptions]="{standalone: true}"></textarea>
+                    <textarea [(ngModel)]="objectBook.fullDescription" [froalaEditor]="HelloFroala" class="form-control" id="formAddBookFullDescription"
+                        rows="10" [ngModelOptions]="{standalone: true}"></textarea>
                 </div>
-    
+
             </div>
-    
+
         </div>
-    <!-- </form> -->
+    </form>
 </div>
