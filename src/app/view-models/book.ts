@@ -40,6 +40,6 @@ export class Book {
    
         //  this.images = new Image('');
         // this.size = size;
-        // this.genre = genre;
+        // this.genre = new Genre('');
     }
 }
