@@ -9,15 +9,23 @@ import { ProductComponent } from './product/product.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProductAddComponent } from './product-add/product-add.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
-// Import Froala Editor.
-import "froala-editor/js/froala_editor.pkgd.min.js";
-
-// Import Angular2 plugin.
-import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
-import { ForbiddenValidatorDirective } from './app-directive/forbidden-name.directive';
 import { OrderComponent } from './order/order.component';
 import { UserComponent } from './user/user.component';
 import { StaffComponent } from './staff/staff.component';
+// Import Froala Editor.
+import "froala-editor/js/froala_editor.pkgd.min.js";
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+
+// Import Angular2 plugin.
+import { ForbiddenValidatorDirective } from './app-directive/forbidden-name.directive';
+
+import { HomeLayoutComponent } from './home-layout/home-layout.component';
+import { HomeComponent } from './home/home.component';
+import { LoginLayoutComponent } from './login-layout/login-layout.component';
+import { LoginComponent } from './login/login.component';
+
+import { AuthGuard } from './auth/auth.guard';
+import { AuthService } from './auth/auth.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +37,11 @@ import { StaffComponent } from './staff/staff.component';
     BreadcrumbComponent,
     OrderComponent,
     UserComponent,
-    StaffComponent
+    StaffComponent,
+    HomeLayoutComponent,
+    HomeComponent,
+    LoginLayoutComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +52,7 @@ import { StaffComponent } from './staff/staff.component';
     FroalaEditorModule.forRoot(), 
     FroalaViewModule.forRoot()
   ],
-  providers: [],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

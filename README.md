@@ -14,6 +14,9 @@ admin 1.0.11 - Form Validate using Template-driven form (v.1)
 admin 1.0.12 - Add users, staffs, orders, breadcrumb with changeble address
 admin 1.0.13 - Add sample of snackbar for notification (add, delete, get, ...)
 admin 1.0.14 - Solve validation for ProductAddComponent using Reactive form
+admin 1.0.15 - 
+    + Add Login screeen & Hide Navbar when logging inm using Children routing
+    + Translate Javascript for Snackbar into TypeScript, show added Category as Notification in Snackbar.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.1.
 ## Development server
 

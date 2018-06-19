@@ -16,6 +16,8 @@ export class CategoryComponent implements OnInit {
   selectedDelete: Genre;
   updatingGenre = this.selectedDelete;
   objectGenre = new Genre('');
+  noti:string;
+  notification = {}; //For add, edit, delete notification
   on_s: string = "items";
   // objectGenre: Genre;
   // updatingGenre= new Genre(this.selectedGenre.name);
@@ -40,12 +42,14 @@ export class CategoryComponent implements OnInit {
   //   }
   // }
   addGenre(): void {
+    this.noti = this.objectGenre.name;
     if (this.objectGenre.name.length > 0) {
       this.genreService.addGenre(this.objectGenre).subscribe(_ => {
         this.objectGenre.name = "";
         this.genres.push(_);
       });
     }
+    this.onNoti();
   }
   deleteGenre(genre: Genre): void {
     this.genres = this.genres.filter(h => h !== genre);
@@ -56,5 +60,11 @@ export class CategoryComponent implements OnInit {
   updateGenre(): void {
     this.genreService.updateGenre(this.selectedGenre)
       .subscribe();
+  }
+  // Bao doan
+  onNoti():void {
+    let x = document.getElementById("snackbar");
+    x.className = "show";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
   }
 }
