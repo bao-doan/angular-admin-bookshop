@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { first } from 'rxjs/operators';
 
 import { AuthService } from './../auth/auth.service';
 
@@ -9,32 +11,53 @@ import { AuthService } from './../auth/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  form: FormGroup;
+  loading = false;
+  submitted = false;
+  returnUrl: string;
+  error = '';
+  loginForm: FormGroup;
   private formSubmitAttempt: boolean;
 
   constructor(
     private fb: FormBuilder,
+    private route: ActivatedRoute,
+    private router: Router,
     private authService: AuthService
-  ) {}
+  ) { }
 
   ngOnInit() {
-    this.form = this.fb.group({
-      userName: ['', Validators.required],
+    this.loginForm = this.fb.group({
+      username: ['', Validators.required],
       password: ['', Validators.required]
     });
+     // reset login status
+     this.authService.logout();
+
+     // get return url from route parameters or default to '/'
+     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+  }
+ // convenience getter for easy access to form fields
+ get f() { return this.loginForm.controls; }
+
+
+ onSubmit() {
+  this.submitted = true;
+
+  // stop here if form is invalid
+  if (this.loginForm.invalid) {
+      return;
   }
 
-  isFieldInvalid(field: string) {
-    return (
-      (!this.form.get(field).valid && this.form.get(field).touched) ||
-      (this.form.get(field).untouched && this.formSubmitAttempt)
-    );
-  }
-
-  onSubmit() {
-    if (this.form.valid) {
-      this.authService.login(this.form.value);
-    }
-    this.formSubmitAttempt = true;
-  }
+  this.loading = true;
+  this.authService.login(this.f.username.value, this.f.password.value)
+      .pipe(first())
+      .subscribe(
+          data => {
+              this.router.navigate([this.returnUrl]);
+          },
+          error => {
+              this.error = error;
+              this.loading = false;
+          });
+}
 }

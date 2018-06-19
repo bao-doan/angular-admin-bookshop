@@ -79,7 +79,7 @@
             </div>
             <div class="col-12 col-sm-6 col-md-4 mb-3">
                 <div class="form-group">
-                    <label for="formAddBookSelectGenre">Genre</label>
+                    <label (click)="getGenre()" for="formAddBookSelectGenre">Genre</label>
                     <select *ngIf="genres" class="form-control myInput-elegant-2" id="formAddBookSelectGenre" formControlName="genre"
                         required>
                         <option *ngFor="let x of genres" [ngValue]="x">{{x.name}}</option>

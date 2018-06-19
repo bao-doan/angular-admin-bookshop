@@ -26,6 +26,8 @@ import { LoginComponent } from './login/login.component';
 
 import { AuthGuard } from './auth/auth.guard';
 import { AuthService } from './auth/auth.service';
+import { JwtInterceptor } from './_helpers';
+import { fakeBackendProvider } from './_helpers';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,10 +51,15 @@ import { AuthService } from './auth/auth.service';
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    FroalaEditorModule.forRoot(), 
+    FroalaEditorModule.forRoot(),
     FroalaViewModule.forRoot()
   ],
-  providers: [AuthService, AuthGuard],
+  providers: [
+    AuthGuard,
+    AuthService,
+    // provider used to create fake backend
+    fakeBackendProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
