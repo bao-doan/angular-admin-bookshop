@@ -1,4 +1,9 @@
-<div class="container-fluid">
+<div class="container-fluid" *ngIf="user">
+    <div class="row mt-4">
+        <div class="col-12">
+          <h3 *ngIf="user">Welcome <span class="text-success">{{user.first}} {{user.last}}</span> !</h3>
+        </div>
+      </div>
   <div class="row py-4">
       <div class="col-sm-6 col-md-4 mb-1">
           <div class="card text-white bg-primary">
@@ -56,14 +61,5 @@
             </div>
           </div>
         </div>
-  </div>
-  <div class="row">
-    <div class="col-12">
-      <!-- <p>First: {{user.first}}</p>
-      <p>Last: {{user.last}}</p>
-      <p>Phone: {{user.phone}}</p>
-      <p>Email: {{user.email}}</p>
-      <p>Password: {{user.password}}</p> -->
-    </div>
   </div>
 </div>

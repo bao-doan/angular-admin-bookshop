@@ -4,8 +4,12 @@ export class User {
     phone: string;
     email: string;
     password: string;
-    createdAt: string;
-    updatedAt: string;
-    id: string;
-    constructor() { }
+    // createdAt: string;
+    // updatedAt: string;
+    // id: string;
+    constructor(
+        // first: string
+    ) {
+// this.first = first;
+     }
 }

@@ -1,8 +1,10 @@
 import { User } from './user';
 export class Users {
-    user = new User();
+    user:User = new User();
     success: boolean;
-    constructor(user: User) {
-        this.user = new User();
+    constructor(
+        // user: User
+    ) {
+        // this.user = new User();
      }
 }

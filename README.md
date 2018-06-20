@@ -22,6 +22,7 @@ admin 1.0.17 -
     + Add RegisterComponent with checking Password Confirm & checkbox.
     + Register to API function is available.
     + Re-construct aside-menu to dropdown, Remove button for minified sidebar (because this is not necessary)
+admin 1.0.18 - Add get User info when logged in.
     
 <!-- ------------------------------------------------------------------------------------------------------ -->
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.1.

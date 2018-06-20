@@ -11,8 +11,9 @@ import { first } from 'rxjs/operators';
 })
 export class DashboardComponent implements OnInit {
   componentTitle: string = 'Dashboard';
-  user_email:string;
-  users: Users = new Users(new User());
+  user_email: string;
+  user: User = new User();
+  // users: Users = new Users();
   // user: User = this.users.user;
   // person:string = this.users.first;
   constructor(private userService: UserService) { }
@@ -20,13 +21,17 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.getUsers();
     this.user_email = JSON.parse(localStorage.currentUser).email.toString();
-    if(this.users.user.first == null) {
-      alert('null');
-    }
+    // if(this.users.user.first == null) {
+    //   alert('null');
+    // }
   }
   getUsers(): void {
-    this.userService.getUsers().subscribe(_ => this.users = _)
-    // (_ => console.log(_))
+    this.userService.getUsers().subscribe(_ => {
+      this.user = _.user;
+      // alert(this.user.first);
+      // console.log(_);
+    }
+    )
+    // this.userService.getUsers().subscribe(_ => console.log(_))
   }
-  
 }
