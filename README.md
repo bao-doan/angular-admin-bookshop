@@ -18,6 +18,12 @@ admin 1.0.15 -
     + Add Login screeen & Hide Navbar when logging inm using Children routing
     + Translate Javascript for Snackbar into TypeScript, show added Category as Notification in Snackbar.
 admin 1.0.16 - Login using JWT Authentication OK
+admin 1.0.17 - 
+    + Add RegisterComponent with checking Password Confirm & checkbox.
+    + Register to API function is available.
+    + Re-construct aside-menu to dropdown, Remove button for minified sidebar (because this is not necessary)
+    
+<!-- ------------------------------------------------------------------------------------------------------ -->
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.1.
 ## Development server
 

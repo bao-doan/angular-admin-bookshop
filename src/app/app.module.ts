@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,6 +28,9 @@ import { AuthGuard } from './auth/auth.guard';
 import { AuthService } from './auth/auth.service';
 import { JwtInterceptor } from './_helpers';
 import { fakeBackendProvider } from './_helpers';
+import { ProfileComponent } from './profile/profile.component';
+import { UserService } from './services/user.service';
+import { RegisterComponent } from './register/register.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +46,9 @@ import { fakeBackendProvider } from './_helpers';
     HomeLayoutComponent,
     HomeComponent,
     LoginLayoutComponent,
-    LoginComponent
+    LoginComponent,
+    ProfileComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,6 +62,12 @@ import { fakeBackendProvider } from './_helpers';
   providers: [
     AuthGuard,
     AuthService,
+    UserService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true
+    },
     // provider used to create fake backend
     fakeBackendProvider
   ],
