@@ -26,12 +26,7 @@ export class ProductAddComponent implements OnInit {
 
   ngOnInit() {
     this.getGenre();
-    // let objectBook: Book = this.objectBook;
-    // if (this.objectBook.title == undefined) {
-    //   alert('title is not existed');
-    // } else { alert('title is existed');}
     this.bookForm = new FormGroup({
-      // '_id': new FormControl(this.objectBook._id),
       'title': new FormControl(this.objectBook.title, [
         Validators.required,
         Validators.minLength(4)
@@ -68,9 +63,7 @@ export class ProductAddComponent implements OnInit {
       'genre__id': new FormControl(this.objectBook.genre._id),
       'genre_name': new FormControl(this.objectBook.genre.name),
     });
-    console.log('Size of object: '+ Object.keys(this.objectBook).length);
   }
-  // get _id() { return this.bookForm.get('_id'); }
   get title() { return this.bookForm.get('title'); }
   get author() { return this.bookForm.get('author'); }
   get publisher() { return this.bookForm.get('publisher'); }
@@ -91,7 +84,7 @@ export class ProductAddComponent implements OnInit {
   get genre() { return this.bookForm.get('genre'); }
 
   onSaveBook():void {
-  // Binding from bookForm to objectBook
+  // Assign value from bookForm to objectBook
   this.objectBook.title = this.bookForm.value.title;
   this.objectBook.author = this.bookForm.value.author;
   this.objectBook.publisher = this.bookForm.value.publisher;
@@ -110,9 +103,9 @@ export class ProductAddComponent implements OnInit {
   this.objectBook.size.depth = this.bookForm.value.size_depth;
   this.objectBook.shortDescription = this.bookForm.value.shortDescription;
   this.objectBook.fullDescription = this.bookForm.value.fullDescription;
-  // End of binding
+  // End of Assigning
   this.addBook();
-  alert(`Đã thêm sách: ${this.bookForm.value.title}\nTác giả: ${this.bookForm.value.author}\nKích thước Object: ${Object.keys(this.objectBook).length}`);
+  
   }
   getGenre(): void {
     this.genreService.getGenres().subscribe(__ => this.genres = __);
@@ -120,6 +113,7 @@ export class ProductAddComponent implements OnInit {
   addBook(): void {
     this.bookService.addBook(this.objectBook).subscribe(_ => {
       console.log(_);
+      alert(`Added product: ${this.bookForm.value.title}\nAuthor: ${this.bookForm.value.author}`);
     });
   }
   

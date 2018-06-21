@@ -23,6 +23,13 @@ admin 1.0.17 -
     + Register to API function is available.
     + Re-construct aside-menu to dropdown, Remove button for minified sidebar (because this is not necessary)
 admin 1.0.18 - Add get User info when logged in.
+admin 1.0.19
+    + ProductComponent: Add functions for Pagination showing Products per page (demo only, need improvement).
+    + ProductComponent: Fix product Quick-View Modal from clicking table row. 
+    + ProductComponent: Fix product Edit/Update Modal. 
+    + ProductAddComponent: Reset button, re-style validation messages.
+    + ProductAddComponent: Datepicker for chosing Release day.
+    + ProductAddComponent: Fix typing negative value from keyboard for input type number.
     
 <!-- ------------------------------------------------------------------------------------------------------ -->
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.1.

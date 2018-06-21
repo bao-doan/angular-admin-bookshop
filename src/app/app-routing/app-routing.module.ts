@@ -18,7 +18,7 @@ import { LoginComponent } from '../login/login.component';
 import { RegisterComponent } from '../register/register.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'category', pathMatch: 'full' },
+  { path: '', redirectTo: 'product', pathMatch: 'full' },
   // { path: '**', redirectTo: '' },
   { path: '', component: LoginLayoutComponent, children: [
     // { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -28,7 +28,7 @@ const routes: Routes = [
     path: '', component: HomeLayoutComponent,
     canActivate: [AuthGuard],
     children: [
-      { path: '', redirectTo: 'category', pathMatch: 'full' },
+      { path: '', redirectTo: 'product', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
       { path: 'profile', component: ProfileComponent },
       { path: 'dashboard', component: DashboardComponent },
