@@ -12,21 +12,25 @@ import { Size } from '../view-models/size';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  componentTitle: string =  'Products';
+  componentTitle: string = 'Products';
   genres: Genre[];
   genre: Genre;
   books: Book[];
-  pages: number;
-  selectedPage: number;
-  pageArray;
   selectedBook: Book = new Book();
-  step: number = 2;
+
+  // For Pagination
   books2: Book[];
-  constructor(private bookService:BookService, private genreService: GenreService) { }
+  step: number;
+  pages: number;
+  selectedPage: number = 1;
+  pageArray: Number[];
+  option: number;
+  constructor(private bookService: BookService, private genreService: GenreService) { }
 
   ngOnInit() {
     this.getBooks();
     this.getGenres();
+    this.step = 5;
   }
   onSelect(book: Book): void {
     this.selectedBook = book;
@@ -57,9 +61,9 @@ export class ProductComponent implements OnInit {
   getBooks(): void {
     this.bookService.getBooks().subscribe(z => {
       this.books = z;
-      this.books2 = z;
-      this.onCountPages(this.books,this.step);
-      this.onPrintPages();
+      this.books2 = z.slice(0, this.step);
+      this.onCountPages(z, this.step);
+      this.onPrintLabel();
     });
   };
   getGenres(): void {
@@ -69,30 +73,27 @@ export class ProductComponent implements OnInit {
     this.books = this.books.filter(h => h !== book);
     this.bookService.deleteBook(book).subscribe();
   }
-  updateBook():void{
+  updateBook(): void {
     this.bookService.updateBook(this.selectedBook)
       .subscribe();
   }
-  compareFn(optionOne:Genre, optionTwo:Genre): boolean {
-      return optionOne._id == optionTwo._id;
+  compareFn(optionOne: Genre, optionTwo: Genre): boolean {
+    return optionOne._id == optionTwo._id;
   }
-  onShowItem(a: number, b:number): void {
-    this.books = this.books.slice(a,b);
-  }
-  onCountPages(books: Book[], itemsPerPage: number): void {
-    let items =  this.books.length;
-    let pagesCount: number;
-    if (items % itemsPerPage == 0) {
-      pagesCount = items/itemsPerPage;
+  onCountPages(books: Book[], step: number): void {
+    let items = this.books.length;
+    let pages: number;
+    if (items % step == 0) {
+      pages = items / step;
     } else {
-      pagesCount = Math.floor(items/itemsPerPage) + 1;
+      pages = Math.floor(items / step) + 1;
     }
-    this.pages = pagesCount;
-    console.log(`Tong so books  ${this.books.length}`);
-    console.log(`So book/page la  ${this.step}`);
-    console.log(`Tong so pages la: this.pages =  ${this.pages}`);
+    this.pages = pages;
+    console.log(`Books = ${this.books.length}`);
+    console.log(`Step = ${this.step}`);
+    console.log(`Pages = ${this.pages}`);
   }
-  onPrintPages(): void {
+  onPrintLabel(): void {
     this.pageArray = new Array(this.pages);
     for (let i = 0; i < this.pageArray.length; i++) {
       this.pageArray[i] = i + 1;
@@ -100,18 +101,47 @@ export class ProductComponent implements OnInit {
     console.log(this.pageArray);
   }
   onShowItems(i: number): void {
-      this.selectedPage = i;
-      let a: number = this.step*i -this.step;
-      let b: number 
-      // = this.step*i;
-      if (this.step*i >= this.books.length) {
-        b = this.books.length;
-      } else {
-        b = this.step*i;
-      }
-      this.books2 = this.books.slice(a , b);
+    // this.onShowAll();
+    this.selectedPage = i;
+    let a: number = this.step * i - this.step;
+    let b: number
+    if (this.step * i >= this.books.length) {
+      b = this.books.length;
+    } else {
+      b = this.step * i;
+    }
+    this.books2 = this.books.slice(a, b);
+    console.log(`selectedPage: ${this.selectedPage}`);
   }
   onShowAll(): void {
     this.books2 = this.books;
+  }
+  onShowOption(step: number): void {
+    // this.step = option;
+    this.onCountPages(this.books, this.step);
+    this.onPrintLabel();
+    this.onShowItems(1);
+  }
+  onNextPage(selectedPage: number): void {
+    // if(selectedPage < this.pages) {
+
+    //   this.selectedPage = selectedPage + 1;
+    // } else {
+    //   this.selectedPage = selectedPage;
+    // }
+    this.selectedPage = (selectedPage < this.pages) ? (this.selectedPage = selectedPage + 1) : (this.selectedPage = selectedPage);
+    this.onShowItems(this.selectedPage);
+    console.log(`Triggered "Next" ${this.selectedPage}/${this.pages}`);
+  }
+  onPrevPage(selectedPage: number): void {
+    // if(selectedPage > 1) {
+
+    //   this.selectedPage = selectedPage - 1;
+    // } else {
+    //   this.selectedPage = 1;
+    // }
+    this.selectedPage = (selectedPage > 1) ? (this.selectedPage = selectedPage - 1) : (this.selectedPage = 1);
+    this.onShowItems(this.selectedPage);
+    console.log(`Triggered "Prev" ${this.selectedPage}/${this.pages}`);
   }
 }

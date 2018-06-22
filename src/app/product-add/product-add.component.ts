@@ -60,7 +60,9 @@ export class ProductAddComponent implements OnInit {
       'genre': new FormControl(this.objectBook.genre, [
         Validators.required
       ]),
-      'genre__id': new FormControl(this.objectBook.genre._id),
+      'genre__id': new FormControl(this.objectBook.genre._id, [
+        Validators.required
+      ]),
       'genre_name': new FormControl(this.objectBook.genre.name),
     });
   }
@@ -82,7 +84,9 @@ export class ProductAddComponent implements OnInit {
   get genre__id() { return this.bookForm.get('genre__id'); }
   get genre_name() { return this.bookForm.get('genre_name'); }
   get genre() { return this.bookForm.get('genre'); }
-
+  // onCheckSelect(x:Genre): void {
+  //   this.bookForm.value.genre__id = x._id;
+  // }
   onSaveBook():void {
   // Assign value from bookForm to objectBook
   this.objectBook.title = this.bookForm.value.title;

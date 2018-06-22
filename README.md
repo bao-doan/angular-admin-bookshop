@@ -30,7 +30,12 @@ admin 1.0.19
     + ProductAddComponent: Reset button, re-style validation messages.
     + ProductAddComponent: Datepicker for chosing Release day.
     + ProductAddComponent: Fix typing negative value from keyboard for input type number.
-    
+admin 1.0.20 - Improve functions & UX for Pagination
+    + Add Select Element to show items per page. Value of items per page depends on Option Element (All/2/5/10/20 items).
+    + When select an Option, total pages is re-calculated & show 1st page by default.
+    + Add Next/Prev Chevrons for rolling next/prev page.
+    + Chevrons will be invisible when 1st or last page is selected.
+    + Pagination buttons will display tripple-dot (...) instead of number when total pages reach 6.
 <!-- ------------------------------------------------------------------------------------------------------ -->
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.1.
 ## Development server
