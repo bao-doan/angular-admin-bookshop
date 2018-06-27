@@ -15,7 +15,6 @@ import { HomeLayoutComponent } from '../home-layout/home-layout.component';
 import { HomeComponent } from '../home/home.component';
 import { LoginLayoutComponent } from '../login-layout/login-layout.component';
 import { LoginComponent } from '../login/login.component';
-import { RegisterComponent } from '../register/register.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'product', pathMatch: 'full' },
@@ -37,8 +36,7 @@ const routes: Routes = [
       { path: 'product-add', component: ProductAddComponent },
       { path: 'manage-order', component: OrderComponent },
       { path: 'manage-user', component: UserComponent },
-      { path: 'manage-staff', component: StaffComponent },
-      { path: 'register', component: RegisterComponent }
+      { path: 'manage-staff', component: StaffComponent }
     ]
   }
 

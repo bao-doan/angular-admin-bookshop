@@ -6,7 +6,9 @@ export class AuthGuard implements CanActivate {
   constructor(private router: Router) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if (localStorage.getItem('currentUser')) {
+      let currentuser = localStorage.getItem('currentUser');
+    //   let sessionuser = sessionStorage.getItem('currentUser');
+    if (currentuser) {
         // logged in so return true
         return true;
     }

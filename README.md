@@ -36,6 +36,13 @@ admin 1.0.20 - Improve functions & UX for Pagination
     + Add Next/Prev Chevrons for rolling next/prev page.
     + Chevrons will be invisible when 1st or last page is selected.
     + Pagination buttons will display tripple-dot (...) instead of number when total pages reach 6.
+admin 1.0.21 - 
+    + RegisterComponent: Add show/hide password checkbox with Binding syntax & Typescript.
+admin 1.0.22 - 
+    + Remove RegisterComponent from Admin (migrated to Shop Project)
+    + Add functions preventing re-login without logout.
+    + Add function 'checkPluralHandler()' checking plural grammar for ProductComponent.
+
 <!-- ------------------------------------------------------------------------------------------------------ -->
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.1.
 ## Development server

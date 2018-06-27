@@ -10,7 +10,7 @@ export class HomeLayoutComponent implements OnInit {
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
-    this.user_email = JSON.parse(localStorage.currentUser).email.toString();
+    this.user_email = JSON.parse(localStorage.getItem('currentUser')).email;
   }
   onLogout() {
     this.authService.logout();

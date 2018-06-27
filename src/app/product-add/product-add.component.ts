@@ -60,9 +60,9 @@ export class ProductAddComponent implements OnInit {
       'genre': new FormControl(this.objectBook.genre, [
         Validators.required
       ]),
-      'genre__id': new FormControl(this.objectBook.genre._id, [
-        Validators.required
-      ]),
+      'genre__id': new FormControl(this.objectBook.genre._id
+        // , [Validators.required]
+      ),
       'genre_name': new FormControl(this.objectBook.genre.name),
     });
   }

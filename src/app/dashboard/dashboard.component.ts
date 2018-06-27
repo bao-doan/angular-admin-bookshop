@@ -20,18 +20,9 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.getUsers();
-    this.user_email = JSON.parse(localStorage.currentUser).email.toString();
-    // if(this.users.user.first == null) {
-    //   alert('null');
-    // }
+    this.user_email = JSON.parse(localStorage.currentUser).email;
   }
   getUsers(): void {
-    this.userService.getUsers().subscribe(_ => {
-      this.user = _.user;
-      // alert(this.user.first);
-      // console.log(_);
-    }
-    )
-    // this.userService.getUsers().subscribe(_ => console.log(_))
+    this.userService.getUsers().subscribe(_ => this.user = _.user)
   }
 }

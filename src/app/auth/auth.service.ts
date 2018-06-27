@@ -4,11 +4,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json'
-    // ,
-    // 'Authorization': `Bearer ${JSON.parse(localStorage.getItem('currentUser')).token}`
-  })
+  headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
 
 @Injectable()

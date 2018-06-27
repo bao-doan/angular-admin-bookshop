@@ -25,6 +25,8 @@ export class ProductComponent implements OnInit {
   selectedPage: number = 1;
   pageArray: Number[];
   option: number;
+  checkPluralItems: string = '';
+  checkPluralBooks: string = '';
   constructor(private bookService: BookService, private genreService: GenreService) { }
 
   ngOnInit() {
@@ -64,6 +66,7 @@ export class ProductComponent implements OnInit {
       this.books2 = z.slice(0, this.step);
       this.onCountPages(z, this.step);
       this.onPrintLabel();
+      this.checkPluralHandler();
     });
   };
   getGenres(): void {
@@ -111,10 +114,12 @@ export class ProductComponent implements OnInit {
       b = this.step * i;
     }
     this.books2 = this.books.slice(a, b);
+    this.checkPluralHandler();
     console.log(`selectedPage: ${this.selectedPage}`);
   }
   onShowAll(): void {
     this.books2 = this.books;
+    this.checkPluralHandler();
   }
   onShowOption(step: number): void {
     // this.step = option;
@@ -143,5 +148,9 @@ export class ProductComponent implements OnInit {
     this.selectedPage = (selectedPage > 1) ? (this.selectedPage = selectedPage - 1) : (this.selectedPage = 1);
     this.onShowItems(this.selectedPage);
     console.log(`Triggered "Prev" ${this.selectedPage}/${this.pages}`);
+  }
+  checkPluralHandler():void {
+    this.checkPluralBooks = (this.books.length > 1) ? "items":"item";
+    this.checkPluralItems = (this.books2.length > 1) ? "items":"item";
   }
 }

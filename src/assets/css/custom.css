@@ -105,7 +105,20 @@ However, delay the fade out process for 2.5 seconds */
     -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
     animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
-
+.myText-link {
+    color: var(--myBlueGray2);
+    text-decoration: underline;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+.myText-link-2 {
+    color: var(--myBlueGray2);
+    text-decoration: none;
+}
+.myText-link:hover, .myText-link-2:hover {
+    color: var(--myOrange);
+}
 /* Animations to fade the snackbar in and out */
 @-webkit-keyframes fadein {
     from {bottom: 0; opacity: 0;} 

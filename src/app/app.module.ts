@@ -30,7 +30,7 @@ import { JwtInterceptor } from './_helpers';
 import { fakeBackendProvider } from './_helpers';
 import { ProfileComponent } from './profile/profile.component';
 import { UserService } from './services/user.service';
-import { RegisterComponent } from './register/register.component';
+import { SearchComponent } from './search/search.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +48,7 @@ import { RegisterComponent } from './register/register.component';
     LoginLayoutComponent,
     LoginComponent,
     ProfileComponent,
-    RegisterComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
