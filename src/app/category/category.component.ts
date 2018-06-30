@@ -15,7 +15,7 @@ export class CategoryComponent implements OnInit {
   selectedGenre: Genre;
   selectedDelete: Genre;
   updatingGenre = this.selectedDelete;
-  objectGenre = new Genre('');
+  objectGenre = new Genre();
   noti:string;
   notification = {}; //For add, edit, delete notification
   on_s: string = "items";

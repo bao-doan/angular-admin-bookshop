@@ -1,4 +1,8 @@
 // To use datepicker
 $(function () {
-    $('[data-toggle="datepicker"]').datepicker();
+    $('[data-toggle="datepicker"]').datepicker(
+        // { 
+        'pick()'
+    // }
+);
 });

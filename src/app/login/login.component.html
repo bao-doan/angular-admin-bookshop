@@ -1,43 +1,53 @@
 <div class="container-fluid">
   <div class="row justify-content-center mt-5">
-    <div class="col-md-6 col-lg-5">
+    <div class="col-12 col-md-6 col-lg-5">
       <div class="card p-4">
         <div class="card-body">
           <h3>Login</h3>
           <p class="text-muted">Sign In to your account</p>
           <form [formGroup]="loginAdminForm" (ngSubmit)="onSubmit()">
 
-            <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-              <div *ngIf="f.username.errors.required">Email is required</div>
-            </div>
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text">
-                  <i class="icon-user"></i>
-                </span>
+            <div class="form-group mb-3">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="icon-user"></i>
+                  </span>
+                </div>
+                <input formControlName="username" required type="text" class="form-control text-truncate" placeholder="Email" autofocus>
+               
               </div>
-              <input formControlName="username" required type="text" class="form-control text-truncate" placeholder="Email" autofocus>
-            </div>
-            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-              <div *ngIf="f.password.errors.required">Password is required</div>
-            </div>
-            <div class="input-group position-relative mb-4">
-              <div class="input-group-prepend">
-                <span class="input-group-text">
-                  <i class="icon-lock"></i>
-                </span>
+              <div *ngIf="submitted && f.username.errors" class="text-danger">
+                <div *ngIf="f.username.errors.required">* Email is required</div>
+                <div *ngIf="f.username.errors.email">* Must be a valid Email address</div>
               </div>
-              <input formControlName="password" required [type]="show" class="form-control text-truncate" placeholder="Password">
-              <div class="input-group-prepend bg-none border-0">
-                <span class="input-group-text">
-                  <button (click)="onToggle()" type="button"  class="myText-link myIcon-inside text-muted"><i *ngIf="!value" class="far fa-eye"></i><i *ngIf="value" class="far fa-eye-slash"></i></button>
-                </span>
-              </div>
-              
             </div>
-            <div class="form-group form-check">
-              <input [(ngModel)]="remember" type="checkbox" class="form-check-input" id="formLoginRemember" [ngModelOptions]="{standalone: true}">
-              <label class="form-check-label text-muted" for="formLoginRemember">Remember login</label>
+            
+           
+            <div class="form-group mb-3">
+              <div class="input-group position-relative">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="icon-lock"></i>
+                  </span>
+                </div>
+                <input formControlName="password" required [type]="show" class="form-control text-truncate" placeholder="Password">
+                <div class="input-group-prepend bg-none border-0">
+                  <span class="input-group-text">
+                    <button (click)="onToggle()" type="button"  class="myText-link myIcon-inside text-muted"><i *ngIf="!value" class="far fa-eye"></i><i *ngIf="value" class="far fa-eye-slash"></i></button>
+                  </span>
+                </div>
+                
+              </div>
+              <div *ngIf="submitted && f.password.errors" class="text-danger">
+                <div *ngIf="f.password.errors.required">* Password is required</div>
+              </div>
+            </div>
+           
+           
+            <div class="form-group form-check custom-control custom-checkbox">
+              <input [(ngModel)]="remember" type="checkbox" class="form-check-input custom-control-input" id="formLoginRemember" [ngModelOptions]="{standalone: true}">
+              <label class="form-check-label custom-control-label text-muted" for="formLoginRemember">Remember login</label>
           </div>
             <div class="row">
               <div class="col-6">

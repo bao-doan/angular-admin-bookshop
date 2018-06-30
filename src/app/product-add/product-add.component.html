@@ -9,20 +9,25 @@
                     <i class="far fa-address-book"></i> All products</a>
             </div>
             <div class="col-12">
-                <button type="button" class="btn btn-danger rounded-0 float-right" (click)="formDir.resetForm({})"><i class="fas fa-eraser"></i> Reset</button>
+                <button type="button" class="btn btn-danger rounded-0 float-right" (click)="createAddForm()">
+                    <i class="fas fa-eraser"></i> Reset</button>
                 <button type="submit" (click)="onSaveBook()" [disabled]="bookForm.invalid" class="btn btn-success rounded-0 float-right">
-                        <i class="fas fa-plus"></i> Create</button>
+                    <i class="fas fa-plus"></i> Create</button>
+            </div>
+            <div class="col-12">
+                <p><span class="text-danger">Form value:</span> {{ bookForm.value | json }}</p>
+                <p><span class="text-danger">Form status:</span> {{ bookForm.status | json }}</p>
             </div>
             <div class="col-12 mb-3">
                 <div class="form-group">
                     <label for="formAddBookTitle">Title (*)</label>
                     <input type="text" id="formAddBookTitle" name="formAddBookTitle" class="form-control myInput-elegant-2" formControlName="title"
                         required autofocus>
-                    <div *ngIf="title.invalid && (title.dirty || title.touched)" class="">
-                        <div *ngIf="title.errors.required" class="text-danger">
+                    <div *ngIf="f.title.invalid && (f.title.dirty || f.title.touched)" class="">
+                        <div *ngIf="f.title.errors.required" class="text-danger">
                             * Title is required.
                         </div>
-                        <div *ngIf="title.errors.minlength" class="text-warning">
+                        <div *ngIf="f.title.errors.minlength" class="text-warning">
                             * Title must be at least 4 characters long.
                         </div>
                     </div>
@@ -35,11 +40,11 @@
                     <label for="formAddBookAuthor">Author (*)</label>
                     <input type="text" id="formAddBookAuthor" name="formAddBookAuthor" class="form-control myInput-elegant-2" formControlName="author"
                         required>
-                    <div *ngIf="author.invalid && (author.dirty || author.touched)" class="">
-                        <div *ngIf="author.errors.required" class="text-danger">
+                    <div *ngIf="f.author.invalid && (f.author.dirty || f.author.touched)" class="">
+                        <div *ngIf="f.author.errors.required" class="text-danger">
                             * Author name is required.
                         </div>
-                        <div *ngIf="author.errors.minlength" class="text-warning">
+                        <div *ngIf="f.author.errors.minlength" class="text-warning">
                             * Author name must be at least 4 characters long.
                         </div>
                     </div>
@@ -50,24 +55,25 @@
                     <label for="formAddBookPublisher">Publisher (*)</label>
                     <input type="text" id="formAddBookPublisher" name="formAddBookPublisher" class="form-control myInput-elegant-2" formControlName="publisher"
                         required>
-                    <div *ngIf="publisher.invalid && (publisher.dirty || publisher.touched)" class="">
-                        <div *ngIf="publisher.errors.required" class="text-danger">
+                    <div *ngIf="f.publisher.invalid && (f.publisher.dirty || f.publisher.touched)" class="">
+                        <div *ngIf="f.publisher.errors.required" class="text-danger">
                             * Publisher is required.
                         </div>
-                        <div *ngIf="publisher.errors.minlength" class="text-warning">
+                        <div *ngIf="f.publisher.errors.minlength" class="text-warning">
                             * Publisher must be at least 4 characters long.
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-12 col-sm-6 col-md-4 mb-3">
+                <!-- {{f.genre.value.name}} -->
                 <div class="form-group">
                     <label (click)="getGenre()" for="formAddBookSelectGenre">Genre (*)</label>
                     <select *ngIf="genres" class="form-control myInput-elegant-2" id="formAddBookSelectGenre" formControlName="genre" required>
                         <option *ngFor="let x of genres" [ngValue]="x">{{x.name}}</option>
                     </select>
-                    <div *ngIf="genre__id.errors && genre__id.touched" class="text-danger">
-                        <div *ngIf="genre__id.errors.required">* Genre must be selected</div>
+                    <div *ngIf="f.genre.errors && f.genre.touched" class="text-danger">
+                        <div *ngIf="f.genre.errors.required">* Genre must be selected</div>
                     </div>
                 </div>
             </div>
@@ -87,10 +93,14 @@
             </div>
             <div class="col-12 col-sm-6 col-md-4 mb-3">
                 <div class="form-group">
+                    <p>{{f.releaseDate.value}}</p>
                     <label for="formAddBookReleaseDate">Release Date</label>
-                    <input type="text" data-toggle="datepicker" id="formAddBookReleaseDate" name="formAddBookReleaseDate" class="form-control myInput-elegant-2" formControlName="releaseDate"
-                        placeholder="mm/md/yyyy">
+                    <input type="text" value="datepicker" data-toggle="datepicker" id="formAddBookReleaseDate" name="formAddBookReleaseDate" class="form-control myInput-elegant-2"
+                        formControlName="releaseDate" placeholder="mm/md/yyyy">
                 </div>
+            </div>
+            <div class="col-12">
+                Demo datepicker
             </div>
             <div class="col-12 col-sm-6 col-md-4 mb-3">
                 <div class="form-group">
@@ -103,8 +113,8 @@
                     <label for="formAddBookPreviousPrice">Previous Price (*)</label>
                     <input type="number" min="0" oninput="this.value = Math.abs(this.value)" id="formAddBookPreviousPrice" name="formAddBookPreviousPrice"
                         class="form-control myInput-elegant-2" formControlName="previousPrice" required>
-                    <div *ngIf="previousPrice.invalid && (previousPrice.dirty || previousPrice.touched)" class="">
-                        <div *ngIf="previousPrice.errors.required" class="text-danger">
+                    <div *ngIf="f.previousPrice.invalid && (f.previousPrice.dirty || f.previousPrice.touched)" class="">
+                        <div *ngIf="f.previousPrice.errors.required" class="text-danger">
                             Number is required.
                         </div>
                     </div>
@@ -115,8 +125,8 @@
                     <label for="formAddBookSellingPrice">Selling Price (*)</label>
                     <input type="number" min="0" oninput="this.value = Math.abs(this.value)" id="formAddBookSellingPrice" name="formAddBookSellingPrice"
                         class="form-control myInput-elegant-2" formControlName="sellingPrice" required>
-                    <div *ngIf="sellingPrice.invalid && (sellingPrice.dirty || sellingPrice.touched)" class="">
-                        <div *ngIf="sellingPrice.errors.required" class="text-danger">
+                    <div *ngIf="f.sellingPrice.invalid && (f.sellingPrice.dirty || f.sellingPrice.touched)" class="">
+                        <div *ngIf="f.sellingPrice.errors.required" class="text-danger">
                             Number is required.
                         </div>
                     </div>
@@ -127,8 +137,8 @@
                     <label for="formAddBookImages">Main Image (*)</label>
                     <input type="text" id="formAddBookImages" name="formAddBookImages" class="form-control myInput-elegant-2" formControlName="images_main"
                         required>
-                    <div *ngIf="images_main.invalid && (images_main.dirty || images_main.touched)" class="">
-                        <div *ngIf="images_main.errors.required" class="text-danger">
+                    <div *ngIf="f.images_main.invalid && (f.images_main.dirty || f.images_main.touched)" class="">
+                        <div *ngIf="f.images_main.errors.required" class="text-danger">
                             Required a link.
                         </div>
                     </div>

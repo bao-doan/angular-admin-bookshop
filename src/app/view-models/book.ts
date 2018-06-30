@@ -20,7 +20,7 @@ export class Book {
     createDate: string;
     images: Image = new Image();
     size: Size = new Size();
-    genre: Genre = new Genre('');
+    genre: Genre = new Genre();
     
     constructor(
         // title: string

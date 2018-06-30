@@ -27,16 +27,12 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.loginAdminForm = this.fb.group({
-      username: ['', Validators.required],
+      username: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
     });
-    // reset login status
     // this.authService.logout();
-
-    // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
 
-    //test purpose
   }
   // convenience getter for easy access to form fields
   get f() { return this.loginAdminForm.controls; }
@@ -80,12 +76,9 @@ export class LoginComponent implements OnInit {
   }
   isLoggedIn(): void {
     let currentuser = JSON.parse(localStorage.getItem('currentUser'));
-    let confirmPopup = window.confirm(`You must logout before logging in as an another User\nDo you want to logout now?`);
     if (currentuser && currentuser.token) {
-      // store username and jwt token in local storage to keep user logged in between page refreshes
+      let confirmPopup = window.confirm(`You must logout before logging in as an another User\nDo you want to logout now?`);
       console.log(`Already logged in, User: ${currentuser.email} | Token: ${currentuser.token}`);
-      // alert(`You must logout before logging in as an another User`)
-      // return (valueOf(confirmPopup) == true)? this.authService.logout()
       if (confirmPopup == true) {
         this.authService.logout();
         alert('You are logged out');
