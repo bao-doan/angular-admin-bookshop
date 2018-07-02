@@ -17,7 +17,8 @@ export class ProductComponent implements OnInit {
   genre: Genre;
   books: Book[];
   selectedBook: Book = new Book();
-
+  // For Search/Filter
+  title: string;
   // For Pagination
   books2: Book[];
   step: number;
@@ -67,6 +68,7 @@ export class ProductComponent implements OnInit {
       this.onCountPages(z, this.step);
       this.onPrintLabel();
       this.checkPluralHandler();
+      this.onShowItems(this.selectedPage);
     });
   };
   getGenres(): void {
@@ -81,6 +83,8 @@ export class ProductComponent implements OnInit {
       .subscribe();
   }
   compareFn(optionOne: Genre, optionTwo: Genre): boolean {
+    optionOne = new Genre();
+    optionTwo = new Genre();
     return optionOne._id == optionTwo._id;
   }
   onCountPages(books: Book[], step: number): void {

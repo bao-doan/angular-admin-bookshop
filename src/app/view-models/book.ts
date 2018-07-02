@@ -23,23 +23,6 @@ export class Book {
     genre: Genre = new Genre();
     
     constructor(
-        // title: string
-        // genre: Genre
     ) {
-        //  this.title = '';
-        //  this.shortDescription = '';
-        //  this.fullDescription = fullDescription;
-        // this.publisher = publisher;
-        // this.author = author;
-        // this.pages = pages;
-        // this.weight = weight;
-        // this.sku = sku;
-        // this.previousPrice = previousPrice;
-        // this.sellingPrice = sellingPrice;
-        // this.releaseDate = releaseDate;
-   
-        //  this.images = new Image('');
-        // this.size = size;
-        // this.genre = new Genre('');
     }
 }

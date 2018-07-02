@@ -1,4 +1,4 @@
-<div class="input-group w-100">
+<!-- <div class="input-group w-100">
   <input #searchBox id="search-box" (keyup)="search(searchBox.value)" type="text" class="form-control" placeholder="Search product"
     aria-label="Search product" aria-describedby="basic-addon2">
   <div class="input-group-append">
@@ -9,4 +9,15 @@
 </div>
 <ul class="list-group w-100">
   <li class="list-group-item" *ngFor="let hero of heroes$ | async">{{hero.title}}</li>
-</ul>
+</ul> -->
+
+<!-- Verse 2 - Doing -->
+<div class="input-group w-100">
+  <input [(ngModel)]="title" id="search-box" (keyup)="search(searchBox.value)" type="text" class="form-control" placeholder="Search product"
+    aria-label="Search product" aria-describedby="basic-addon2">
+  <div class="input-group-append">
+    <button class="btn btn-outline-secondary" type="button">
+      <i class="fas fa-search"></i>
+    </button>
+  </div>
+</div>

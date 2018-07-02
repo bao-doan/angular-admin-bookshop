@@ -11,6 +11,9 @@ import { BookService } from '../services/book.service';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
+  //From: Custom Pipe
+  title: string;
+  // From: Angular Docs
   heroes$: Observable<Book[]>;
   private searchTerms = new Subject<string>();
 

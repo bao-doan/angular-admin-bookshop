@@ -59,7 +59,7 @@
                 <button type="button" class="btn btn-link px-0">Forgot password?</button>
               </div>
               <div class="col-12 mt-3">
-                <div *ngIf="error" class="text-danger"><i class="icon-close"></i> Email or Password is incorrect</div>
+                <div *ngIf="error" class="text-danger"><i class="icon-close"></i> Cannot login because: {{error.error.error}}</div>
               </div>
             </div>
           </form>
@@ -82,6 +82,10 @@
     </div>
     <div class="col-12">
       <p class="mb-0"><code>bao.guest.test@gmail.com</code></p>
+      <p class="mb-0"><code>123456</code></p>
+    </div>
+    <div class="col-12">
+      <p class="mb-0"><code>bao.doan.test.3@gmail.com</code></p>
       <p class="mb-0"><code>123456</code></p>
     </div>
   </div>

@@ -1,10 +1,8 @@
 <!-- Breadcrumb-->
 <app-breadcrumb [breadcrumbTitle]="componentTitle"></app-breadcrumb>
+<!-- ProductComponent -->
 <div class="container-fluid">
   <div class="row">
-    <div class="col-sm-6 col-md-4 mb-3">
-      <app-search></app-search>
-    </div>
     <div class="col-12 mb-3">
       <a routerLink="/product-add" href="" class="text-success">
         <i class="fas fa-plus-circle mr-2"></i>
@@ -12,6 +10,17 @@
       </a>
     </div>
     <div class="col-12">
+      <div class="form-group float-left">
+          <div class="input-group w-100">
+              <input [(ngModel)]="title" id="search-box" type="text" class="form-control" placeholder="Search product"
+                aria-label="Search product" aria-describedby="basic-addon2">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button">
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
+            </div>
+      </div>
         <div class="form-group float-right">
             <label class="sr-only" for="selectPagination">Items per Page</label>
             <select [(ngModel)]="step" (change)="onShowOption(step)" class="form-control myInput-elegant-3 w-auto" id="selectPagination" required>
@@ -23,6 +32,57 @@
             </select>
         </div>
     </div>
+    <!-- <div class="col-12 mb-3 table-responsive">
+      Results:
+      <table class="table table-striped table-hover table-outline mb-2">
+          <thead class="thead-light">
+            <tr>
+                <th>Product</th>
+                <th>Author</th>
+                <th>Publisher</th>
+            </tr>
+          </thead>
+          <tbody *ngIf="books" class="">
+            <tr *ngFor="let book of books | pipeFilter :title">
+                <td>{{book.title}}</td>
+                <td>{{book.author}}</td>
+                <td>{{book.publisher}}</td>
+            </tr>
+          </tbody>
+      </table>
+    </div> -->
+    <div class="col-12 mb-3 table-responsive">
+        <table class="table table-striped table-hover table-outline mb-2">
+          <thead class="thead-light sr-only">
+            <tr>
+              <th>No.</th>
+              <th>Product</th>
+              <th>Author</th>
+              <th>Publisher</th>
+              <th>
+                
+              </th>
+            </tr>
+          </thead>
+          <tbody *ngIf="books" class="">
+            <tr *ngFor="let book of books | pipeFilter :title" title="Click to view details" class="myCursor">
+  
+              <td (click)="onSelect(book)" data-target="#modalProductDetail" data-toggle="modal">{{books.indexOf(book) + 1}}</td>
+              <td (click)="onSelect(book)" data-target="#modalProductDetail" data-toggle="modal">{{book.title}}</td>
+              <td (click)="onSelect(book)" data-target="#modalProductDetail" data-toggle="modal">{{book.author}}</td>
+              <td (click)="onSelect(book)" data-target="#modalProductDetail" data-toggle="modal">{{book.publisher}}</td>
+              <td>
+                <span class="d-block text-right">
+                  <a (click)="onSelect(book)" class="mr-3" data-toggle="modal" title="Edit this item" data-target="#modalEdit" href="">Edit</a>
+                  <a (click)="onSelect(book)" class="text-danger" title="Remove" data-toggle="modal" data-target="#modalDelete" href="">Delete</a>
+                </span>
+              </td>
+            </tr>
+  
+          </tbody>
+        </table>
+      </div>
+    <!-- table -->
     <div class="col-12 mb-3 table-responsive">
       <table class="table table-striped table-hover table-outline mb-2">
         <thead class="thead-light">

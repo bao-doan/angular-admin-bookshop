@@ -31,6 +31,8 @@ import { fakeBackendProvider } from './_helpers';
 import { ProfileComponent } from './profile/profile.component';
 import { UserService } from './services/user.service';
 import { SearchComponent } from './search/search.component';
+import { AppCustomModule } from './app-custom/app-custom.module';
+import { PipeFilterPipe } from './app-custom/pipe-filter.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +50,7 @@ import { SearchComponent } from './search/search.component';
     LoginLayoutComponent,
     LoginComponent,
     ProfileComponent,
-    SearchComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -56,6 +58,7 @@ import { SearchComponent } from './search/search.component';
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    AppCustomModule,
     FroalaEditorModule.forRoot(),
     FroalaViewModule.forRoot()
   ],

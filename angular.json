@@ -31,7 +31,6 @@
               "node_modules/froala-editor/css/froala_style.min.css",
               "node_modules/font-awesome/css/font-awesome.min.css",
               "node_modules/simple-line-icons/css/simple-line-icons.css",
-              "node_modules/@fengyuanchen/datepicker/dist/datepicker.min.css",
               "src/styles.css"
             ],
             "scripts": [
@@ -43,7 +42,6 @@
               "node_modules/@coreui/coreui/dist/js/coreui.min.js",
               "node_modules/froala-editor/js/froala_editor.pkgd.min.js",
               "node_modules/@coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js",
-              "node_modules/@fengyuanchen/datepicker/dist/datepicker.min.js",
               "src/assets/js/main.js"
 
             ]

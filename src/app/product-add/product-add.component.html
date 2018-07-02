@@ -14,10 +14,6 @@
                 <button type="submit" (click)="onSaveBook()" [disabled]="bookForm.invalid" class="btn btn-success rounded-0 float-right">
                     <i class="fas fa-plus"></i> Create</button>
             </div>
-            <div class="col-12">
-                <p><span class="text-danger">Form value:</span> {{ bookForm.value | json }}</p>
-                <p><span class="text-danger">Form status:</span> {{ bookForm.status | json }}</p>
-            </div>
             <div class="col-12 mb-3">
                 <div class="form-group">
                     <label for="formAddBookTitle">Title (*)</label>
@@ -66,7 +62,6 @@
                 </div>
             </div>
             <div class="col-12 col-sm-6 col-md-4 mb-3">
-                <!-- {{f.genre.value.name}} -->
                 <div class="form-group">
                     <label (click)="getGenre()" for="formAddBookSelectGenre">Genre (*)</label>
                     <select *ngIf="genres" class="form-control myInput-elegant-2" id="formAddBookSelectGenre" formControlName="genre" required>
@@ -93,14 +88,10 @@
             </div>
             <div class="col-12 col-sm-6 col-md-4 mb-3">
                 <div class="form-group">
-                    <p>{{f.releaseDate.value}}</p>
                     <label for="formAddBookReleaseDate">Release Date</label>
-                    <input type="text" value="datepicker" data-toggle="datepicker" id="formAddBookReleaseDate" name="formAddBookReleaseDate" class="form-control myInput-elegant-2"
-                        formControlName="releaseDate" placeholder="mm/md/yyyy">
+                    <input type="date" id="formAddBookReleaseDate" name="formAddBookReleaseDate" class="form-control myInput-elegant-2"
+                        formControlName="releaseDate" placeholder="">
                 </div>
-            </div>
-            <div class="col-12">
-                Demo datepicker
             </div>
             <div class="col-12 col-sm-6 col-md-4 mb-3">
                 <div class="form-group">
@@ -196,13 +187,13 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Missing data</h5>
+                <h5 class="modal-title">Missing information</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <p>There are some fields are missing data</p>
+                <p>it looks like you have left some fields empty</p>
                 <p class="text-danger">Pages, Weight, ...</p>
                 <p>Do you want to check again?</p>
             </div>

@@ -42,7 +42,11 @@ admin 1.0.22 -
     + Remove RegisterComponent from Admin (migrated to Shop Project)
     + Add functions preventing re-login without logout.
     + Add function 'checkPluralHandler()' checking plural grammar for ProductComponent.
-admin 1.0.23 - ProductAddComponent using FormBuilder, the datepicker can't bind data to Input Element
+admin 1.0.23 - ProductAddComponent using FormBuilder, the datepicker can't bind data to Input Element.
+admin 1.0.24 - Remove all 3rd-party Datepicker, use input with type="date" only.
+admin 1.0.25 -
+    + Added: AppCustomModule holds PipeFilterPipe
+    + ProductComponent: add Search/Filter products by title.
 <!-- ------------------------------------------------------------------------------------------------------ -->
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.1.
 ## Development server
