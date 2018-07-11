@@ -8,7 +8,6 @@ const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' 
 })
 };
-
 @Injectable({
   providedIn: 'root'
 })
@@ -54,5 +53,5 @@ export class GenreService {
       return false;
     }
   } // Note: this onType() makes button disabled when there is no value in Input
-
 }
+

@@ -34,6 +34,9 @@
     --myColorC2: ;
     --myColorC3: ;
 }
+.myBody-buffer {
+    height: 50vh; /* body buffer for very-short-content pages*/
+}
 input,a,button,textarea,select:focus {
     outline: none !important;
     box-shadow: none !important;
@@ -42,7 +45,7 @@ input,a,button,textarea,select:focus {
 .myText-warm {
     color: var(--myOrange);
 }
-.myCursor>td[data-target] {
+.myCursor>td[data-target], .myCursor>li[data-target], .myCursor>span[data-target] {
     cursor: pointer;
 }
 .myInput-elegant {
@@ -115,9 +118,27 @@ However, delay the fade out process for 2.5 seconds */
 .myText-link-2 {
     color: var(--myBlueGray2);
     text-decoration: none;
+    border: none;
+    background: transparent;
+    cursor: pointer;
 }
 .myText-link:hover, .myText-link-2:hover {
     color: var(--myOrange);
+}
+.myIcon-inside {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+}
+.mySearch {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    height: 300px;
+    overflow-Y: scroll;
+    
 }
 /* Animations to fade the snackbar in and out */
 @-webkit-keyframes fadein {

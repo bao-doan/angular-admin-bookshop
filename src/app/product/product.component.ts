@@ -6,6 +6,7 @@ import { Genre } from '../view-models/genre';
 import { Image } from '../view-models/image';
 import { Size } from '../view-models/size';
 
+
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -35,6 +36,7 @@ export class ProductComponent implements OnInit {
     this.getGenres();
     this.step = 5;
   }
+  // Select book when click
   onSelect(book: Book): void {
     this.selectedBook = book;
     if (this.selectedBook.pages == null) {
@@ -61,6 +63,7 @@ export class ProductComponent implements OnInit {
       this.selectedBook.size = new Size();
     }
   }
+  // For sending HTTP requests to GET, PUT, DELETE data
   getBooks(): void {
     this.bookService.getBooks().subscribe(z => {
       this.books = z;
@@ -82,11 +85,13 @@ export class ProductComponent implements OnInit {
     this.bookService.updateBook(this.selectedBook)
       .subscribe();
   }
+  // For Select genre of Selected book to Edit
   compareFn(optionOne: Genre, optionTwo: Genre): boolean {
     optionOne = new Genre();
     optionTwo = new Genre();
     return optionOne._id == optionTwo._id;
   }
+  // For Pagination
   onCountPages(books: Book[], step: number): void {
     let items = this.books.length;
     let pages: number;
@@ -132,29 +137,22 @@ export class ProductComponent implements OnInit {
     this.onShowItems(1);
   }
   onNextPage(selectedPage: number): void {
-    // if(selectedPage < this.pages) {
-
-    //   this.selectedPage = selectedPage + 1;
-    // } else {
-    //   this.selectedPage = selectedPage;
-    // }
     this.selectedPage = (selectedPage < this.pages) ? (this.selectedPage = selectedPage + 1) : (this.selectedPage = selectedPage);
     this.onShowItems(this.selectedPage);
     console.log(`Triggered "Next" ${this.selectedPage}/${this.pages}`);
   }
   onPrevPage(selectedPage: number): void {
-    // if(selectedPage > 1) {
-
-    //   this.selectedPage = selectedPage - 1;
-    // } else {
-    //   this.selectedPage = 1;
-    // }
     this.selectedPage = (selectedPage > 1) ? (this.selectedPage = selectedPage - 1) : (this.selectedPage = 1);
     this.onShowItems(this.selectedPage);
     console.log(`Triggered "Prev" ${this.selectedPage}/${this.pages}`);
   }
-  checkPluralHandler():void {
-    this.checkPluralBooks = (this.books.length > 1) ? "items":"item";
-    this.checkPluralItems = (this.books2.length > 1) ? "items":"item";
+  // For Check Prural 'item' or 'items'
+  checkPluralHandler(): void {
+    this.checkPluralBooks = (this.books.length > 1) ? "items" : "item";
+    this.checkPluralItems = (this.books2.length > 1) ? "items" : "item";
+  }
+  // For clear search button
+  onClearSearch() {
+    this.title = '';
   }
 }

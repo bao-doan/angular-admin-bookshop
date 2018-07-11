@@ -19,59 +19,59 @@ export class ProductAddComponent implements OnInit {
   bookForm: FormGroup;
   constructor(
     private fb: FormBuilder,
-    private bookService: BookService, 
+    private bookService: BookService,
     private genreService: GenreService
   ) {
-   
-   }
+
+  }
 
   ngOnInit() {
     this.createAddForm();
   }
   createAddForm() {
     this.getGenres();
-    this.objectBook = new Book();
-      this.bookForm = this.fb.group({
-        title: ['',[Validators.required, Validators.minLength(4)]],
-        author: ['',[Validators.required, Validators.minLength(4)]],
-        publisher: ['',[Validators.required, Validators.minLength(4)]],
-        pages: [''],
-        weight: [''],
-        releaseDate: [''],
-        sku: [''],
-        previousPrice: ['', [Validators.required]],
-        sellingPrice: ['', [Validators.required]],
-        images_main: ['', [Validators.required]],
-        size_width: [''],
-        size_height: [''],
-        size_depth: [''],
-        shortDescription: [''],
-        fullDescription: [''],
-        genre: ['',[Validators.required]]
-      });
-    }
-    get f() {return this.bookForm.controls}
-  onSaveBook():void {
-  // Assign value from bookForm to objectBook
-  this.objectBook.title = this.f.title.value;
-  this.objectBook.author = this.f.author.value;
-  this.objectBook.publisher = this.f.publisher.value;
-  this.objectBook.genre._id = this.f.genre.value._id;
-  this.objectBook.genre.name = this.f.genre.value.name;
-  this.objectBook.pages = this.f.pages.value;
-  this.objectBook.weight = this.f.weight.value;
-  this.objectBook.releaseDate = this.f.releaseDate.value;
-  this.objectBook.sku = this.f.sku.value;
-  this.objectBook.previousPrice = this.f.previousPrice.value;
-  this.objectBook.sellingPrice = this.f.sellingPrice.value;
-  this.objectBook.images.main = this.f.images_main.value;
-  this.objectBook.size.width = this.f.size_width.value;
-  this.objectBook.size.height = this.f.size_height.value;
-  this.objectBook.size.depth = this.f.size_depth.value;
-  this.objectBook.shortDescription = this.f.shortDescription.value;
-  this.objectBook.fullDescription = this.f.fullDescription.value;
-  // End of Assigning
-  this.addBook();
+    // this.objectBook = new Book();
+    this.bookForm = this.fb.group({
+      title: ['', [Validators.required, Validators.minLength(4)]],
+      author: ['', [Validators.required, Validators.minLength(4)]],
+      publisher: ['', [Validators.required, Validators.minLength(4)]],
+      pages: [''],
+      weight: [''],
+      releaseDate: [''],
+      sku: [''],
+      previousPrice: ['', [Validators.required]],
+      sellingPrice: ['', [Validators.required]],
+      images_main: ['', [Validators.required]],
+      size_width: [''],
+      size_height: [''],
+      size_depth: [''],
+      shortDescription: [''],
+      fullDescription: [''],
+      genre: ['', [Validators.required]]
+    });
+  }
+  get f() { return this.bookForm.controls }
+  onSaveBook(): void {
+    // Assign value from bookForm to objectBook
+    this.objectBook.title = this.f.title.value;
+    this.objectBook.author = this.f.author.value;
+    this.objectBook.publisher = this.f.publisher.value;
+    this.objectBook.genre._id = this.f.genre.value._id;
+    this.objectBook.genre.name = this.f.genre.value.name;
+    this.objectBook.pages = this.f.pages.value;
+    this.objectBook.weight = this.f.weight.value;
+    this.objectBook.releaseDate = this.f.releaseDate.value;
+    this.objectBook.sku = this.f.sku.value;
+    this.objectBook.previousPrice = this.f.previousPrice.value;
+    this.objectBook.sellingPrice = this.f.sellingPrice.value;
+    this.objectBook.images.main = this.f.images_main.value;
+    this.objectBook.size.width = this.f.size_width.value;
+    this.objectBook.size.height = this.f.size_height.value;
+    this.objectBook.size.depth = this.f.size_depth.value;
+    this.objectBook.shortDescription = this.f.shortDescription.value;
+    this.objectBook.fullDescription = this.f.fullDescription.value;
+    // End of Assigning
+    this.addBook();
   }
   getGenres(): void {
     this.genreService.getGenres().subscribe(__ => this.genres = __);

@@ -10,8 +10,8 @@ export class PipeFilterPipe implements PipeTransform {
       return null;
     } else {
       if (title) {
-        books = books.filter(x => {
-          return x.title.toLowerCase().toString().indexOf(title.toLowerCase()) != -1;
+        books = books.filter(b => {
+          return b.title.toLowerCase().toString().indexOf(title.toLowerCase()) != -1;
         });
         return books;
       }

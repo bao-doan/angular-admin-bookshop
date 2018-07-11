@@ -47,6 +47,7 @@ admin 1.0.24 - Remove all 3rd-party Datepicker, use input with type="date" only.
 admin 1.0.25 -
     + Added: AppCustomModule holds PipeFilterPipe
     + ProductComponent: add Search/Filter products by title.
+admin 1.0.26 - UI for search Product in ProductComponent (need Improvement).
 <!-- ------------------------------------------------------------------------------------------------------ -->
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.1.
 ## Development server

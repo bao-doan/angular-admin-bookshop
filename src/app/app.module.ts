@@ -33,6 +33,7 @@ import { UserService } from './services/user.service';
 import { SearchComponent } from './search/search.component';
 import { AppCustomModule } from './app-custom/app-custom.module';
 import { PipeFilterPipe } from './app-custom/pipe-filter.pipe';
+import { NotFoundComponent } from './not-found/not-found.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +51,8 @@ import { PipeFilterPipe } from './app-custom/pipe-filter.pipe';
     LoginLayoutComponent,
     LoginComponent,
     ProfileComponent,
-    SearchComponent
+    SearchComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
