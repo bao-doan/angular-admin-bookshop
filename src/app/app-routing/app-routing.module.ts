@@ -9,6 +9,7 @@ import { OrderComponent } from '../order/order.component';
 import { UserComponent } from '../user/user.component';
 import { StaffComponent } from '../staff/staff.component';
 import { ProfileComponent } from '../profile/profile.component';
+import { BannerComponent } from '../banner/banner.component';
 
 import { AuthGuard } from '../auth/auth.guard';
 import { HomeLayoutComponent } from '../home-layout/home-layout.component';
@@ -34,6 +35,7 @@ const routes: Routes = [
       { path: 'category', component: CategoryComponent },
       { path: 'product', component: ProductComponent },
       { path: 'product-add', component: ProductAddComponent },
+      { path: 'banner', component: BannerComponent },
       { path: 'manage-order', component: OrderComponent },
       { path: 'manage-user', component: UserComponent },
       { path: 'manage-staff', component: StaffComponent }

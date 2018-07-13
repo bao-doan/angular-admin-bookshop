@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "admin-angular": {
+    "angular-admin-bookshop": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/admin-angular",
+            "outputPath": "dist/angular-admin-bookshop",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -69,18 +69,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "admin-angular:build"
+            "browserTarget": "angular-admin-bookshop:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "admin-angular:build:production"
+              "browserTarget": "angular-admin-bookshop:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "admin-angular:build"
+            "browserTarget": "angular-admin-bookshop:build"
           }
         },
         "test": {
@@ -114,7 +114,7 @@
         }
       }
     },
-    "admin-angular-e2e": {
+    "angular-admin-bookshop-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -122,7 +122,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "admin-angular:serve"
+            "devServerTarget": "angular-admin-bookshop:serve"
           }
         },
         "lint": {
@@ -137,5 +137,5 @@
       }
     }
   },
-  "defaultProject": "admin-angular"
+  "defaultProject": "angular-admin-bookshop"
 }

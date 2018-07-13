@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Book } from '../view-models/book';
-import { BookService } from '../services/book.service';
+import { Order } from '../view-models/order';
+import { OrderService } from '../services/order.service';
 
 @Component({
   selector: 'app-order',
@@ -9,18 +9,18 @@ import { BookService } from '../services/book.service';
 })
 export class OrderComponent implements OnInit {
   componentTitle: string = 'Manage Orders';
-  books: Book[];
-  selectedBook: Book;
-  constructor(private bookServive: BookService) { }
+  orders: Order[];
+  selectedOrder: Order;
+  constructor(private orderService: OrderService) { }
 
   ngOnInit() {
-    this.getBooks();
+    this.getOrders();
   }
-  onSelect(book):void {
-    this.selectedBook = book;
+  onSelect(order: Order):void {
+    this.selectedOrder = order;
   }
-  getBooks(): void {
-    this.bookServive.getBooks().subscribe(_ => this.books = _);
+  getOrders(): void {
+    this.orderService.getOrders().subscribe(_ => this.orders = _);
   }
 
 }

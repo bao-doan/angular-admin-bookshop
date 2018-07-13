@@ -1,20 +1,21 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Book } from '../view-models/book';
-// Optional
-import { catchError, map, tap } from 'rxjs/operators';
-//End of Optional
+import { Banner } from '../view-models/banner';
+
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json'})
 };
+
 @Injectable({
   providedIn: 'root'
 })
 
 export class BookService {
   private booksUrl = 'http://green-web-bookshop.herokuapp.com/api/books';
-
+  private bannersUrl = 'http://green-web-bookstore.herokuapp.com/api/banners';
   constructor(private http: HttpClient) { }
   /** GET api-s from the server */
   getBooks(): Observable<Book[]> {
@@ -64,4 +65,19 @@ export class BookService {
     console.log('HeroService: ' + message);
   }
   // End of Search Handling
+  getBanners(): Observable<Banner[]> {
+    return this.http.get<Banner[]>(this.bannersUrl);
+  }
+  addBanner(banner: Banner): Observable<Banner> {
+    return this.http.post<Banner>(this.bannersUrl, banner, httpOptions);
+  }
+  updateBanner(banner: Banner): Observable<Banner> {
+    const url = `${this.bannersUrl}/${banner._id}`;
+    return this.http.put<Banner>(url, banner, httpOptions )
+  }
+  deleteBanner(banner: Banner): Observable<Banner> {
+    // const id = typeof genre === 'string' ? genre : genre._id;
+    const url = `${this.bannersUrl}/${banner._id}`;
+    return this.http.delete<Banner>(url, httpOptions);
+  }
 }

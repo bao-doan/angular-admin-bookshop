@@ -35,9 +35,6 @@
                     </div>
             </li>
         </ul>
-
-
-
     </header>
     <div class="app-body">
         <div class="sidebar">
@@ -53,17 +50,7 @@
                             <i class="fas fa-user nav-icon"></i> Profile
                         </a>
                     </li>
-                    <li class="nav-title text-warning">ACCOUNTS</li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" routerLink="/manage-user" routerLinkActive="active">
-                            <i class="far fa-address-book nav-icon"></i> Manage Users
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" routerLink="/manage-staff" routerLinkActive="active">
-                            <i class="far fa-address-book nav-icon"></i> Manage Staffs
-                        </a>
-                    </li>
+                    
                     <li class="nav-title text-warning">SHOP</li>
                     <li class="nav-item">
                         <a class="nav-link" href="" routerLink="/category" routerLinkActive="active">
@@ -80,42 +67,27 @@
                             <i class="fas fa-book nav-icon"></i> Purchase Orders
                         </a>
                     </li>
-
-                    <li class="nav-title text-warning">ARTICLES</li>
+                    <li class="nav-title text-warning">ACCOUNTS</li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" routerLinkActive="active">
-                            <i class="far fa-newspaper nav-icon"></i> Articles
+                        <a class="nav-link" href="#" routerLink="/manage-user" routerLinkActive="active">
+                            <i class="far fa-address-book nav-icon"></i> Manage Users
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" routerLinkActive="active">
-                            <i class="far fa-newspaper nav-icon"></i> Add Article
+                            <a class="nav-link" href="#" routerLink="/manage-staff" routerLinkActive="active">
+                                <i class="far fa-address-book nav-icon"></i> Manage Staffs
+                            </a>
+                        </li>
+                    <li class="nav-title text-warning">BANNERS</li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" routerLink="/banner" routerLinkActive="active">
+                            <i class="far fa-newspaper nav-icon"></i> All Banners
                         </a>
                     </li>
-
-                    <li class="nav-title text-warning">EXTENSION</li>
-
-                    <li class="nav-item nav-dropdown">
-                        <a class="nav-link nav-dropdown-toggle" href="#">
-                            <i class="fas fa-list-ul nav-icon"></i> Building</a>
-                        <ul class="nav-dropdown-items">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <i class="nav-icon"></i> One</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <i class="nav-icon"></i> Two</a>
-                            </li>
-                        </ul>
-                    </li>
-
                 </ul>
             </nav>
         </div>
         <main class="main">
-
-
             <!-- Main content -->
             <router-outlet></router-outlet>
         </main>

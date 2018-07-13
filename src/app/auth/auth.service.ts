@@ -10,6 +10,7 @@ const httpOptions = {
 @Injectable()
 export class AuthService {
   private loginUrl = 'http://green-web-ecommerce.herokuapp.com/v1/users/login';
+  private demo = "http://green-web-bookshop.herokuapp.com/api/orders/login"
   constructor(
     private http: HttpClient,
     private router: Router

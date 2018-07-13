@@ -1,0 +1,188 @@
+<app-breadcrumb [breadcrumbTitle]="componentTitle"></app-breadcrumb>
+<div class="container">
+  <div class="row">
+    <div class="col-12 mb-3">
+      <button class="myText-link-2 text-success" data-toggle="modal" data-target="#modalAddBanner">
+        <i class="fas fa-plus-circle mr-2"></i>
+        <span class="text-underline">Add new banner</span>
+      </button>
+    </div>
+    <!-- table -->
+    <div class="col-12 mb-3 table-responsive">
+      <table class="table table-striped table-hover table-outline mb-2">
+        <thead class="thead-light">
+          <tr>
+            <th>No.</th>
+            <th>Title</th>
+            <th>Create Date</th>
+            <th>
+              <button (click)="getBanners()" class="btn btn-link p-0 d-block ml-auto" type="button">
+                <i class="fas fa-sync-alt"></i> Refresh</button>
+            </th>
+          </tr>
+        </thead>
+        <tbody *ngIf="banners" class="">
+          <tr *ngFor="let banner of banners" title="Click to view details" class="myCursor">
+
+            <td (click)="onSelectBanner(banner)" data-target="#modalDetailBanner" data-toggle="modal">{{banners.indexOf(banner) + 1}}</td>
+            <td (click)="onSelectBanner(banner)" data-target="#modalDetailBanner" data-toggle="modal">{{banner.title}}</td>
+            <td (click)="onSelectBanner(banner)" data-target="#modalDetailBanner" data-toggle="modal">{{banner.createDate | date:'mediumDate'}}</td>
+            <td>
+              <span class="d-block text-right">
+                <a (click)="onSelectBanner(banner)" class="mr-3" data-toggle="modal" title="Edit this item" data-target="#modaleEditBanner"
+                  href="">Edit</a>
+                <a (click)="onSelectBanner(banner)" class="text-danger" title="Remove" data-toggle="modal" data-target="#modalDeleteBanner"
+                  href="">Delete</a>
+              </span>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+      <p class="text-muted">Displaying {{banners?.length || '0'}} {{(banners?.length > 1) ? 'items' : 'item'}} out of {{banners?.length|| '0'}}
+        {{(banners?.length > 1) ? 'items' : 'item'}}</p>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <!-- MODAL: Details -->
+      <div id="modalDetailBanner" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Banner Details</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="container-fluid">
+                <div class="row" *ngIf="selectedBanner">
+                  <div class="col-12 mb-2">
+                    <p>{{selectedBanner.title}}</p>
+                    <img src="{{selectedBanner.imageUrl}}" alt="" class="w-100">
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button data-dismiss="modal" type="button" class="btn btn-primary">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal: DELETE -->
+      <div *ngIf="selectedBanner" id="modalDeleteBanner" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Confirm delete</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Are you sure want to delete?</p>
+              <b class="text-danger mb-3">{{selectedBanner.title}} </b>
+              <img src="{{selectedBanner.imageUrl}}" alt="" class="d-block w-100">
+            </div>
+            <div class="modal-footer">
+              <button (click)="deleteBanner()" data-dismiss="modal" type="button" class="btn btn-primary">Delete</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Keep</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal: ADD BANNER -->
+      <div class="modal fade" id="modalAddBanner" tabindex="0" role="dialog" aria-labelledby="modalAddBannerLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modalAddBannerLabel">Add Banner</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-12 mb-3">
+                    <div class="form-group">
+                      <label for="formAddBannerTitle">Title</label>
+                      <input [(ngModel)]="objectBanner.title" type="text" id="formAddBannerTitle" name="formAddBanner" class="form-control myInput-elegant-2"
+                        placeholder="">
+                    </div>
+                  </div>
+                  <div class="col-12 mb-3">
+                    <div class="form-group">
+                      <label for="formAddBannerImage">Image URL</label>
+                      <input [(ngModel)]="objectBanner.imageUrl" type="text" id="formAddBannerImage" name="formAddBannerImage" class="form-control myInput-elegant-2"
+                        placeholder="">
+                    </div>
+                  </div>
+                  <div class="col-12 mb-3">
+                    <div class="form-group">
+                      <label for="formAddBannerDescription">Description</label>
+                      <textarea [(ngModel)]="objectBanner.description" class="form-control myInput-elegant-2" id="formAddBannerDescription" rows="4"></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button (click)="addBanner()" type="button" class="btn btn-primary" data-dismiss="modal">Create new banner</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal: EDIT BANNER -->
+      <div *ngIf="selectedBanner" class="modal fade" id="modaleEditBanner" tabindex="-1" role="dialog" aria-labelledby="modaleEditBannerLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modaleEditBannerLabel">Edit Product</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-12 mb-3">
+                    <div class="form-group">
+                      <label for="formeEditBannerTitle">Title</label>
+                      <input [(ngModel)]="selectedBanner.title" type="text" id="formeEditBannerTitle" name="formEditBanner" class="form-control myInput-elegant-2"
+                        placeholder="">
+                    </div>
+                  </div>
+                  <div class="col-12 mb-3">
+                    <div class="form-group">
+                      <label for="formeEditBannerImage">Image URL</label>
+                      <input [(ngModel)]="selectedBanner.imageUrl" type="text" id="formeEditBannerImage" name="formeEditBannerImage" class="form-control myInput-elegant-2"
+                        placeholder="">
+                    </div>
+                  </div>
+                  <div class="col-12 mb-3">
+                    <div class="form-group">
+                      <label for="formeEditBannerDescription">Description</label>
+                      <textarea [(ngModel)]="selectedBanner.description" class="form-control myInput-elegant-2" id="formeEditBannerDescription" rows="4"></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button (click)="updateBanner()" type="button" class="btn btn-primary" data-dismiss="modal">Save Changes</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

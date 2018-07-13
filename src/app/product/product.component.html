@@ -80,7 +80,7 @@
 
         </tbody>
       </table>
-      <p class="text-muted">Displaying {{books2?.length || '0'}} {{(book2?.length > 1) ? 'items' : 'item'}} out of {{books?.length|| '0'}} {{(books?.length
+      <p class="text-muted">Displaying {{books2?.length || '0'}} {{(books2?.length > 1) ? 'items' : 'item'}} out of {{books?.length|| '0'}} {{(books?.length
         > 1) ? 'items' : 'item'}}</p>
     </div>
     <!-- Pagination -->
@@ -185,7 +185,7 @@
                   </tr>
                   <tr>
                     <th scope="row">Release Date</th>
-                    <td>{{selectedBook.releaseDate}}</td>
+                    <td>{{selectedBook.releaseDate | date:'mediumDate'}}</td>
                   </tr>
 
                 </tbody>

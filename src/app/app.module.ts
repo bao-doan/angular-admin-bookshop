@@ -34,6 +34,7 @@ import { SearchComponent } from './search/search.component';
 import { AppCustomModule } from './app-custom/app-custom.module';
 import { PipeFilterPipe } from './app-custom/pipe-filter.pipe';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { BannerComponent } from './banner/banner.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +53,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     LoginComponent,
     ProfileComponent,
     SearchComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    BannerComponent
   ],
   imports: [
     BrowserModule,
