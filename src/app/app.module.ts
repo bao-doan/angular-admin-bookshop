@@ -30,11 +30,9 @@ import { JwtInterceptor } from './_helpers';
 import { fakeBackendProvider } from './_helpers';
 import { ProfileComponent } from './profile/profile.component';
 import { UserService } from './services/user.service';
-import { SearchComponent } from './search/search.component';
 import { AppCustomModule } from './app-custom/app-custom.module';
 import { PipeFilterPipe } from './app-custom/pipe-filter.pipe';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { BannerComponent } from './banner/banner.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,9 +50,7 @@ import { BannerComponent } from './banner/banner.component';
     LoginLayoutComponent,
     LoginComponent,
     ProfileComponent,
-    SearchComponent,
-    NotFoundComponent,
-    BannerComponent
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

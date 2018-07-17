@@ -49,6 +49,7 @@ admin 1.0.25 -
     + ProductComponent: add Search/Filter products by title.
 admin 1.0.26 - UI for search Product in ProductComponent (need Improvement).
 admin 1.0.27 - Save codes.
+admin 1.0.28 - Save codes.
 <!-- ------------------------------------------------------------------------------------------------------ -->
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.1.
 ## Development server

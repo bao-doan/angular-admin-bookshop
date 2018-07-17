@@ -2,7 +2,7 @@
  <app-breadcrumb [breadcrumbTitle]="componentTitle"></app-breadcrumb>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-sm-6 col-md-4 mb-3">
+    <!-- <div class="col-sm-6 col-md-4 mb-3">
       <div class="input-group">
         <input type="text" class="form-control" placeholder="Search order" aria-label="Search order" aria-describedby="basic-addon2">
         <div class="input-group-append">
@@ -11,7 +11,7 @@
           </button>
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="col-12 mb-3">
         <button (click)="getOrders()" class="btn btn-link p-0 d-block float-right" type="button"><i class="fas fa-sync-alt"></i> Refresh</button>
     </div>
@@ -20,22 +20,21 @@
         <thead class="thead-light">
           <tr>
             <th>Order ID</th>
-            <th>Customer</th>
+            <th>Customer Email</th>
             <th>Amount</th>
           </tr>
         </thead>
         <tbody *ngIf="orders" class="">
           <tr *ngFor="let order of orders" title="Click to view details" class="myCursor">
             <td (click)="onSelect(order)" data-target="#modalProductDetail" data-toggle="modal">{{order._id}}</td>
-            <td (click)="onSelect(order)" data-target="#modalProductDetail" data-toggle="modal">{{order._user.email}}</td>
+            <td (click)="onSelect(order)" data-target="#modalProductDetail" data-toggle="modal">{{order._user?.email}}</td>
             <td (click)="onSelect(order)" data-target="#modalProductDetail" data-toggle="modal">{{order.total | currency:'VND'}}</td>
           </tr>
         </tbody>
       </table>
-      <p>Displaying {{orders?.length || '0 item'}}
-          <span *ngIf="orders?.length == 1">item</span> 
-          <span *ngIf="orders?.length == 0">item</span> 
-          <span *ngIf="orders?.length">items</span> 
+      <p *ngIf="orders">Displaying {{orders?.length || '0'}}
+          <span *ngIf="orders?.length <= 1">item</span> 
+          <span *ngIf="orders?.length > 1">items</span> 
         </p>
     </div>
   </div>

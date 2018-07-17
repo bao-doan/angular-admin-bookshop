@@ -4,7 +4,7 @@
       <div class="card p-4">
         <div class="card-body">
           <h3>Login</h3>
-          <p class="text-muted">Sign In to your account</p>
+          <p class="text-muted">You are signing in as an Administrator.</p>
           <form [formGroup]="loginAdminForm" (ngSubmit)="onSubmit()">
 
             <div class="form-group mb-3">
@@ -14,7 +14,7 @@
                     <i class="icon-user"></i>
                   </span>
                 </div>
-                <input formControlName="username" required type="text" class="form-control text-truncate" placeholder="Email" autofocus>
+                <input formControlName="username" required type="text" class="form-control text-truncate rounded-0" placeholder="Email" autofocus>
                
               </div>
               <div *ngIf="submitted && f.username.errors" class="text-danger">
@@ -25,18 +25,19 @@
             
            
             <div class="form-group mb-3">
-              <div class="input-group position-relative">
+              <div class="input-group position-relative rounded-circle">
                 <div class="input-group-prepend">
                   <span class="input-group-text">
                     <i class="icon-lock"></i>
                   </span>
                 </div>
                 <input formControlName="password" required [type]="show" class="form-control text-truncate" placeholder="Password">
-                <div class="input-group-prepend bg-none border-0">
-                  <span class="input-group-text">
-                    <button (click)="onToggle()" type="button"  class="myText-link myIcon-inside text-muted"><i *ngIf="!value" class="far fa-eye"></i><i *ngIf="value" class="far fa-eye-slash"></i></button>
-                  </span>
-                </div>
+                   
+                    <!-- <div class="input-group-append"> -->
+                      <!-- <span class="input-group-text"> -->
+                        <button (click)="onToggle()" type="button"  class="myText-link myIcon-inside text-muted"><i *ngIf="!value" class="far fa-eye"></i><i *ngIf="value" class="far fa-eye-slash"></i></button>
+                      <!-- </span> -->
+                    <!-- </div> -->
                 
               </div>
               <div *ngIf="submitted && f.password.errors" class="text-danger">
@@ -55,38 +56,16 @@
                 <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
                 />
               </div>
-              <div class="col-6 text-right">
+              <div class="col-12">
                 <button type="button" class="btn btn-link px-0">Forgot password?</button>
               </div>
               <div class="col-12 mt-3">
-                <div *ngIf="error" class="text-danger"><i class="icon-close"></i> Cannot login because: {{error.error.error}}</div>
+                <div *ngIf="error" class="text-danger"><i class="icon-close"></i> Cannot login because: <b>{{error.error.error}}</b></div>
               </div>
             </div>
           </form>
         </div>
       </div>
-    </div>
-  </div>
-  <div class="row text-center">
-    <div class="col-12">
-      <p class="mb-0"><code>baodoan.user.test@gmail.ccom</code></p>
-      <p class="mb-0"><code>123456</code></p>
-    </div>
-    <div class="col-12">
-      <p class="mb-0"><code>baodoan.test.uesr@gmail.com</code></p>
-      <p class="mb-0"><code>654321</code></p>
-    </div>
-    <div class="col-12">
-      <p class="mb-0"><code>hello.world.test.x@gmail.com</code></p>
-      <p class="mb-0"><code>123456</code></p>
-    </div>
-    <div class="col-12">
-      <p class="mb-0"><code>bao.guest.test@gmail.com</code></p>
-      <p class="mb-0"><code>123456</code></p>
-    </div>
-    <div class="col-12">
-      <p class="mb-0"><code>bao.doan.test.3@gmail.com</code></p>
-      <p class="mb-0"><code>123456</code></p>
     </div>
   </div>
 </div>

@@ -1,6 +1,6 @@
 <!-- Breadcrumb-->
 <app-breadcrumb [breadcrumbTitle]="componentTitle"></app-breadcrumb>
-<div class="container-fluid" *ngIf="user">
+<div class="container-fluid" *ngIf="user.first">
     <div class="row mt-4">
         <div class="col-12">
           <h3 *ngIf="user">Welcome <span class="text-success">{{user.first}} {{user.last}}</span> !</h3>
