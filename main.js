@@ -335,12 +335,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _user_user_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../user/user.component */ "./src/app/user/user.component.ts");
 /* harmony import */ var _staff_staff_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../staff/staff.component */ "./src/app/staff/staff.component.ts");
 /* harmony import */ var _profile_profile_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../profile/profile.component */ "./src/app/profile/profile.component.ts");
-/* harmony import */ var _banner_banner_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../banner/banner.component */ "./src/app/banner/banner.component.ts");
-/* harmony import */ var _auth_auth_guard__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../auth/auth.guard */ "./src/app/auth/auth.guard.ts");
-/* harmony import */ var _home_layout_home_layout_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../home-layout/home-layout.component */ "./src/app/home-layout/home-layout.component.ts");
-/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../home/home.component */ "./src/app/home/home.component.ts");
-/* harmony import */ var _login_layout_login_layout_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../login-layout/login-layout.component */ "./src/app/login-layout/login-layout.component.ts");
-/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../login/login.component */ "./src/app/login/login.component.ts");
+/* harmony import */ var _auth_auth_guard__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../auth/auth.guard */ "./src/app/auth/auth.guard.ts");
+/* harmony import */ var _home_layout_home_layout_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../home-layout/home-layout.component */ "./src/app/home-layout/home-layout.component.ts");
+/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../home/home.component */ "./src/app/home/home.component.ts");
+/* harmony import */ var _login_layout_login_layout_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../login-layout/login-layout.component */ "./src/app/login-layout/login-layout.component.ts");
+/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../login/login.component */ "./src/app/login/login.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -362,26 +361,24 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
-
 var routes = [
     { path: '', redirectTo: 'product', pathMatch: 'full' },
-    // { path: '**', redirectTo: '' },
-    { path: '', component: _login_layout_login_layout_component__WEBPACK_IMPORTED_MODULE_14__["LoginLayoutComponent"], children: [
-            // { path: '', redirectTo: 'login', pathMatch: 'full' },
-            { path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_15__["LoginComponent"] }
-        ] },
     {
-        path: '', component: _home_layout_home_layout_component__WEBPACK_IMPORTED_MODULE_12__["HomeLayoutComponent"],
-        canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_11__["AuthGuard"]],
+        path: '', component: _login_layout_login_layout_component__WEBPACK_IMPORTED_MODULE_13__["LoginLayoutComponent"], children: [
+            { path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_14__["LoginComponent"] }
+        ]
+    },
+    {
+        path: '', component: _home_layout_home_layout_component__WEBPACK_IMPORTED_MODULE_11__["HomeLayoutComponent"],
+        canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_10__["AuthGuard"]],
         children: [
             { path: '', redirectTo: 'product', pathMatch: 'full' },
-            { path: 'home', component: _home_home_component__WEBPACK_IMPORTED_MODULE_13__["HomeComponent"] },
+            { path: 'home', component: _home_home_component__WEBPACK_IMPORTED_MODULE_12__["HomeComponent"] },
             { path: 'profile', component: _profile_profile_component__WEBPACK_IMPORTED_MODULE_9__["ProfileComponent"] },
             { path: 'dashboard', component: _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_2__["DashboardComponent"] },
             { path: 'category', component: _category_category_component__WEBPACK_IMPORTED_MODULE_3__["CategoryComponent"] },
             { path: 'product', component: _product_product_component__WEBPACK_IMPORTED_MODULE_4__["ProductComponent"] },
             { path: 'product-add', component: _product_add_product_add_component__WEBPACK_IMPORTED_MODULE_5__["ProductAddComponent"] },
-            { path: 'banner', component: _banner_banner_component__WEBPACK_IMPORTED_MODULE_10__["BannerComponent"] },
             { path: 'manage-order', component: _order_order_component__WEBPACK_IMPORTED_MODULE_6__["OrderComponent"] },
             { path: 'manage-user', component: _user_user_component__WEBPACK_IMPORTED_MODULE_7__["UserComponent"] },
             { path: 'manage-staff', component: _staff_staff_component__WEBPACK_IMPORTED_MODULE_8__["StaffComponent"] }
@@ -500,10 +497,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./_helpers */ "./src/app/_helpers/index.ts");
 /* harmony import */ var _profile_profile_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./profile/profile.component */ "./src/app/profile/profile.component.ts");
 /* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./services/user.service */ "./src/app/services/user.service.ts");
-/* harmony import */ var _search_search_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./search/search.component */ "./src/app/search/search.component.ts");
-/* harmony import */ var _app_custom_app_custom_module__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./app-custom/app-custom.module */ "./src/app/app-custom/app-custom.module.ts");
-/* harmony import */ var _not_found_not_found_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./not-found/not-found.component */ "./src/app/not-found/not-found.component.ts");
-/* harmony import */ var _banner_banner_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./banner/banner.component */ "./src/app/banner/banner.component.ts");
+/* harmony import */ var _app_custom_app_custom_module__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./app-custom/app-custom.module */ "./src/app/app-custom/app-custom.module.ts");
+/* harmony import */ var _not_found_not_found_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./not-found/not-found.component */ "./src/app/not-found/not-found.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -541,8 +536,6 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
-
-
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -564,9 +557,7 @@ var AppModule = /** @class */ (function () {
                 _login_layout_login_layout_component__WEBPACK_IMPORTED_MODULE_19__["LoginLayoutComponent"],
                 _login_login_component__WEBPACK_IMPORTED_MODULE_20__["LoginComponent"],
                 _profile_profile_component__WEBPACK_IMPORTED_MODULE_24__["ProfileComponent"],
-                _search_search_component__WEBPACK_IMPORTED_MODULE_26__["SearchComponent"],
-                _not_found_not_found_component__WEBPACK_IMPORTED_MODULE_28__["NotFoundComponent"],
-                _banner_banner_component__WEBPACK_IMPORTED_MODULE_29__["BannerComponent"]
+                _not_found_not_found_component__WEBPACK_IMPORTED_MODULE_27__["NotFoundComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -574,7 +565,7 @@ var AppModule = /** @class */ (function () {
                 _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"],
                 _app_routing_app_routing_module__WEBPACK_IMPORTED_MODULE_4__["AppRoutingModule"],
-                _app_custom_app_custom_module__WEBPACK_IMPORTED_MODULE_27__["AppCustomModule"],
+                _app_custom_app_custom_module__WEBPACK_IMPORTED_MODULE_26__["AppCustomModule"],
                 angular_froala_wysiwyg__WEBPACK_IMPORTED_MODULE_15__["FroalaEditorModule"].forRoot(),
                 angular_froala_wysiwyg__WEBPACK_IMPORTED_MODULE_15__["FroalaViewModule"].forRoot()
             ],
@@ -709,93 +700,6 @@ var AuthService = /** @class */ (function () {
             _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], AuthService);
     return AuthService;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/banner/banner.component.css":
-/*!*********************************************!*\
-  !*** ./src/app/banner/banner.component.css ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ "./src/app/banner/banner.component.html":
-/*!**********************************************!*\
-  !*** ./src/app/banner/banner.component.html ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<app-breadcrumb [breadcrumbTitle]=\"componentTitle\"></app-breadcrumb>\n<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-12 mb-3\">\n      <button class=\"myText-link-2 text-success\" data-toggle=\"modal\" data-target=\"#modalAddBanner\">\n        <i class=\"fas fa-plus-circle mr-2\"></i>\n        <span class=\"text-underline\">Add new banner</span>\n      </button>\n    </div>\n    <!-- table -->\n    <div class=\"col-12 mb-3 table-responsive\">\n      <table class=\"table table-striped table-hover table-outline mb-2\">\n        <thead class=\"thead-light\">\n          <tr>\n            <th>No.</th>\n            <th>Title</th>\n            <th>Create Date</th>\n            <th>\n              <button (click)=\"getBanners()\" class=\"btn btn-link p-0 d-block ml-auto\" type=\"button\">\n                <i class=\"fas fa-sync-alt\"></i> Refresh</button>\n            </th>\n          </tr>\n        </thead>\n        <tbody *ngIf=\"banners\" class=\"\">\n          <tr *ngFor=\"let banner of banners\" title=\"Click to view details\" class=\"myCursor\">\n\n            <td (click)=\"onSelectBanner(banner)\" data-target=\"#modalDetailBanner\" data-toggle=\"modal\">{{banners.indexOf(banner) + 1}}</td>\n            <td (click)=\"onSelectBanner(banner)\" data-target=\"#modalDetailBanner\" data-toggle=\"modal\">{{banner.title}}</td>\n            <td (click)=\"onSelectBanner(banner)\" data-target=\"#modalDetailBanner\" data-toggle=\"modal\">{{banner.createDate | date:'mediumDate'}}</td>\n            <td>\n              <span class=\"d-block text-right\">\n                <a (click)=\"onSelectBanner(banner)\" class=\"mr-3\" data-toggle=\"modal\" title=\"Edit this item\" data-target=\"#modaleEditBanner\"\n                  href=\"\">Edit</a>\n                <a (click)=\"onSelectBanner(banner)\" class=\"text-danger\" title=\"Remove\" data-toggle=\"modal\" data-target=\"#modalDeleteBanner\"\n                  href=\"\">Delete</a>\n              </span>\n            </td>\n          </tr>\n\n        </tbody>\n      </table>\n      <p class=\"text-muted\">Displaying {{banners?.length || '0'}} {{(banners?.length > 1) ? 'items' : 'item'}} out of {{banners?.length|| '0'}}\n        {{(banners?.length > 1) ? 'items' : 'item'}}</p>\n    </div>\n  </div>\n</div>\n<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-12\">\n      <!-- MODAL: Details -->\n      <div id=\"modalDetailBanner\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\">\n        <div class=\"modal-dialog modal-lg\" role=\"document\">\n          <div class=\"modal-content\">\n            <div class=\"modal-header\">\n              <h5 class=\"modal-title\">Banner Details</h5>\n              <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n                <span aria-hidden=\"true\">&times;</span>\n              </button>\n            </div>\n            <div class=\"modal-body\">\n              <div class=\"container-fluid\">\n                <div class=\"row\" *ngIf=\"selectedBanner\">\n                  <div class=\"col-12 mb-2\">\n                    <p>{{selectedBanner.title}}</p>\n                    <img src=\"{{selectedBanner.imageUrl}}\" alt=\"\" class=\"w-100\">\n                  </div>\n                </div>\n              </div>\n              <div class=\"modal-footer\">\n                <button data-dismiss=\"modal\" type=\"button\" class=\"btn btn-primary\">Close</button>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n      <!-- Modal: DELETE -->\n      <div *ngIf=\"selectedBanner\" id=\"modalDeleteBanner\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\">\n        <div class=\"modal-dialog\" role=\"document\">\n          <div class=\"modal-content\">\n            <div class=\"modal-header\">\n              <h5 class=\"modal-title\">Confirm delete</h5>\n              <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n                <span aria-hidden=\"true\">&times;</span>\n              </button>\n            </div>\n            <div class=\"modal-body\">\n              <p>Are you sure want to delete?</p>\n              <b class=\"text-danger mb-3\">{{selectedBanner.title}} </b>\n              <img src=\"{{selectedBanner.imageUrl}}\" alt=\"\" class=\"d-block w-100\">\n            </div>\n            <div class=\"modal-footer\">\n              <button (click)=\"deleteBanner()\" data-dismiss=\"modal\" type=\"button\" class=\"btn btn-primary\">Delete</button>\n              <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Keep</button>\n            </div>\n          </div>\n        </div>\n      </div>\n\n      <!-- Modal: ADD BANNER -->\n      <div class=\"modal fade\" id=\"modalAddBanner\" tabindex=\"0\" role=\"dialog\" aria-labelledby=\"modalAddBannerLabel\" aria-hidden=\"true\">\n        <div class=\"modal-dialog\" role=\"document\">\n            <div class=\"modal-content\">\n            <div class=\"modal-header\">\n              <h5 class=\"modal-title\" id=\"modalAddBannerLabel\">Add Banner</h5>\n              <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n                <span aria-hidden=\"true\">&times;</span>\n              </button>\n            </div>\n            <div class=\"modal-body\">\n              <div class=\"container-fluid\">\n                <div class=\"row\">\n                  <div class=\"col-12 mb-3\">\n                    <div class=\"form-group\">\n                      <label for=\"formAddBannerTitle\">Title</label>\n                      <input [(ngModel)]=\"objectBanner.title\" type=\"text\" id=\"formAddBannerTitle\" name=\"formAddBanner\" class=\"form-control myInput-elegant-2\"\n                        placeholder=\"\">\n                    </div>\n                  </div>\n                  <div class=\"col-12 mb-3\">\n                    <div class=\"form-group\">\n                      <label for=\"formAddBannerImage\">Image URL</label>\n                      <input [(ngModel)]=\"objectBanner.imageUrl\" type=\"text\" id=\"formAddBannerImage\" name=\"formAddBannerImage\" class=\"form-control myInput-elegant-2\"\n                        placeholder=\"\">\n                    </div>\n                  </div>\n                  <div class=\"col-12 mb-3\">\n                    <div class=\"form-group\">\n                      <label for=\"formAddBannerDescription\">Description</label>\n                      <textarea [(ngModel)]=\"objectBanner.description\" class=\"form-control myInput-elegant-2\" id=\"formAddBannerDescription\" rows=\"4\"></textarea>\n                    </div>\n                  </div>\n                </div>\n              </div>\n            </div>\n            <div class=\"modal-footer\">\n              <button (click)=\"addBanner()\" type=\"button\" class=\"btn btn-primary\" data-dismiss=\"modal\">Create new banner</button>\n              <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Cancel</button>\n            </div>\n          </div>\n        </div>\n      </div>\n      <!-- Modal: EDIT BANNER -->\n      <div *ngIf=\"selectedBanner\" class=\"modal fade\" id=\"modaleEditBanner\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"modaleEditBannerLabel\"\n        aria-hidden=\"true\">\n        <div class=\"modal-dialog modal-lg\" role=\"document\">\n          <div class=\"modal-content\">\n            <div class=\"modal-header\">\n              <h5 class=\"modal-title\" id=\"modaleEditBannerLabel\">Edit Product</h5>\n              <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n                <span aria-hidden=\"true\">&times;</span>\n              </button>\n            </div>\n            <div class=\"modal-body\">\n              <div class=\"container-fluid\">\n                <div class=\"row\">\n                  <div class=\"col-12 mb-3\">\n                    <div class=\"form-group\">\n                      <label for=\"formeEditBannerTitle\">Title</label>\n                      <input [(ngModel)]=\"selectedBanner.title\" type=\"text\" id=\"formeEditBannerTitle\" name=\"formEditBanner\" class=\"form-control myInput-elegant-2\"\n                        placeholder=\"\">\n                    </div>\n                  </div>\n                  <div class=\"col-12 mb-3\">\n                    <div class=\"form-group\">\n                      <label for=\"formeEditBannerImage\">Image URL</label>\n                      <input [(ngModel)]=\"selectedBanner.imageUrl\" type=\"text\" id=\"formeEditBannerImage\" name=\"formeEditBannerImage\" class=\"form-control myInput-elegant-2\"\n                        placeholder=\"\">\n                    </div>\n                  </div>\n                  <div class=\"col-12 mb-3\">\n                    <div class=\"form-group\">\n                      <label for=\"formeEditBannerDescription\">Description</label>\n                      <textarea [(ngModel)]=\"selectedBanner.description\" class=\"form-control myInput-elegant-2\" id=\"formeEditBannerDescription\" rows=\"4\"></textarea>\n                    </div>\n                  </div>\n                </div>\n              </div>\n            </div>\n            <div class=\"modal-footer\">\n              <button (click)=\"updateBanner()\" type=\"button\" class=\"btn btn-primary\" data-dismiss=\"modal\">Save Changes</button>\n              <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Cancel</button>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
-
-/***/ }),
-
-/***/ "./src/app/banner/banner.component.ts":
-/*!********************************************!*\
-  !*** ./src/app/banner/banner.component.ts ***!
-  \********************************************/
-/*! exports provided: BannerComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BannerComponent", function() { return BannerComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _view_models_banner__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../view-models/banner */ "./src/app/view-models/banner.ts");
-/* harmony import */ var _services_book_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/book.service */ "./src/app/services/book.service.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var BannerComponent = /** @class */ (function () {
-    function BannerComponent(bookService) {
-        this.bookService = bookService;
-        this.componentTitle = 'Banners';
-        this.objectBanner = new _view_models_banner__WEBPACK_IMPORTED_MODULE_1__["Banner"]();
-    }
-    BannerComponent.prototype.ngOnInit = function () {
-        this.getBanners();
-    };
-    BannerComponent.prototype.onSelectBanner = function (banner) {
-        this.selectedBanner = banner;
-    };
-    BannerComponent.prototype.getBanners = function () {
-        var _this = this;
-        this.bookService.getBanners().subscribe(function (_) { return _this.banners = _; });
-    };
-    BannerComponent.prototype.addBanner = function () {
-        this.bookService.addBanner(this.objectBanner).subscribe();
-    };
-    BannerComponent.prototype.updateBanner = function () {
-        this.bookService.updateBanner(this.selectedBanner).subscribe();
-    };
-    BannerComponent.prototype.deleteBanner = function () {
-        this.bookService.deleteBanner(this.selectedBanner).subscribe();
-    };
-    BannerComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-banner',
-            template: __webpack_require__(/*! ./banner.component.html */ "./src/app/banner/banner.component.html"),
-            styles: [__webpack_require__(/*! ./banner.component.css */ "./src/app/banner/banner.component.css")]
-        }),
-        __metadata("design:paramtypes", [_services_book_service__WEBPACK_IMPORTED_MODULE_2__["BookService"]])
-    ], BannerComponent);
-    return BannerComponent;
 }());
 
 
@@ -1010,7 +914,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- Breadcrumb-->\r\n<app-breadcrumb [breadcrumbTitle]=\"componentTitle\"></app-breadcrumb>\r\n<div class=\"container-fluid\" *ngIf=\"user\">\r\n    <div class=\"row mt-4\">\r\n        <div class=\"col-12\">\r\n          <h3 *ngIf=\"user\">Welcome <span class=\"text-success\">{{user.first}} {{user.last}}</span> !</h3>\r\n        </div>\r\n      </div>\r\n  <div class=\"row py-4\">\r\n      <div class=\"col-sm-6 col-md-4 mb-1\">\r\n          <div class=\"card text-white bg-primary\">\r\n            <div class=\"card-body pb-0\">\r\n              <div class=\"btn-group float-right\">\r\n                <button type=\"button\" class=\"btn btn-transparent dropdown-toggle p-0\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n                  <i class=\"icon-settings\"></i>\r\n                </button>\r\n                <div class=\"dropdown-menu dropdown-menu-right\">\r\n                  <a class=\"dropdown-item\" href=\"#\">View profile</a>\r\n                  <a class=\"dropdown-item\" href=\"#\">Another action</a>\r\n                  <a class=\"dropdown-item\" href=\"#\">Something else here</a>\r\n                </div>\r\n              </div>\r\n              <div class=\"text-value\">Profile</div>\r\n              <div>View profile</div>\r\n              <div class=\"mt-3 mx-3\"></div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      <div class=\"col-sm-6 col-md-4 mb-1\">\r\n          <div class=\"card text-white bg-warning\">\r\n            <div class=\"card-body pb-0\">\r\n              <div class=\"btn-group float-right\">\r\n                <button type=\"button\" class=\"btn btn-transparent dropdown-toggle p-0\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n                  <i class=\"icon-settings\"></i>\r\n                </button>\r\n                <div class=\"dropdown-menu dropdown-menu-right\">\r\n                  <a class=\"dropdown-item\" href=\"#\">Manage Customers</a>\r\n                  <a class=\"dropdown-item\" href=\"#\">Manage Staffs</a>\r\n                </div>\r\n              </div>\r\n              <div class=\"text-value\">People</div>\r\n              <div>Customer account, Staff account</div>\r\n              <div class=\"mt-3 mx-3\"></div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      <div class=\"col-sm-6 col-md-4 mb-1\">\r\n          <div class=\"card text-white bg-success\">\r\n            <div class=\"card-body pb-0\">\r\n              <div class=\"btn-group float-right\">\r\n                <button type=\"button\" class=\"btn btn-transparent dropdown-toggle p-0\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n                  <i class=\"icon-settings\"></i>\r\n                </button>\r\n                <div class=\"dropdown-menu dropdown-menu-right\">\r\n                  <a class=\"dropdown-item\" href=\"#\">Manage Categories</a>\r\n                  <a class=\"dropdown-item\" href=\"#\">Manage Products</a>\r\n                  <a class=\"dropdown-item\" href=\"#\">Manage Oders</a>\r\n                </div>\r\n              </div>\r\n              <div class=\"text-value\">Shop</div>\r\n              <div>Categories, Products, Purchase oders</div>\r\n              <div class=\"mt-3 mx-3\"></div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n  </div>\r\n</div>"
+module.exports = "<!-- Breadcrumb-->\r\n<app-breadcrumb [breadcrumbTitle]=\"componentTitle\"></app-breadcrumb>\r\n<div class=\"container-fluid\" *ngIf=\"user.first\">\r\n    <div class=\"row mt-4\">\r\n        <div class=\"col-12\">\r\n          <h3 *ngIf=\"user\">Welcome <span class=\"text-success\">{{user.first}} {{user.last}}</span> !</h3>\r\n        </div>\r\n      </div>\r\n  <div class=\"row py-4\">\r\n      <div class=\"col-sm-6 col-md-4 mb-1\">\r\n          <div class=\"card text-white bg-primary\">\r\n            <div class=\"card-body pb-0\">\r\n              <div class=\"btn-group float-right\">\r\n                <button type=\"button\" class=\"btn btn-transparent dropdown-toggle p-0\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n                  <i class=\"icon-settings\"></i>\r\n                </button>\r\n                <div class=\"dropdown-menu dropdown-menu-right\">\r\n                  <a class=\"dropdown-item\" href=\"#\">View profile</a>\r\n                  <a class=\"dropdown-item\" href=\"#\">Another action</a>\r\n                  <a class=\"dropdown-item\" href=\"#\">Something else here</a>\r\n                </div>\r\n              </div>\r\n              <div class=\"text-value\">Profile</div>\r\n              <div>View profile</div>\r\n              <div class=\"mt-3 mx-3\"></div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      <div class=\"col-sm-6 col-md-4 mb-1\">\r\n          <div class=\"card text-white bg-warning\">\r\n            <div class=\"card-body pb-0\">\r\n              <div class=\"btn-group float-right\">\r\n                <button type=\"button\" class=\"btn btn-transparent dropdown-toggle p-0\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n                  <i class=\"icon-settings\"></i>\r\n                </button>\r\n                <div class=\"dropdown-menu dropdown-menu-right\">\r\n                  <a class=\"dropdown-item\" href=\"#\">Manage Customers</a>\r\n                  <a class=\"dropdown-item\" href=\"#\">Manage Staffs</a>\r\n                </div>\r\n              </div>\r\n              <div class=\"text-value\">People</div>\r\n              <div>Customer account, Staff account</div>\r\n              <div class=\"mt-3 mx-3\"></div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      <div class=\"col-sm-6 col-md-4 mb-1\">\r\n          <div class=\"card text-white bg-success\">\r\n            <div class=\"card-body pb-0\">\r\n              <div class=\"btn-group float-right\">\r\n                <button type=\"button\" class=\"btn btn-transparent dropdown-toggle p-0\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n                  <i class=\"icon-settings\"></i>\r\n                </button>\r\n                <div class=\"dropdown-menu dropdown-menu-right\">\r\n                  <a class=\"dropdown-item\" href=\"#\">Manage Categories</a>\r\n                  <a class=\"dropdown-item\" href=\"#\">Manage Products</a>\r\n                  <a class=\"dropdown-item\" href=\"#\">Manage Oders</a>\r\n                </div>\r\n              </div>\r\n              <div class=\"text-value\">Shop</div>\r\n              <div>Categories, Products, Purchase oders</div>\r\n              <div class=\"mt-3 mx-3\"></div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -1089,7 +993,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<body class=\"app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show\">\r\n    <header class=\"app-header navbar\">\r\n        <button class=\"navbar-toggler sidebar-toggler d-lg-none mr-auto\" type=\"button\" data-toggle=\"sidebar-show\" title=\"Show/Hide Menu\">\r\n            <span class=\"navbar-toggler-icon\"></span>\r\n        </button>\r\n        <a class=\"navbar-brand\" href=\"\" routerLink=\"/dashboard\">\r\n            <span class=\"navbar-brand-full\" alt=\"Brand Logo Full\">Admin Panel</span>\r\n            <span class=\"navbar-brand-minimized\" width=\"30\" height=\"30\" alt=\"Brand Logo Mini\">B</span>\r\n        </a>\r\n        <ul class=\"nav navbar-nav ml-auto\">\r\n            <li class=\"nav-item mr-2\">\r\n                <button class=\"dropdown-toggle btn btn-pill btn-ghost-success d-sm-down-none\" type=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n                    {{user_email}}\r\n                </button>\r\n                <div class=\"dropdown-menu dropdown-menu-right\">\r\n                        <a class=\"dropdown-item\" href=\"\" routerLink=\"/dashboard\">\r\n                            <i class=\"fas fa-tachometer-alt\"></i> Dashboard</a>\r\n                        <a class=\"dropdown-item\" href=\"https://bao-doan.github.io\">\r\n                            <i class=\"fas fa-shopping-cart\"></i> Shop Page</a>\r\n                        <a class=\"dropdown-item\" href=\"#\" data-toggle=\"modal\" data-target=\"#modalAdminLogout\">\r\n                            <i class=\"fas fa-sign-out-alt\"></i> Logout</a>\r\n                    </div>\r\n            </li>\r\n            <li class=\"nav-item d-md-none\">\r\n                <button class=\"navbar-toggler dropdown-toggle\" type=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n                    <i class=\"fas fa-cog text-dark\" title=\"Go Dashboard or go Homepage\"></i>\r\n                </button>\r\n                <div class=\"dropdown-menu dropdown-menu-right\">\r\n                        <a class=\"dropdown-item\" href=\"\" routerLink=\"/dashboard\">\r\n                            <i class=\"fas fa-tachometer-alt\"></i> Dashboard</a>\r\n                        <a class=\"dropdown-item\" href=\"https://bao-doan.github.io\">\r\n                            <i class=\"fas fa-shopping-cart\"></i> Shop Page</a>\r\n                        <a class=\"dropdown-item\" href=\"#\" data-toggle=\"modal\" data-target=\"#modalAdminLogout\">\r\n                            <i class=\"fas fa-sign-out-alt\"></i> Logout</a>\r\n                    </div>\r\n            </li>\r\n        </ul>\r\n    </header>\r\n    <div class=\"app-body\">\r\n        <div class=\"sidebar\">\r\n            <nav class=\"sidebar-nav\">\r\n                <ul class=\"nav\">\r\n\r\n                    <li class=\"nav-title text-warning\">ADMIN</li>\r\n                    <li class=\"nav-item\">\r\n                        <a class=\"nav-link\" href=\"#\" routerLink=\"/dashboard\" routerLinkActive=\"active\">\r\n                            <i class=\"fas fa-tachometer-alt nav-icon\"></i> Dashboard\r\n                        </a>\r\n                        <a class=\"nav-link\" href=\"#\" routerLink=\"/profile\" routerLinkActive=\"active\">\r\n                            <i class=\"fas fa-user nav-icon\"></i> Profile\r\n                        </a>\r\n                    </li>\r\n                    \r\n                    <li class=\"nav-title text-warning\">SHOP</li>\r\n                    <li class=\"nav-item\">\r\n                        <a class=\"nav-link\" href=\"\" routerLink=\"/category\" routerLinkActive=\"active\">\r\n                            <i class=\"fas fa-book nav-icon\"></i> All Categories\r\n                        </a>\r\n                    </li>\r\n                    <li class=\"nav-item\">\r\n                        <a class=\"nav-link\" href=\"#\" routerLink=\"/product\" routerLinkActive=\"active\">\r\n                            <i class=\"fas fa-book nav-icon\"></i> All Products\r\n                        </a>\r\n                    </li>\r\n                    <li class=\"nav-item\">\r\n                        <a class=\"nav-link\" href=\"#\" routerLink=\"/manage-order\" routerLinkActive=\"active\">\r\n                            <i class=\"fas fa-book nav-icon\"></i> Purchase Orders\r\n                        </a>\r\n                    </li>\r\n                    <li class=\"nav-title text-warning\">ACCOUNTS</li>\r\n                    <li class=\"nav-item\">\r\n                        <a class=\"nav-link\" href=\"#\" routerLink=\"/manage-user\" routerLinkActive=\"active\">\r\n                            <i class=\"far fa-address-book nav-icon\"></i> Manage Users\r\n                        </a>\r\n                    </li>\r\n                    <li class=\"nav-item\">\r\n                            <a class=\"nav-link\" href=\"#\" routerLink=\"/manage-staff\" routerLinkActive=\"active\">\r\n                                <i class=\"far fa-address-book nav-icon\"></i> Manage Staffs\r\n                            </a>\r\n                        </li>\r\n                    <li class=\"nav-title text-warning\">BANNERS</li>\r\n                    <li class=\"nav-item\">\r\n                        <a class=\"nav-link\" href=\"#\" routerLink=\"/banner\" routerLinkActive=\"active\">\r\n                            <i class=\"far fa-newspaper nav-icon\"></i> All Banners\r\n                        </a>\r\n                    </li>\r\n                </ul>\r\n            </nav>\r\n        </div>\r\n        <main class=\"main\">\r\n            <!-- Main content -->\r\n            <router-outlet></router-outlet>\r\n        </main>\r\n    </div>\r\n    <footer class=\"app-footer mt-4\">\r\n        <div>\r\n            <a href=\"../../index.html\">Brand Co., Ltd</a>\r\n            <span>&copy; 2018.</span>\r\n        </div>\r\n        <div class=\"ml-auto\">\r\n            <span>Powered by</span>\r\n            <a href=\"https://coreui.io\">CoreUI</a>\r\n        </div>\r\n    </footer>\r\n</body>\r\n<!-- MODAL: Admin Logout -->\r\n<div class=\"modal fade\" id=\"modalAdminLogout\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"modalAdminLogoutLabel\" aria-hidden=\"true\">\r\n    <div class=\"modal-dialog\" role=\"document\">\r\n        <div class=\"modal-content\">\r\n            <div class=\"modal-header\">\r\n                <h5 class=\"modal-title\" id=\"exampleModalLabel\">Admin Logout</h5>\r\n                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n                    <span aria-hidden=\"true\">&times;</span>\r\n                </button>\r\n            </div>\r\n            <div class=\"modal-body\">\r\n                <p class=\"text-danger\">{{user_email}}</p>\r\n                <p>Are yout sure want to logout?</p>\r\n            </div>\r\n            <div class=\"modal-footer\">\r\n                <button (click)=\"onLogout()\" type=\"button\" class=\"btn btn-primary\" data-dismiss=\"modal\">Yes</button>\r\n                <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">No</button>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
+module.exports = "<body class=\"app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show\">\r\n    <header class=\"app-header navbar\">\r\n        <button class=\"navbar-toggler sidebar-toggler d-lg-none mr-auto\" type=\"button\" data-toggle=\"sidebar-show\" title=\"Show/Hide Menu\">\r\n            <span class=\"navbar-toggler-icon\"></span>\r\n        </button>\r\n        <a class=\"navbar-brand\" href=\"\" routerLink=\"/dashboard\">\r\n            <span class=\"navbar-brand-full\" alt=\"Brand Logo Full\">Admin Panel</span>\r\n            <span class=\"navbar-brand-minimized\" width=\"30\" height=\"30\" alt=\"Brand Logo Mini\">B</span>\r\n        </a>\r\n        <ul class=\"nav navbar-nav ml-auto\">\r\n            <li class=\"nav-item mr-2\">\r\n                <button class=\"dropdown-toggle btn btn-pill btn-ghost-success d-sm-down-none\" type=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n                    {{user_email}}\r\n                </button>\r\n                <div class=\"dropdown-menu dropdown-menu-right\">\r\n                        <a class=\"dropdown-item\" href=\"\" routerLink=\"/dashboard\">\r\n                            <i class=\"fas fa-tachometer-alt\"></i> Dashboard</a>\r\n                        <a class=\"dropdown-item\" href=\"https://bao-doan.github.io\">\r\n                            <i class=\"fas fa-shopping-cart\"></i> Shop Page</a>\r\n                        <a class=\"dropdown-item\" href=\"#\" data-toggle=\"modal\" data-target=\"#modalAdminLogout\">\r\n                            <i class=\"fas fa-sign-out-alt\"></i> Logout</a>\r\n                    </div>\r\n            </li>\r\n            <li class=\"nav-item d-md-none\">\r\n                <button class=\"navbar-toggler dropdown-toggle\" type=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n                    <i class=\"fas fa-cog text-dark\" title=\"Go Dashboard or go Homepage\"></i>\r\n                </button>\r\n                <div class=\"dropdown-menu dropdown-menu-right\">\r\n                        <a class=\"dropdown-item\" href=\"\" routerLink=\"/dashboard\">\r\n                            <i class=\"fas fa-tachometer-alt\"></i> Dashboard</a>\r\n                        <a class=\"dropdown-item\" href=\"https://bao-doan.github.io\">\r\n                            <i class=\"fas fa-shopping-cart\"></i> Shop Page</a>\r\n                        <a class=\"dropdown-item\" href=\"#\" data-toggle=\"modal\" data-target=\"#modalAdminLogout\">\r\n                            <i class=\"fas fa-sign-out-alt\"></i> Logout</a>\r\n                    </div>\r\n            </li>\r\n        </ul>\r\n    </header>\r\n    <div class=\"app-body\">\r\n        <div class=\"sidebar\">\r\n            <nav class=\"sidebar-nav\">\r\n                <ul class=\"nav\">\r\n\r\n                    <li class=\"nav-title text-warning\">ADMIN</li>\r\n                    <li class=\"nav-item\">\r\n                        <a class=\"nav-link\" href=\"#\" routerLink=\"/dashboard\" routerLinkActive=\"active\">\r\n                            <i class=\"fas fa-tachometer-alt nav-icon\"></i> Dashboard\r\n                        </a>\r\n                        <a class=\"nav-link\" href=\"#\" routerLink=\"/profile\" routerLinkActive=\"active\">\r\n                            <i class=\"fas fa-user nav-icon\"></i> Profile\r\n                        </a>\r\n                    </li>\r\n                    \r\n                    <li class=\"nav-title text-warning\">SHOP</li>\r\n                    <li class=\"nav-item\">\r\n                        <a class=\"nav-link\" href=\"\" routerLink=\"/category\" routerLinkActive=\"active\">\r\n                            <i class=\"fas fa-book nav-icon\"></i> All Categories\r\n                        </a>\r\n                    </li>\r\n                    <li class=\"nav-item\">\r\n                        <a class=\"nav-link\" href=\"#\" routerLink=\"/product\" routerLinkActive=\"active\">\r\n                            <i class=\"fas fa-book nav-icon\"></i> All Products\r\n                        </a>\r\n                    </li>\r\n                    <li class=\"nav-item\">\r\n                        <a class=\"nav-link\" href=\"#\" routerLink=\"/manage-order\" routerLinkActive=\"active\">\r\n                            <i class=\"fas fa-book nav-icon\"></i> Purchase Orders\r\n                        </a>\r\n                    </li>\r\n                    <li class=\"nav-title text-warning\">ACCOUNTS</li>\r\n                    <li class=\"nav-item\">\r\n                        <a class=\"nav-link\" href=\"#\" routerLink=\"/manage-user\" routerLinkActive=\"active\">\r\n                            <i class=\"far fa-address-book nav-icon\"></i> Manage Users\r\n                        </a>\r\n                    </li>\r\n                    <li class=\"nav-item\">\r\n                            <a class=\"nav-link\" href=\"#\" routerLink=\"/manage-staff\" routerLinkActive=\"active\">\r\n                                <i class=\"far fa-address-book nav-icon\"></i> Manage Staffs\r\n                            </a>\r\n                        </li>\r\n                </ul>\r\n            </nav>\r\n        </div>\r\n        <main class=\"main\">\r\n            <!-- Main content -->\r\n            <router-outlet></router-outlet>\r\n        </main>\r\n    </div>\r\n    <footer class=\"app-footer mt-4\">\r\n        <div>\r\n            <a href=\"../../index.html\">Brand Co., Ltd</a>\r\n            <span>&copy; 2018.</span>\r\n        </div>\r\n        <div class=\"ml-auto\">\r\n            <span>Powered by</span>\r\n            <a href=\"https://coreui.io\">CoreUI</a>\r\n        </div>\r\n    </footer>\r\n</body>\r\n<!-- MODAL: Admin Logout -->\r\n<div class=\"modal fade\" id=\"modalAdminLogout\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"modalAdminLogoutLabel\" aria-hidden=\"true\">\r\n    <div class=\"modal-dialog\" role=\"document\">\r\n        <div class=\"modal-content\">\r\n            <div class=\"modal-header\">\r\n                <h5 class=\"modal-title\" id=\"exampleModalLabel\">Admin Logout</h5>\r\n                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n                    <span aria-hidden=\"true\">&times;</span>\r\n                </button>\r\n            </div>\r\n            <div class=\"modal-body\">\r\n                <p class=\"text-danger\">{{user_email}}</p>\r\n                <p>Are yout sure want to logout?</p>\r\n            </div>\r\n            <div class=\"modal-footer\">\r\n                <button (click)=\"onLogout()\" type=\"button\" class=\"btn btn-primary\" data-dismiss=\"modal\">Yes</button>\r\n                <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">No</button>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -1285,7 +1189,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n  <div class=\"row justify-content-center mt-5\">\n    <div class=\"col-12 col-md-6 col-lg-5\">\n      <div class=\"card p-4\">\n        <div class=\"card-body\">\n          <h3>Login</h3>\n          <p class=\"text-muted\">Sign In to your account</p>\n          <form [formGroup]=\"loginAdminForm\" (ngSubmit)=\"onSubmit()\">\n\n            <div class=\"form-group mb-3\">\n              <div class=\"input-group\">\n                <div class=\"input-group-prepend\">\n                  <span class=\"input-group-text\">\n                    <i class=\"icon-user\"></i>\n                  </span>\n                </div>\n                <input formControlName=\"username\" required type=\"text\" class=\"form-control text-truncate\" placeholder=\"Email\" autofocus>\n               \n              </div>\n              <div *ngIf=\"submitted && f.username.errors\" class=\"text-danger\">\n                <div *ngIf=\"f.username.errors.required\">* Email is required</div>\n                <div *ngIf=\"f.username.errors.email\">* Must be a valid Email address</div>\n              </div>\n            </div>\n            \n           \n            <div class=\"form-group mb-3\">\n              <div class=\"input-group position-relative\">\n                <div class=\"input-group-prepend\">\n                  <span class=\"input-group-text\">\n                    <i class=\"icon-lock\"></i>\n                  </span>\n                </div>\n                <input formControlName=\"password\" required [type]=\"show\" class=\"form-control text-truncate\" placeholder=\"Password\">\n                <div class=\"input-group-prepend bg-none border-0\">\n                  <span class=\"input-group-text\">\n                    <button (click)=\"onToggle()\" type=\"button\"  class=\"myText-link myIcon-inside text-muted\"><i *ngIf=\"!value\" class=\"far fa-eye\"></i><i *ngIf=\"value\" class=\"far fa-eye-slash\"></i></button>\n                  </span>\n                </div>\n                \n              </div>\n              <div *ngIf=\"submitted && f.password.errors\" class=\"text-danger\">\n                <div *ngIf=\"f.password.errors.required\">* Password is required</div>\n              </div>\n            </div>\n           \n           \n            <div class=\"form-group form-check custom-control custom-checkbox\">\n              <input [(ngModel)]=\"remember\" type=\"checkbox\" class=\"form-check-input custom-control-input\" id=\"formLoginRemember\" [ngModelOptions]=\"{standalone: true}\">\n              <label class=\"form-check-label custom-control-label text-muted\" for=\"formLoginRemember\">Remember login</label>\n          </div>\n            <div class=\"row\">\n              <div class=\"col-6\">\n                <button [disabled]=\"loading\" type=\"submit\" class=\"btn btn-primary px-4\">Login</button>\n                <img *ngIf=\"loading\" src=\"data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==\"\n                />\n              </div>\n              <div class=\"col-6 text-right\">\n                <button type=\"button\" class=\"btn btn-link px-0\">Forgot password?</button>\n              </div>\n              <div class=\"col-12 mt-3\">\n                <div *ngIf=\"error\" class=\"text-danger\"><i class=\"icon-close\"></i> Cannot login because: {{error.error.error}}</div>\n              </div>\n            </div>\n          </form>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"row text-center\">\n    <div class=\"col-12\">\n      <p class=\"mb-0\"><code>baodoan.user.test@gmail.ccom</code></p>\n      <p class=\"mb-0\"><code>123456</code></p>\n    </div>\n    <div class=\"col-12\">\n      <p class=\"mb-0\"><code>baodoan.test.uesr@gmail.com</code></p>\n      <p class=\"mb-0\"><code>654321</code></p>\n    </div>\n    <div class=\"col-12\">\n      <p class=\"mb-0\"><code>hello.world.test.x@gmail.com</code></p>\n      <p class=\"mb-0\"><code>123456</code></p>\n    </div>\n    <div class=\"col-12\">\n      <p class=\"mb-0\"><code>bao.guest.test@gmail.com</code></p>\n      <p class=\"mb-0\"><code>123456</code></p>\n    </div>\n    <div class=\"col-12\">\n      <p class=\"mb-0\"><code>bao.doan.test.3@gmail.com</code></p>\n      <p class=\"mb-0\"><code>123456</code></p>\n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"container-fluid\">\n  <div class=\"row justify-content-center mt-5\">\n    <div class=\"col-12 col-md-6 col-lg-5\">\n      <div class=\"card p-4\">\n        <div class=\"card-body\">\n          <h3>Login</h3>\n          <p class=\"text-muted\">You are signing in as an Administrator.</p>\n          <form [formGroup]=\"loginAdminForm\" (ngSubmit)=\"onSubmit()\">\n\n            <div class=\"form-group mb-3\">\n              <div class=\"input-group\">\n                <div class=\"input-group-prepend\">\n                  <span class=\"input-group-text\">\n                    <i class=\"icon-user\"></i>\n                  </span>\n                </div>\n                <input formControlName=\"username\" required type=\"text\" class=\"form-control text-truncate rounded-0\" placeholder=\"Email\" autofocus>\n               \n              </div>\n              <div *ngIf=\"submitted && f.username.errors\" class=\"text-danger\">\n                <div *ngIf=\"f.username.errors.required\">* Email is required</div>\n                <div *ngIf=\"f.username.errors.email\">* Must be a valid Email address</div>\n              </div>\n            </div>\n            \n           \n            <div class=\"form-group mb-3\">\n              <div class=\"input-group position-relative rounded-circle\">\n                <div class=\"input-group-prepend\">\n                  <span class=\"input-group-text\">\n                    <i class=\"icon-lock\"></i>\n                  </span>\n                </div>\n                <input formControlName=\"password\" required [type]=\"show\" class=\"form-control text-truncate\" placeholder=\"Password\">\n                   \n                    <!-- <div class=\"input-group-append\"> -->\n                      <!-- <span class=\"input-group-text\"> -->\n                        <button (click)=\"onToggle()\" type=\"button\"  class=\"myText-link myIcon-inside text-muted\"><i *ngIf=\"!value\" class=\"far fa-eye\"></i><i *ngIf=\"value\" class=\"far fa-eye-slash\"></i></button>\n                      <!-- </span> -->\n                    <!-- </div> -->\n                \n              </div>\n              <div *ngIf=\"submitted && f.password.errors\" class=\"text-danger\">\n                <div *ngIf=\"f.password.errors.required\">* Password is required</div>\n              </div>\n            </div>\n           \n           \n            <div class=\"form-group form-check custom-control custom-checkbox\">\n              <input [(ngModel)]=\"remember\" type=\"checkbox\" class=\"form-check-input custom-control-input\" id=\"formLoginRemember\" [ngModelOptions]=\"{standalone: true}\">\n              <label class=\"form-check-label custom-control-label text-muted\" for=\"formLoginRemember\">Remember login</label>\n          </div>\n            <div class=\"row\">\n              <div class=\"col-6\">\n                <button [disabled]=\"loading\" type=\"submit\" class=\"btn btn-primary px-4\">Login</button>\n                <img *ngIf=\"loading\" src=\"data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==\"\n                />\n              </div>\n              <div class=\"col-12\">\n                <button type=\"button\" class=\"btn btn-link px-0\">Forgot password?</button>\n              </div>\n              <div class=\"col-12 mt-3\">\n                <div *ngIf=\"error\" class=\"text-danger\"><i class=\"icon-close\"></i> Cannot login because: <b>{{error.error.error}}</b></div>\n              </div>\n            </div>\n          </form>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -1508,7 +1412,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = " <!-- Breadcrumb-->\r\n <app-breadcrumb [breadcrumbTitle]=\"componentTitle\"></app-breadcrumb>\r\n<div class=\"container-fluid\">\r\n  <div class=\"row\">\r\n    <div class=\"col-sm-6 col-md-4 mb-3\">\r\n      <div class=\"input-group\">\r\n        <input type=\"text\" class=\"form-control\" placeholder=\"Search order\" aria-label=\"Search order\" aria-describedby=\"basic-addon2\">\r\n        <div class=\"input-group-append\">\r\n          <button class=\"btn btn-outline-secondary\" type=\"button\">\r\n            <i class=\"fas fa-search\"></i>\r\n          </button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"col-12 mb-3\">\r\n        <button (click)=\"getOrders()\" class=\"btn btn-link p-0 d-block float-right\" type=\"button\"><i class=\"fas fa-sync-alt\"></i> Refresh</button>\r\n    </div>\r\n    <div class=\"col-12 mb-3 table-responsive\">\r\n      <table class=\"table table-striped table-hover table-outline mb-2\">\r\n        <thead class=\"thead-light\">\r\n          <tr>\r\n            <th>Order ID</th>\r\n            <th>Customer</th>\r\n            <th>Amount</th>\r\n          </tr>\r\n        </thead>\r\n        <tbody *ngIf=\"orders\" class=\"\">\r\n          <tr *ngFor=\"let order of orders\" title=\"Click to view details\" class=\"myCursor\">\r\n            <td (click)=\"onSelect(order)\" data-target=\"#modalProductDetail\" data-toggle=\"modal\">{{order._id}}</td>\r\n            <td (click)=\"onSelect(order)\" data-target=\"#modalProductDetail\" data-toggle=\"modal\">{{order._user.email}}</td>\r\n            <td (click)=\"onSelect(order)\" data-target=\"#modalProductDetail\" data-toggle=\"modal\">{{order.total | currency:'VND'}}</td>\r\n          </tr>\r\n        </tbody>\r\n      </table>\r\n      <p>Displaying {{orders?.length || '0 item'}}\r\n          <span *ngIf=\"orders?.length == 1\">item</span> \r\n          <span *ngIf=\"orders?.length == 0\">item</span> \r\n          <span *ngIf=\"orders?.length\">items</span> \r\n        </p>\r\n    </div>\r\n  </div>\r\n</div>"
+module.exports = " <!-- Breadcrumb-->\r\n <app-breadcrumb [breadcrumbTitle]=\"componentTitle\"></app-breadcrumb>\r\n<div class=\"container-fluid\">\r\n  <div class=\"row\">\r\n    <!-- <div class=\"col-sm-6 col-md-4 mb-3\">\r\n      <div class=\"input-group\">\r\n        <input type=\"text\" class=\"form-control\" placeholder=\"Search order\" aria-label=\"Search order\" aria-describedby=\"basic-addon2\">\r\n        <div class=\"input-group-append\">\r\n          <button class=\"btn btn-outline-secondary\" type=\"button\">\r\n            <i class=\"fas fa-search\"></i>\r\n          </button>\r\n        </div>\r\n      </div>\r\n    </div> -->\r\n    <div class=\"col-12 mb-3\">\r\n        <button (click)=\"getOrders()\" class=\"btn btn-link p-0 d-block float-right\" type=\"button\"><i class=\"fas fa-sync-alt\"></i> Refresh</button>\r\n    </div>\r\n    <div class=\"col-12 mb-3 table-responsive\">\r\n      <table class=\"table table-striped table-hover table-outline mb-2\">\r\n        <thead class=\"thead-light\">\r\n          <tr>\r\n            <th>Order ID</th>\r\n            <th>Customer Email</th>\r\n            <th>Amount</th>\r\n          </tr>\r\n        </thead>\r\n        <tbody *ngIf=\"orders\" class=\"\">\r\n          <tr *ngFor=\"let order of orders\" title=\"Click to view details\" class=\"myCursor\">\r\n            <td (click)=\"onSelect(order)\" data-target=\"#modalProductDetail\" data-toggle=\"modal\">{{order._id}}</td>\r\n            <td (click)=\"onSelect(order)\" data-target=\"#modalProductDetail\" data-toggle=\"modal\">{{order._user?.email}}</td>\r\n            <td (click)=\"onSelect(order)\" data-target=\"#modalProductDetail\" data-toggle=\"modal\">{{order.total | currency:'VND'}}</td>\r\n          </tr>\r\n        </tbody>\r\n      </table>\r\n      <p *ngIf=\"orders\">Displaying {{orders?.length || '0'}}\r\n          <span *ngIf=\"orders?.length <= 1\">item</span> \r\n          <span *ngIf=\"orders?.length > 1\">items</span> \r\n        </p>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -1985,89 +1889,6 @@ var ProfileComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/search/search.component.css":
-/*!*********************************************!*\
-  !*** ./src/app/search/search.component.css ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ "./src/app/search/search.component.html":
-/*!**********************************************!*\
-  !*** ./src/app/search/search.component.html ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<!-- <div class=\"input-group w-100\">\n  <input #searchBox id=\"search-box\" (keyup)=\"search(searchBox.value)\" type=\"text\" class=\"form-control\" placeholder=\"Search product\"\n    aria-label=\"Search product\" aria-describedby=\"basic-addon2\">\n  <div class=\"input-group-append\">\n    <button class=\"btn btn-outline-secondary\" type=\"button\">\n      <i class=\"fas fa-search\"></i>\n    </button>\n  </div>\n</div>\n<ul class=\"list-group w-100\">\n  <li class=\"list-group-item\" *ngFor=\"let hero of heroes$ | async\">{{hero.title}}</li>\n</ul> -->\n\n<!-- Verse 2 - Doing -->\n<!-- <div class=\"input-group w-100\">\n  <input [(ngModel)]=\"title\" id=\"search-box\" (keyup)=\"search(searchBox.value)\" type=\"text\" class=\"form-control\" placeholder=\"Search product\"\n    aria-label=\"Search product\" aria-describedby=\"basic-addon2\">\n  <div class=\"input-group-append\">\n    <button class=\"btn btn-outline-secondary\" type=\"button\">\n      <i class=\"fas fa-search\"></i>\n    </button>\n  </div>\n</div> -->\n"
-
-/***/ }),
-
-/***/ "./src/app/search/search.component.ts":
-/*!********************************************!*\
-  !*** ./src/app/search/search.component.ts ***!
-  \********************************************/
-/*! exports provided: SearchComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SearchComponent", function() { return SearchComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var _services_book_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/book.service */ "./src/app/services/book.service.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var SearchComponent = /** @class */ (function () {
-    function SearchComponent(bookService) {
-        this.bookService = bookService;
-        this.searchTerms = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subject"]();
-    }
-    // Push a search term into the observable stream.
-    SearchComponent.prototype.search = function (term) {
-        this.searchTerms.next(term);
-    };
-    SearchComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.heroes$ = this.searchTerms.pipe(
-        // wait 300ms after each keystroke before considering the term
-        Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["debounceTime"])(300), 
-        // ignore new term if same as previous term
-        Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["distinctUntilChanged"])(), 
-        // switch to new search observable each time the term changes
-        Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["switchMap"])(function (term) { return _this.bookService.searchHeroes(term); }));
-    };
-    SearchComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-search',
-            template: __webpack_require__(/*! ./search.component.html */ "./src/app/search/search.component.html"),
-            styles: [__webpack_require__(/*! ./search.component.css */ "./src/app/search/search.component.css")]
-        }),
-        __metadata("design:paramtypes", [_services_book_service__WEBPACK_IMPORTED_MODULE_3__["BookService"]])
-    ], SearchComponent);
-    return SearchComponent;
-}());
-
-
-
-/***/ }),
-
 /***/ "./src/app/services/book.service.ts":
 /*!******************************************!*\
   !*** ./src/app/services/book.service.ts ***!
@@ -2079,9 +1900,7 @@ var SearchComponent = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BookService", function() { return BookService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2093,18 +1912,14 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
-
-
 var httpOptions = {
-    headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpHeaders"]({ 'Content-Type': 'application/json' })
+    headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({ 'Content-Type': 'application/json' })
 };
 var BookService = /** @class */ (function () {
     function BookService(http) {
         this.http = http;
         this.booksUrl = 'http://green-web-bookshop.herokuapp.com/api/books';
-        this.bannersUrl = 'http://green-web-bookstore.herokuapp.com/api/banners';
     }
-    /** GET api-s from the server */
     BookService.prototype.getBooks = function () {
         return this.http.get(this.booksUrl);
     };
@@ -2120,54 +1935,11 @@ var BookService = /** @class */ (function () {
         var url = this.booksUrl + "/" + book._id;
         return this.http.put(url, book, httpOptions);
     };
-    BookService.prototype.searchHeroes = function (term) {
-        var _this = this;
-        if (!term.trim()) {
-            // if not search term, return empty hero array.
-            // return of([]);
-            console.log("Not Found");
-        }
-        return this.http.get(this.booksUrl + "/?title=" + term).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(function (_) { return _this.log("found heroes matching \"" + term + "\""); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(this.handleError('searchHeroes', [])));
-    };
-    // For Search Handling
-    BookService.prototype.handleError = function (operation, result) {
-        var _this = this;
-        if (operation === void 0) { operation = 'operation'; }
-        return function (error) {
-            // TODO: send the error to remote logging infrastructure
-            console.error(error); // log to console instead
-            // TODO: better job of transforming error for user consumption
-            _this.log(operation + " failed: " + error.message);
-            // Let the app keep running by returning an empty result.
-            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(result);
-        };
-    };
-    /** Log a HeroService message with the MessageService */
-    BookService.prototype.log = function (message) {
-        // this.messageService.add('HeroService: ' + message);
-        console.log('HeroService: ' + message);
-    };
-    // End of Search Handling
-    BookService.prototype.getBanners = function () {
-        return this.http.get(this.bannersUrl);
-    };
-    BookService.prototype.addBanner = function (banner) {
-        return this.http.post(this.bannersUrl, banner, httpOptions);
-    };
-    BookService.prototype.updateBanner = function (banner) {
-        var url = this.bannersUrl + "/" + banner._id;
-        return this.http.put(url, banner, httpOptions);
-    };
-    BookService.prototype.deleteBanner = function (banner) {
-        // const id = typeof genre === 'string' ? genre : genre._id;
-        var url = this.bannersUrl + "/" + banner._id;
-        return this.http.delete(url, httpOptions);
-    };
     BookService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
         }),
-        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"]])
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
     ], BookService);
     return BookService;
 }());
@@ -2502,26 +2274,6 @@ var UserComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/view-models/banner.ts":
-/*!***************************************!*\
-  !*** ./src/app/view-models/banner.ts ***!
-  \***************************************/
-/*! exports provided: Banner */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Banner", function() { return Banner; });
-var Banner = /** @class */ (function () {
-    function Banner() {
-    }
-    return Banner;
-}());
-
-
-
-/***/ }),
-
 /***/ "./src/app/view-models/book.ts":
 /*!*************************************!*\
   !*** ./src/app/view-models/book.ts ***!
@@ -2695,7 +2447,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\baodo\OneDrive\Desktop\angular-admin-bookshop\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\baodo\OneDrive\Desktop\__DEVELOPER\4_my-projects\Do An Green\angular-admin-bookshop\src\main.ts */"./src/main.ts");
 
 
 /***/ })

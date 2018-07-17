@@ -130,6 +130,7 @@ However, delay the fade out process for 2.5 seconds */
     top: 50%;
     right: 10px;
     transform: translateY(-50%);
+    z-index: 1000;
 }
 .mySearch {
     position: absolute;
@@ -137,7 +138,7 @@ However, delay the fade out process for 2.5 seconds */
     left: 0;
     z-index: 1000;
     height: 300px;
-    overflow-Y: scroll;
+    /* overflow-Y: scroll; */
     
 }
 /* Animations to fade the snackbar in and out */
