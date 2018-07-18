@@ -13,9 +13,6 @@ export class DashboardComponent implements OnInit {
   componentTitle: string = 'Dashboard';
   user_email: string;
   user: User = new User();
-  // users: Users = new Users();
-  // user: User = this.users.user;
-  // person:string = this.users.first;
   constructor(private userService: UserService) { }
 
   ngOnInit() {

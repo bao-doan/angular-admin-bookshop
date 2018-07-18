@@ -41,20 +41,15 @@ export class ProductComponent implements OnInit {
     this.selectedBook = book;
     if (this.selectedBook.pages == null) {
       this.selectedBook.pages = 0;
-      console.log(`null pages changed to ${this.selectedBook.pages}`)
     }
     if (this.selectedBook.weight == null) {
       this.selectedBook.weight = 0;
-      console.log(`null weight changed to ${this.selectedBook.weight}`)
     }
     if (this.selectedBook.releaseDate == null) {
-      // this.selectedBook.releaseDate = `${new Date().getMonth()+1}/${new Date().getDate()}/${new Date().getFullYear()}`;
       this.selectedBook.releaseDate = '';
-      console.log(`null date changed to ${this.selectedBook.releaseDate}`)
     }
     if (this.selectedBook.sku == null) {
       this.selectedBook.sku = 'No SKU';
-      console.log(`null sku changed to ${this.selectedBook.sku}`)
     }
     if (this.selectedBook.images == null) {
       this.selectedBook.images = new Image();
@@ -101,19 +96,14 @@ export class ProductComponent implements OnInit {
       pages = Math.floor(items / step) + 1;
     }
     this.pages = pages;
-    console.log(`Books = ${this.books.length}`);
-    console.log(`Step = ${this.step}`);
-    console.log(`Pages = ${this.pages}`);
   }
   onPrintLabel(): void {
     this.pageArray = new Array(this.pages);
     for (let i = 0; i < this.pageArray.length; i++) {
       this.pageArray[i] = i + 1;
     }
-    console.log(this.pageArray);
   }
   onShowItems(i: number): void {
-    // this.onShowAll();
     this.selectedPage = i;
     let a: number = this.step * i - this.step;
     let b: number
@@ -124,14 +114,12 @@ export class ProductComponent implements OnInit {
     }
     this.books2 = this.books.slice(a, b);
     this.checkPluralHandler();
-    console.log(`selectedPage: ${this.selectedPage}`);
   }
   onShowAll(): void {
     this.books2 = this.books;
     this.checkPluralHandler();
   }
   onShowOption(step: number): void {
-    // this.step = option;
     this.onCountPages(this.books, this.step);
     this.onPrintLabel();
     this.onShowItems(1);
@@ -139,12 +127,10 @@ export class ProductComponent implements OnInit {
   onNextPage(selectedPage: number): void {
     this.selectedPage = (selectedPage < this.pages) ? (this.selectedPage = selectedPage + 1) : (this.selectedPage = selectedPage);
     this.onShowItems(this.selectedPage);
-    console.log(`Triggered "Next" ${this.selectedPage}/${this.pages}`);
   }
   onPrevPage(selectedPage: number): void {
     this.selectedPage = (selectedPage > 1) ? (this.selectedPage = selectedPage - 1) : (this.selectedPage = 1);
     this.onShowItems(this.selectedPage);
-    console.log(`Triggered "Prev" ${this.selectedPage}/${this.pages}`);
   }
   // For Check Prural 'item' or 'items'
   checkPluralHandler(): void {

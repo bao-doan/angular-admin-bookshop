@@ -17,15 +17,13 @@ export class CategoryComponent implements OnInit {
   updatingGenre = this.selectedDelete;
   objectGenre = new Genre();
   noti:string;
-  notification = {}; //For add, edit, delete notification
-  on_s: string = "items";
-  // objectGenre: Genre;
-  // updatingGenre= new Genre(this.selectedGenre.name);
+  //For add, edit, delete notification
+  notification = {}; 
+
   constructor(private genreService: GenreService, private location: Location, private route:ActivatedRoute) { }
 
   ngOnInit() {
     this.getGenres();
-    // this.countGenres();
   }
   onSelect(genre):void {
     this.selectedGenre = genre;
@@ -36,11 +34,6 @@ export class CategoryComponent implements OnInit {
   getGenres(): void {
     this.genreService.getGenres().subscribe(z => this.genres = z);
   };
-  // countGenres(): void {
-  //   if (this.genres.length == 1 ) {
-
-  //   }
-  // }
   addGenre(): void {
     this.noti = this.objectGenre.name;
     if (this.objectGenre.name.length > 0) {
@@ -61,7 +54,7 @@ export class CategoryComponent implements OnInit {
     this.genreService.updateGenre(this.selectedGenre)
       .subscribe();
   }
-  // Bao doan
+  // Snackbar notification
   onNoti():void {
     let x = document.getElementById("snackbar");
     x.className = "show";

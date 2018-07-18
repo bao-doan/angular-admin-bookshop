@@ -40,16 +40,11 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-
     // stop here if form is invalid
     if (this.loginAdminForm.invalid) {
       return;
     }
     this.isLoggedIn();
-
-
-
-    // this.onCheckRemember();
   }
   // For toggle Show or Hide password input
   show: string = "password";
@@ -63,28 +58,17 @@ export class LoginComponent implements OnInit {
       this.value = 1;
     }
   }
-  //For Remember password
-  remember: boolean = false;
-  onCheckRemember(): void {
-    // console.log(this.remember);
-    let sessionuser = sessionStorage.getItem('currentUser').toString();
-    if (this.remember == false) {
-      // window.onunload = function() {localStorage.removeItem('currentUser')};
-    } else {
-      localStorage.setItem('currentUser2', `${sessionuser}`);
-    }
-  }
   isLoggedIn(): void {
     let currentuser = JSON.parse(localStorage.getItem('currentUser'));
     if (currentuser && currentuser.token) {
       let confirmPopup = window.confirm(`You must logout before logging in as an another User\nDo you want to logout now?`);
-      console.log(`Already logged in, User: ${currentuser.email} | Token: ${currentuser.token}`);
+      // console.log(`Already logged in, User: ${currentuser.email} | Token: ${currentuser.token}`);
       if (confirmPopup == true) {
         this.authService.logout();
         alert('You are logged out');
-      } else {}
+      } else { }
     } else {
-      console.log('No user logged in, ready to log in now');
+      // console.log('No user logged in, ready to log in now');
       this.onLogin();
     }
   }
@@ -100,12 +84,6 @@ export class LoginComponent implements OnInit {
           this.error = error;
           this.loading = false;
         });
-    // if (sessionStorage.getItem('currentUser')) { 
-    //   this.onCheckRemember(); 
-    // } else {
-    //   console.log('chua co sessionStorage');
-    // }
-
   }
 
 }

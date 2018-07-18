@@ -16,9 +16,6 @@ import { StaffComponent } from './staff/staff.component';
 import "froala-editor/js/froala_editor.pkgd.min.js";
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 
-// Import Angular2 plugin.
-import { ForbiddenValidatorDirective } from './app-directive/forbidden-name.directive';
-
 import { HomeLayoutComponent } from './home-layout/home-layout.component';
 import { HomeComponent } from './home/home.component';
 import { LoginLayoutComponent } from './login-layout/login-layout.component';
@@ -27,7 +24,6 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthService } from './auth/auth.service';
 import { JwtInterceptor } from './_helpers';
-import { fakeBackendProvider } from './_helpers';
 import { ProfileComponent } from './profile/profile.component';
 import { UserService } from './services/user.service';
 import { AppCustomModule } from './app-custom/app-custom.module';
@@ -40,7 +36,6 @@ import { NotFoundComponent } from './not-found/not-found.component';
     ProductComponent,
     DashboardComponent,
     ProductAddComponent,
-    ForbiddenValidatorDirective,
     BreadcrumbComponent,
     OrderComponent,
     UserComponent,
@@ -71,8 +66,6 @@ import { NotFoundComponent } from './not-found/not-found.component';
       useClass: JwtInterceptor,
       multi: true
     },
-    // provider used to create fake backend
-    fakeBackendProvider
   ],
   bootstrap: [AppComponent]
 })
