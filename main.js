@@ -23,104 +23,17 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 
 /***/ }),
 
-/***/ "./src/app/_helpers/fake-backend.ts":
-/*!******************************************!*\
-  !*** ./src/app/_helpers/fake-backend.ts ***!
-  \******************************************/
-/*! exports provided: FakeBackendInterceptor, fakeBackendProvider */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FakeBackendInterceptor", function() { return FakeBackendInterceptor; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fakeBackendProvider", function() { return fakeBackendProvider; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var FakeBackendInterceptor = /** @class */ (function () {
-    function FakeBackendInterceptor() {
-    }
-    FakeBackendInterceptor.prototype.intercept = function (request, next) {
-        var testUser = { id: 1, username: 'bao', password: 'doan', firstName: 'Test', lastName: 'User' };
-        // wrap in delayed observable to simulate server api call
-        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(null).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["mergeMap"])(function () {
-            // authenticate
-            if (request.url.endsWith('/api/authenticate') && request.method === 'POST') {
-                if (request.body.username === testUser.username && request.body.password === testUser.password) {
-                    // if login details are valid return 200 OK with a fake jwt token
-                    return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpResponse"]({ status: 200, body: { token: 'fake-jwt-token' } }));
-                }
-                else {
-                    // else return 400 bad request
-                    return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["throwError"])('Username or password is incorrect');
-                }
-            }
-            // get users
-            if (request.url.endsWith('/api/users') && request.method === 'GET') {
-                // check for fake auth token in header and return users if valid, this security is implemented server side in a real application
-                if (request.headers.get('Authorization') === 'Bearer fake-jwt-token') {
-                    return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpResponse"]({ status: 200, body: [testUser] }));
-                }
-                else {
-                    // return 401 not authorised if token is null or invalid
-                    return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["throwError"])('Unauthorised');
-                }
-            }
-            // pass through any requests not handled above
-            return next.handle(request);
-        }))
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["materialize"])())
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["delay"])(500))
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["dematerialize"])());
-    };
-    FakeBackendInterceptor = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
-        __metadata("design:paramtypes", [])
-    ], FakeBackendInterceptor);
-    return FakeBackendInterceptor;
-}());
-
-var fakeBackendProvider = {
-    // use fake backend in place of Http service for backend-less development
-    provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HTTP_INTERCEPTORS"],
-    useClass: FakeBackendInterceptor,
-    multi: true
-};
-
-
-/***/ }),
-
 /***/ "./src/app/_helpers/index.ts":
 /*!***********************************!*\
   !*** ./src/app/_helpers/index.ts ***!
   \***********************************/
-/*! exports provided: JwtInterceptor, FakeBackendInterceptor, fakeBackendProvider */
+/*! exports provided: JwtInterceptor */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _jwt_interceptor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./jwt.interceptor */ "./src/app/_helpers/jwt.interceptor.ts");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "JwtInterceptor", function() { return _jwt_interceptor__WEBPACK_IMPORTED_MODULE_0__["JwtInterceptor"]; });
-
-/* harmony import */ var _fake_backend__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./fake-backend */ "./src/app/_helpers/fake-backend.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FakeBackendInterceptor", function() { return _fake_backend__WEBPACK_IMPORTED_MODULE_1__["FakeBackendInterceptor"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "fakeBackendProvider", function() { return _fake_backend__WEBPACK_IMPORTED_MODULE_1__["fakeBackendProvider"]; });
-
 
 
 
@@ -252,63 +165,6 @@ var PipeFilterPipe = /** @class */ (function () {
         })
     ], PipeFilterPipe);
     return PipeFilterPipe;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/app-directive/forbidden-name.directive.ts":
-/*!***********************************************************!*\
-  !*** ./src/app/app-directive/forbidden-name.directive.ts ***!
-  \***********************************************************/
-/*! exports provided: forbiddenNameValidator, ForbiddenValidatorDirective */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "forbiddenNameValidator", function() { return forbiddenNameValidator; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ForbiddenValidatorDirective", function() { return ForbiddenValidatorDirective; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-/** A hero's name can't match the given regular expression */
-function forbiddenNameValidator(nameRe) {
-    return function (control) {
-        var forbidden = nameRe.test(control.value);
-        return forbidden ? { 'forbiddenName': { value: control.value } } : null;
-    };
-}
-var ForbiddenValidatorDirective = /** @class */ (function () {
-    function ForbiddenValidatorDirective() {
-    }
-    ForbiddenValidatorDirective_1 = ForbiddenValidatorDirective;
-    ForbiddenValidatorDirective.prototype.validate = function (control) {
-        return this.forbiddenName ? forbiddenNameValidator(new RegExp(this.forbiddenName, 'i'))(control)
-            : null;
-    };
-    __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('appForbiddenName'),
-        __metadata("design:type", String)
-    ], ForbiddenValidatorDirective.prototype, "forbiddenName", void 0);
-    ForbiddenValidatorDirective = ForbiddenValidatorDirective_1 = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"])({
-            selector: '[appForbiddenName]',
-            providers: [{ provide: _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NG_VALIDATORS"], useExisting: ForbiddenValidatorDirective_1, multi: true }]
-        })
-    ], ForbiddenValidatorDirective);
-    return ForbiddenValidatorDirective;
-    var ForbiddenValidatorDirective_1;
 }());
 
 
@@ -487,18 +343,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var froala_editor_js_froala_editor_pkgd_min_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! froala-editor/js/froala_editor.pkgd.min.js */ "./node_modules/froala-editor/js/froala_editor.pkgd.min.js");
 /* harmony import */ var froala_editor_js_froala_editor_pkgd_min_js__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(froala_editor_js_froala_editor_pkgd_min_js__WEBPACK_IMPORTED_MODULE_14__);
 /* harmony import */ var angular_froala_wysiwyg__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! angular-froala-wysiwyg */ "./node_modules/angular-froala-wysiwyg/index.js");
-/* harmony import */ var _app_directive_forbidden_name_directive__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./app-directive/forbidden-name.directive */ "./src/app/app-directive/forbidden-name.directive.ts");
-/* harmony import */ var _home_layout_home_layout_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./home-layout/home-layout.component */ "./src/app/home-layout/home-layout.component.ts");
-/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
-/* harmony import */ var _login_layout_login_layout_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./login-layout/login-layout.component */ "./src/app/login-layout/login-layout.component.ts");
-/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
-/* harmony import */ var _auth_auth_guard__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./auth/auth.guard */ "./src/app/auth/auth.guard.ts");
-/* harmony import */ var _auth_auth_service__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./auth/auth.service */ "./src/app/auth/auth.service.ts");
-/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./_helpers */ "./src/app/_helpers/index.ts");
-/* harmony import */ var _profile_profile_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./profile/profile.component */ "./src/app/profile/profile.component.ts");
-/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./services/user.service */ "./src/app/services/user.service.ts");
-/* harmony import */ var _app_custom_app_custom_module__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./app-custom/app-custom.module */ "./src/app/app-custom/app-custom.module.ts");
-/* harmony import */ var _not_found_not_found_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./not-found/not-found.component */ "./src/app/not-found/not-found.component.ts");
+/* harmony import */ var _home_layout_home_layout_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./home-layout/home-layout.component */ "./src/app/home-layout/home-layout.component.ts");
+/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
+/* harmony import */ var _login_layout_login_layout_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./login-layout/login-layout.component */ "./src/app/login-layout/login-layout.component.ts");
+/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
+/* harmony import */ var _auth_auth_guard__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./auth/auth.guard */ "./src/app/auth/auth.guard.ts");
+/* harmony import */ var _auth_auth_service__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./auth/auth.service */ "./src/app/auth/auth.service.ts");
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./_helpers */ "./src/app/_helpers/index.ts");
+/* harmony import */ var _profile_profile_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./profile/profile.component */ "./src/app/profile/profile.component.ts");
+/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./services/user.service */ "./src/app/services/user.service.ts");
+/* harmony import */ var _app_custom_app_custom_module__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./app-custom/app-custom.module */ "./src/app/app-custom/app-custom.module.ts");
+/* harmony import */ var _not_found_not_found_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./not-found/not-found.component */ "./src/app/not-found/not-found.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -520,9 +375,6 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 // Import Froala Editor.
-
-
-// Import Angular2 plugin.
 
 
 
@@ -547,17 +399,16 @@ var AppModule = /** @class */ (function () {
                 _product_product_component__WEBPACK_IMPORTED_MODULE_7__["ProductComponent"],
                 _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_8__["DashboardComponent"],
                 _product_add_product_add_component__WEBPACK_IMPORTED_MODULE_9__["ProductAddComponent"],
-                _app_directive_forbidden_name_directive__WEBPACK_IMPORTED_MODULE_16__["ForbiddenValidatorDirective"],
                 _breadcrumb_breadcrumb_component__WEBPACK_IMPORTED_MODULE_10__["BreadcrumbComponent"],
                 _order_order_component__WEBPACK_IMPORTED_MODULE_11__["OrderComponent"],
                 _user_user_component__WEBPACK_IMPORTED_MODULE_12__["UserComponent"],
                 _staff_staff_component__WEBPACK_IMPORTED_MODULE_13__["StaffComponent"],
-                _home_layout_home_layout_component__WEBPACK_IMPORTED_MODULE_17__["HomeLayoutComponent"],
-                _home_home_component__WEBPACK_IMPORTED_MODULE_18__["HomeComponent"],
-                _login_layout_login_layout_component__WEBPACK_IMPORTED_MODULE_19__["LoginLayoutComponent"],
-                _login_login_component__WEBPACK_IMPORTED_MODULE_20__["LoginComponent"],
-                _profile_profile_component__WEBPACK_IMPORTED_MODULE_24__["ProfileComponent"],
-                _not_found_not_found_component__WEBPACK_IMPORTED_MODULE_27__["NotFoundComponent"]
+                _home_layout_home_layout_component__WEBPACK_IMPORTED_MODULE_16__["HomeLayoutComponent"],
+                _home_home_component__WEBPACK_IMPORTED_MODULE_17__["HomeComponent"],
+                _login_layout_login_layout_component__WEBPACK_IMPORTED_MODULE_18__["LoginLayoutComponent"],
+                _login_login_component__WEBPACK_IMPORTED_MODULE_19__["LoginComponent"],
+                _profile_profile_component__WEBPACK_IMPORTED_MODULE_23__["ProfileComponent"],
+                _not_found_not_found_component__WEBPACK_IMPORTED_MODULE_26__["NotFoundComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -565,21 +416,19 @@ var AppModule = /** @class */ (function () {
                 _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"],
                 _app_routing_app_routing_module__WEBPACK_IMPORTED_MODULE_4__["AppRoutingModule"],
-                _app_custom_app_custom_module__WEBPACK_IMPORTED_MODULE_26__["AppCustomModule"],
+                _app_custom_app_custom_module__WEBPACK_IMPORTED_MODULE_25__["AppCustomModule"],
                 angular_froala_wysiwyg__WEBPACK_IMPORTED_MODULE_15__["FroalaEditorModule"].forRoot(),
                 angular_froala_wysiwyg__WEBPACK_IMPORTED_MODULE_15__["FroalaViewModule"].forRoot()
             ],
             providers: [
-                _auth_auth_guard__WEBPACK_IMPORTED_MODULE_21__["AuthGuard"],
-                _auth_auth_service__WEBPACK_IMPORTED_MODULE_22__["AuthService"],
-                _services_user_service__WEBPACK_IMPORTED_MODULE_25__["UserService"],
+                _auth_auth_guard__WEBPACK_IMPORTED_MODULE_20__["AuthGuard"],
+                _auth_auth_service__WEBPACK_IMPORTED_MODULE_21__["AuthService"],
+                _services_user_service__WEBPACK_IMPORTED_MODULE_24__["UserService"],
                 {
                     provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HTTP_INTERCEPTORS"],
-                    useClass: _helpers__WEBPACK_IMPORTED_MODULE_23__["JwtInterceptor"],
+                    useClass: _helpers__WEBPACK_IMPORTED_MODULE_22__["JwtInterceptor"],
                     multi: true
                 },
-                // provider used to create fake backend
-                _helpers__WEBPACK_IMPORTED_MODULE_23__["fakeBackendProvider"]
             ],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
         })
@@ -620,12 +469,9 @@ var AuthGuard = /** @class */ (function () {
     }
     AuthGuard.prototype.canActivate = function (route, state) {
         var currentuser = localStorage.getItem('currentUser');
-        //   let sessionuser = sessionStorage.getItem('currentUser');
         if (currentuser) {
-            // logged in so return true
             return true;
         }
-        // not logged in so redirect to login page with the return url
         this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
         return false;
     };
@@ -674,8 +520,8 @@ var AuthService = /** @class */ (function () {
     function AuthService(http, router) {
         this.http = http;
         this.router = router;
-        this.loginUrl = 'http://green-web-ecommerce.herokuapp.com/v1/users/login';
-        this.demo = "http://green-web-bookshop.herokuapp.com/api/orders/login";
+        this.loginUrl = 'https://green-web-ecommerce.herokuapp.com/v1/users/login';
+        this.demo = "https://green-web-bookshop.herokuapp.com/api/orders/login";
     }
     AuthService.prototype.login = function (username, password) {
         return this.http.post(this.loginUrl, { email: username, password: password })
@@ -825,8 +671,6 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var CategoryComponent = /** @class */ (function () {
-    // objectGenre: Genre;
-    // updatingGenre= new Genre(this.selectedGenre.name);
     function CategoryComponent(genreService, location, route) {
         this.genreService = genreService;
         this.location = location;
@@ -834,12 +678,11 @@ var CategoryComponent = /** @class */ (function () {
         this.componentTitle = 'Categories';
         this.updatingGenre = this.selectedDelete;
         this.objectGenre = new _view_models_genre__WEBPACK_IMPORTED_MODULE_4__["Genre"]();
-        this.notification = {}; //For add, edit, delete notification
-        this.on_s = "items";
+        //For add, edit, delete notification
+        this.notification = {};
     }
     CategoryComponent.prototype.ngOnInit = function () {
         this.getGenres();
-        // this.countGenres();
     };
     CategoryComponent.prototype.onSelect = function (genre) {
         this.selectedGenre = genre;
@@ -852,10 +695,6 @@ var CategoryComponent = /** @class */ (function () {
         this.genreService.getGenres().subscribe(function (z) { return _this.genres = z; });
     };
     ;
-    // countGenres(): void {
-    //   if (this.genres.length == 1 ) {
-    //   }
-    // }
     CategoryComponent.prototype.addGenre = function () {
         var _this = this;
         this.noti = this.objectGenre.name;
@@ -875,7 +714,7 @@ var CategoryComponent = /** @class */ (function () {
         this.genreService.updateGenre(this.selectedGenre)
             .subscribe();
     };
-    // Bao doan
+    // Snackbar notification
     CategoryComponent.prototype.onNoti = function () {
         var x = document.getElementById("snackbar");
         x.className = "show";
@@ -944,9 +783,6 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var DashboardComponent = /** @class */ (function () {
-    // users: Users = new Users();
-    // user: User = this.users.user;
-    // person:string = this.users.first;
     function DashboardComponent(userService) {
         this.userService = userService;
         this.componentTitle = 'Dashboard';
@@ -1234,8 +1070,6 @@ var LoginComponent = /** @class */ (function () {
         // For toggle Show or Hide password input
         this.show = "password";
         this.value = 0;
-        //For Remember password
-        this.remember = false;
     }
     LoginComponent.prototype.ngOnInit = function () {
         this.loginAdminForm = this.fb.group({
@@ -1258,7 +1092,6 @@ var LoginComponent = /** @class */ (function () {
             return;
         }
         this.isLoggedIn();
-        // this.onCheckRemember();
     };
     LoginComponent.prototype.onToggle = function () {
         if (this.value % 2 == 1) {
@@ -1270,21 +1103,11 @@ var LoginComponent = /** @class */ (function () {
             this.value = 1;
         }
     };
-    LoginComponent.prototype.onCheckRemember = function () {
-        // console.log(this.remember);
-        var sessionuser = sessionStorage.getItem('currentUser').toString();
-        if (this.remember == false) {
-            // window.onunload = function() {localStorage.removeItem('currentUser')};
-        }
-        else {
-            localStorage.setItem('currentUser2', "" + sessionuser);
-        }
-    };
     LoginComponent.prototype.isLoggedIn = function () {
         var currentuser = JSON.parse(localStorage.getItem('currentUser'));
         if (currentuser && currentuser.token) {
             var confirmPopup = window.confirm("You must logout before logging in as an another User\nDo you want to logout now?");
-            console.log("Already logged in, User: " + currentuser.email + " | Token: " + currentuser.token);
+            // console.log(`Already logged in, User: ${currentuser.email} | Token: ${currentuser.token}`);
             if (confirmPopup == true) {
                 this.authService.logout();
                 alert('You are logged out');
@@ -1292,7 +1115,7 @@ var LoginComponent = /** @class */ (function () {
             else { }
         }
         else {
-            console.log('No user logged in, ready to log in now');
+            // console.log('No user logged in, ready to log in now');
             this.onLogin();
         }
     };
@@ -1307,11 +1130,6 @@ var LoginComponent = /** @class */ (function () {
             _this.error = error;
             _this.loading = false;
         });
-        // if (sessionStorage.getItem('currentUser')) { 
-        //   this.onCheckRemember(); 
-        // } else {
-        //   console.log('chua co sessionStorage');
-        // }
     };
     LoginComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -1691,20 +1509,15 @@ var ProductComponent = /** @class */ (function () {
         this.selectedBook = book;
         if (this.selectedBook.pages == null) {
             this.selectedBook.pages = 0;
-            console.log("null pages changed to " + this.selectedBook.pages);
         }
         if (this.selectedBook.weight == null) {
             this.selectedBook.weight = 0;
-            console.log("null weight changed to " + this.selectedBook.weight);
         }
         if (this.selectedBook.releaseDate == null) {
-            // this.selectedBook.releaseDate = `${new Date().getMonth()+1}/${new Date().getDate()}/${new Date().getFullYear()}`;
             this.selectedBook.releaseDate = '';
-            console.log("null date changed to " + this.selectedBook.releaseDate);
         }
         if (this.selectedBook.sku == null) {
             this.selectedBook.sku = 'No SKU';
-            console.log("null sku changed to " + this.selectedBook.sku);
         }
         if (this.selectedBook.images == null) {
             this.selectedBook.images = new _view_models_image__WEBPACK_IMPORTED_MODULE_5__["Image"]();
@@ -1756,19 +1569,14 @@ var ProductComponent = /** @class */ (function () {
             pages = Math.floor(items / step) + 1;
         }
         this.pages = pages;
-        console.log("Books = " + this.books.length);
-        console.log("Step = " + this.step);
-        console.log("Pages = " + this.pages);
     };
     ProductComponent.prototype.onPrintLabel = function () {
         this.pageArray = new Array(this.pages);
         for (var i = 0; i < this.pageArray.length; i++) {
             this.pageArray[i] = i + 1;
         }
-        console.log(this.pageArray);
     };
     ProductComponent.prototype.onShowItems = function (i) {
-        // this.onShowAll();
         this.selectedPage = i;
         var a = this.step * i - this.step;
         var b;
@@ -1780,14 +1588,12 @@ var ProductComponent = /** @class */ (function () {
         }
         this.books2 = this.books.slice(a, b);
         this.checkPluralHandler();
-        console.log("selectedPage: " + this.selectedPage);
     };
     ProductComponent.prototype.onShowAll = function () {
         this.books2 = this.books;
         this.checkPluralHandler();
     };
     ProductComponent.prototype.onShowOption = function (step) {
-        // this.step = option;
         this.onCountPages(this.books, this.step);
         this.onPrintLabel();
         this.onShowItems(1);
@@ -1795,12 +1601,10 @@ var ProductComponent = /** @class */ (function () {
     ProductComponent.prototype.onNextPage = function (selectedPage) {
         this.selectedPage = (selectedPage < this.pages) ? (this.selectedPage = selectedPage + 1) : (this.selectedPage = selectedPage);
         this.onShowItems(this.selectedPage);
-        console.log("Triggered \"Next\" " + this.selectedPage + "/" + this.pages);
     };
     ProductComponent.prototype.onPrevPage = function (selectedPage) {
         this.selectedPage = (selectedPage > 1) ? (this.selectedPage = selectedPage - 1) : (this.selectedPage = 1);
         this.onShowItems(this.selectedPage);
-        console.log("Triggered \"Prev\" " + this.selectedPage + "/" + this.pages);
     };
     // For Check Prural 'item' or 'items'
     ProductComponent.prototype.checkPluralHandler = function () {
@@ -1918,7 +1722,7 @@ var httpOptions = {
 var BookService = /** @class */ (function () {
     function BookService(http) {
         this.http = http;
-        this.booksUrl = 'http://green-web-bookshop.herokuapp.com/api/books';
+        this.booksUrl = 'https://green-web-bookshop.herokuapp.com/api/books';
     }
     BookService.prototype.getBooks = function () {
         return this.http.get(this.booksUrl);
@@ -2104,7 +1908,7 @@ var httpOptions = {
 var UserService = /** @class */ (function () {
     function UserService(http) {
         this.http = http;
-        this.userUrl = 'http://green-web-ecommerce.herokuapp.com/v1/users/';
+        this.userUrl = 'https://green-web-ecommerce.herokuapp.com/v1/users/';
     }
     UserService.prototype.getUsers = function () {
         return this.http.get(this.userUrl);
