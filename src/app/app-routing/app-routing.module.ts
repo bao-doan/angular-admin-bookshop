@@ -16,7 +16,7 @@ import { HomeComponent } from '../home/home.component';
 import { LoginLayoutComponent } from '../login-layout/login-layout.component';
 import { LoginComponent } from '../login/login.component';
 
-const routes: Routes = [
+export const routes: Routes = [
   { path: '', redirectTo: 'product', pathMatch: 'full' },
   {
     path: '', component: LoginLayoutComponent, children: [
