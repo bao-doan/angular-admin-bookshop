@@ -25,7 +25,7 @@
     "@coreui/icons": "^0.1.1",
     "@fortawesome/fontawesome": "^1.1.8",
     "angular-froala-wysiwyg": "^2.8.1",
-    "bootstrap": "4.1.1",
+    "bootstrap": "4.3.1",
     "chart.js": "^2.7.2",
     "core-js": "^2.5.4",
     "flag-icon-css": "3.0.0",
